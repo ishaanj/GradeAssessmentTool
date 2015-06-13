@@ -8,6 +8,10 @@ namespace MathsGradeAssessmentTool
 {
     static class Program
     {
+
+        public static StartTeacherSelectForm sf;
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +20,23 @@ namespace MathsGradeAssessmentTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            sf = new StartTeacherSelectForm();
+            Application.Run(sf);
+        }
+
+
+        static void HideAllFrames()
+        {
+            // Hide all the frames
+            sf.Hide();
+
+        }
+
+        static void ShowFrame(Form f)
+        {
+            //Show specific frame
+            HideAllFrames();
+            f.Show();
         }
     }
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MathsGradeAssessmentTool
+namespace MathsGradeAssessmentTool.Forms
 {
-    public partial class Form1 : Form
+    public partial class StudentSelectForm : Form
     {
-        public Form1()
+        public StudentSelectForm()
         {
             InitializeComponent();
         }
