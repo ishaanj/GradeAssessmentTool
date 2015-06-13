@@ -1,6 +1,6 @@
 ﻿namespace MathsGradeAssessmentTool.Forms
 {
-    partial class StudentCompentency
+    partial class SubjectEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // StudentCompentency
+            // SubjectEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Name = "StudentCompentency";
+            this.Name = "SubjectEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Student Compentency";
+            this.Text = "Subject Details";
             this.ResumeLayout(false);
 
         }

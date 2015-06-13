@@ -59,11 +59,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\StartTeacherSelectForm.cs">
+    <Compile Include="Forms\CompentencyEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StartTeacherSelectForm.Designer.cs">
-      <DependentUpon>StartTeacherSelectForm.cs</DependentUpon>
+    <Compile Include="Forms\CompentencyEditForm.Designer.cs">
+      <DependentUpon>CompentencyEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartTeacherForm.Designer.cs">
+      <DependentUpon>StartTeacherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentCompentency.cs">
       <SubType>Form</SubType>
@@ -71,25 +77,57 @@
     <Compile Include="Forms\StudentCompentency.Designer.cs">
       <DependentUpon>StudentCompentency.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StudentDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentDetailsForm.Designer.cs">
+      <DependentUpon>StudentDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentSelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\StudentSelectForm.Designer.cs">
       <DependentUpon>StudentSelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SubjectEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubjectEditForm.Designer.cs">
+      <DependentUpon>SubjectEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TeacherDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherDetailsForm.Designer.cs">
+      <DependentUpon>TeacherDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MathsToolDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\StartTeacherSelectForm.en.resx">
-      <DependentUpon>StartTeacherSelectForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CompentencyEditForm.resx">
+      <DependentUpon>CompentencyEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StartTeacherSelectForm.resx">
-      <DependentUpon>StartTeacherSelectForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\StartTeacherForm.resx">
+      <DependentUpon>StartTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentCompentency.resx">
       <DependentUpon>StudentCompentency.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentDetailsForm.resx">
+      <DependentUpon>StudentDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentSelectForm.resx">
       <DependentUpon>StudentSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubjectEditForm.resx">
+      <DependentUpon>SubjectEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherDetailsForm.resx">
+      <DependentUpon>TeacherDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +138,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MathsToolDatabaseDataSet.xsc">
+      <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MathsToolDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MathsToolDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MathsToolDatabaseDataSet.xss">
+      <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

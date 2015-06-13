@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathsGradeAssessmentTool.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,8 +9,13 @@ namespace MathsGradeAssessmentTool
 {
     static class Program
     {
-
-        public static StartTeacherSelectForm sf;
+        public static StartTeacherForm startTeacherForm;
+        public static CompentencyEditForm compentencyEditForm;
+        public static StudentCompentency studentCompentencyForm;
+        public static StudentDetailsForm studentDetailsForm;
+        public static StudentSelectForm studentSelectForm;
+        public static SubjectEditForm subjectEditForm;
+        public static TeacherDetailsForm teacherDetailsForm;
 
 
         /// <summary>
@@ -20,23 +26,47 @@ namespace MathsGradeAssessmentTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            sf = new StartTeacherSelectForm();
-            Application.Run(sf);
+            startTeacherForm = new StartTeacherForm();
+            Application.Run(startTeacherForm);
         }
 
 
-        static void HideAllFrames()
+        public static void HideAllFrames()
         {
             // Hide all the frames
-            sf.Hide();
+            startTeacherForm.Hide();
+
+            if (compentencyEditForm != null)
+                compentencyEditForm.Hide();
+
+            if (studentCompentencyForm != null)
+                studentCompentencyForm.Hide();
+
+            if (studentDetailsForm != null)
+                studentDetailsForm.Hide();
+
+            if (studentSelectForm != null)
+                studentSelectForm.Hide();
+
+            if (subjectEditForm != null)
+                subjectEditForm.Hide();
+
+            if (teacherDetailsForm != null)
+                teacherDetailsForm.Hide();
 
         }
 
-        static void ShowFrame(Form f)
+        public static void ShowFrame(Form f)
         {
             //Show specific frame
             HideAllFrames();
-            f.Show();
+
+            if(f != null)
+                f.Show();
+            else
+            {
+                MessageBox.Show("Form is null.");    
+            }
         }
     }
 }
