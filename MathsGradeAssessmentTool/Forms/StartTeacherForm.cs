@@ -68,9 +68,10 @@ namespace MathsGradeAssessmentTool.Forms
         {
             String name = teacherNameComboBox.Text;
             Console.WriteLine(name);
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MathsToolDatabase.mdf;Integrated Security=True");
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Teacher where TeacherName="+name,con);
-            
+            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MathsToolDatabase.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(MathsGradeAssessmentTool.Properties.Settings.Default.MathsToolDatabaseConnectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Teacher where TeacherName=" + name,con);
+           
             /*DataTable table = new DataTable();
 
             adapter.Fill(table);
@@ -81,6 +82,22 @@ namespace MathsGradeAssessmentTool.Forms
             adapter = new SqlDataAdapter("Select * from Student where TeacherID = " + id, con);
             adapter.Fill(table);
              */
+
+
+            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentTableAdapter.FillBy(this.mathsToolDatabaseDataSet.Student);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
 

@@ -120,7 +120,18 @@ SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM Student W
               <Mapping SourceColumn="CompetencyID" DataSetColumn="CompetencyID" />
               <Mapping SourceColumn="TeacherID" DataSetColumn="TeacherID" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="MathsToolDatabaseConnectionString (Settings)" DbObjectName="dbo.Student" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Student.StudentId, Student.StudentName, Student.SubjectID, Student.CompetencyID, Student.TeacherID
+FROM            Student INNER JOIN
+                         Teacher ON Student.TeacherID = Teacher.TeacherID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SubjectTableAdapter" GeneratorDataComponentClassName="SubjectTableAdapter" Name="Subject" UserDataComponentName="SubjectTableAdapter">
             <MainSource>
@@ -238,7 +249,7 @@ SELECT TeacherID, TeacherName, StudentID FROM Teacher WHERE (TeacherID = @Teache
   <xs:element name="MathsToolDatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MathsToolDatabaseDataSet" msprop:Generator_UserDSName="MathsToolDatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Competency" msprop:Generator_TableClassName="CompetencyDataTable" msprop:Generator_TableVarName="tableCompetency" msprop:Generator_TablePropName="Competency" msprop:Generator_RowDeletingName="CompetencyRowDeleting" msprop:Generator_RowChangingName="CompetencyRowChanging" msprop:Generator_RowEvHandlerName="CompetencyRowChangeEventHandler" msprop:Generator_RowDeletedName="CompetencyRowDeleted" msprop:Generator_UserTableName="Competency" msprop:Generator_RowChangedName="CompetencyRowChanged" msprop:Generator_RowEvArgName="CompetencyRowChangeEvent" msprop:Generator_RowClassName="CompetencyRow">
+        <xs:element name="Competency" msprop:Generator_TableClassName="CompetencyDataTable" msprop:Generator_TableVarName="tableCompetency" msprop:Generator_RowChangedName="CompetencyRowChanged" msprop:Generator_TablePropName="Competency" msprop:Generator_RowDeletingName="CompetencyRowDeleting" msprop:Generator_RowChangingName="CompetencyRowChanging" msprop:Generator_RowEvHandlerName="CompetencyRowChangeEventHandler" msprop:Generator_RowDeletedName="CompetencyRowDeleted" msprop:Generator_RowClassName="CompetencyRow" msprop:Generator_UserTableName="Competency" msprop:Generator_RowEvArgName="CompetencyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CompetencyID" msprop:Generator_ColumnVarNameInTable="columnCompetencyID" msprop:Generator_ColumnPropNameInRow="CompetencyID" msprop:Generator_ColumnPropNameInTable="CompetencyIDColumn" msprop:Generator_UserColumnName="CompetencyID" type="xs:int" />
@@ -253,7 +264,7 @@ SELECT TeacherID, TeacherName, StudentID FROM Teacher WHERE (TeacherID = @Teache
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Student" msprop:Generator_TableClassName="StudentDataTable" msprop:Generator_TableVarName="tableStudent" msprop:Generator_TablePropName="Student" msprop:Generator_RowDeletingName="StudentRowDeleting" msprop:Generator_RowChangingName="StudentRowChanging" msprop:Generator_RowEvHandlerName="StudentRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentRowDeleted" msprop:Generator_UserTableName="Student" msprop:Generator_RowChangedName="StudentRowChanged" msprop:Generator_RowEvArgName="StudentRowChangeEvent" msprop:Generator_RowClassName="StudentRow">
+        <xs:element name="Student" msprop:Generator_TableClassName="StudentDataTable" msprop:Generator_TableVarName="tableStudent" msprop:Generator_RowChangedName="StudentRowChanged" msprop:Generator_TablePropName="Student" msprop:Generator_RowDeletingName="StudentRowDeleting" msprop:Generator_RowChangingName="StudentRowChanging" msprop:Generator_RowEvHandlerName="StudentRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentRowDeleted" msprop:Generator_RowClassName="StudentRow" msprop:Generator_UserTableName="Student" msprop:Generator_RowEvArgName="StudentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StudentId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnStudentId" msprop:Generator_ColumnPropNameInRow="StudentId" msprop:Generator_ColumnPropNameInTable="StudentIdColumn" msprop:Generator_UserColumnName="StudentId" type="xs:int" />
@@ -270,7 +281,7 @@ SELECT TeacherID, TeacherName, StudentID FROM Teacher WHERE (TeacherID = @Teache
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Subject" msprop:Generator_TableClassName="SubjectDataTable" msprop:Generator_TableVarName="tableSubject" msprop:Generator_TablePropName="Subject" msprop:Generator_RowDeletingName="SubjectRowDeleting" msprop:Generator_RowChangingName="SubjectRowChanging" msprop:Generator_RowEvHandlerName="SubjectRowChangeEventHandler" msprop:Generator_RowDeletedName="SubjectRowDeleted" msprop:Generator_UserTableName="Subject" msprop:Generator_RowChangedName="SubjectRowChanged" msprop:Generator_RowEvArgName="SubjectRowChangeEvent" msprop:Generator_RowClassName="SubjectRow">
+        <xs:element name="Subject" msprop:Generator_TableClassName="SubjectDataTable" msprop:Generator_TableVarName="tableSubject" msprop:Generator_RowChangedName="SubjectRowChanged" msprop:Generator_TablePropName="Subject" msprop:Generator_RowDeletingName="SubjectRowDeleting" msprop:Generator_RowChangingName="SubjectRowChanging" msprop:Generator_RowEvHandlerName="SubjectRowChangeEventHandler" msprop:Generator_RowDeletedName="SubjectRowDeleted" msprop:Generator_RowClassName="SubjectRow" msprop:Generator_UserTableName="Subject" msprop:Generator_RowEvArgName="SubjectRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubjectID" msprop:Generator_ColumnVarNameInTable="columnSubjectID" msprop:Generator_ColumnPropNameInRow="SubjectID" msprop:Generator_ColumnPropNameInTable="SubjectIDColumn" msprop:Generator_UserColumnName="SubjectID" type="xs:int" />
@@ -291,7 +302,7 @@ SELECT TeacherID, TeacherName, StudentID FROM Teacher WHERE (TeacherID = @Teache
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Teacher" msprop:Generator_TableClassName="TeacherDataTable" msprop:Generator_TableVarName="tableTeacher" msprop:Generator_TablePropName="Teacher" msprop:Generator_RowDeletingName="TeacherRowDeleting" msprop:Generator_RowChangingName="TeacherRowChanging" msprop:Generator_RowEvHandlerName="TeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="TeacherRowDeleted" msprop:Generator_UserTableName="Teacher" msprop:Generator_RowChangedName="TeacherRowChanged" msprop:Generator_RowEvArgName="TeacherRowChangeEvent" msprop:Generator_RowClassName="TeacherRow">
+        <xs:element name="Teacher" msprop:Generator_TableClassName="TeacherDataTable" msprop:Generator_TableVarName="tableTeacher" msprop:Generator_RowChangedName="TeacherRowChanged" msprop:Generator_TablePropName="Teacher" msprop:Generator_RowDeletingName="TeacherRowDeleting" msprop:Generator_RowChangingName="TeacherRowChanging" msprop:Generator_RowEvHandlerName="TeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="TeacherRowDeleted" msprop:Generator_RowClassName="TeacherRow" msprop:Generator_UserTableName="Teacher" msprop:Generator_RowEvArgName="TeacherRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TeacherID" msprop:Generator_ColumnVarNameInTable="columnTeacherID" msprop:Generator_ColumnPropNameInRow="TeacherID" msprop:Generator_ColumnPropNameInTable="TeacherIDColumn" msprop:Generator_UserColumnName="TeacherID" type="xs:int" />
@@ -327,10 +338,10 @@ SELECT TeacherID, TeacherName, StudentID FROM Teacher WHERE (TeacherID = @Teache
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Student_To_Competency" msdata:parent="Competency" msdata:child="Student" msdata:parentkey="CompetencyID" msdata:childkey="CompetencyID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Competency" msprop:Generator_ParentPropName="CompetencyRow" msprop:Generator_RelationVarName="relationFK_Student_To_Competency" msprop:Generator_UserParentTable="Competency" />
-      <msdata:Relationship name="FK_Student_To_Subject" msdata:parent="Subject" msdata:child="Student" msdata:parentkey="SubjectID" msdata:childkey="SubjectID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Subject" msprop:Generator_RelationVarName="relationFK_Student_To_Subject" msprop:Generator_UserParentTable="Subject" msprop:Generator_ParentPropName="SubjectRow" />
-      <msdata:Relationship name="FK_Student_To_Teacher" msdata:parent="Teacher" msdata:child="Student" msdata:parentkey="TeacherID" msdata:childkey="TeacherID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Teacher" msprop:Generator_RelationVarName="relationFK_Student_To_Teacher" msprop:Generator_UserParentTable="Teacher" msprop:Generator_ParentPropName="TeacherRow" />
-      <msdata:Relationship name="FK_Teacher_To_Student" msdata:parent="Student" msdata:child="Teacher" msdata:parentkey="StudentId" msdata:childkey="StudentID" msprop:Generator_UserChildTable="Teacher" msprop:Generator_ChildPropName="GetTeacherRows" msprop:Generator_UserRelationName="FK_Teacher_To_Student" msprop:Generator_ParentPropName="StudentRow" msprop:Generator_RelationVarName="relationFK_Teacher_To_Student" msprop:Generator_UserParentTable="Student" />
+      <msdata:Relationship name="FK_Student_To_Competency" msdata:parent="Competency" msdata:child="Student" msdata:parentkey="CompetencyID" msdata:childkey="CompetencyID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Competency" msprop:Generator_RelationVarName="relationFK_Student_To_Competency" msprop:Generator_UserParentTable="Competency" msprop:Generator_ParentPropName="CompetencyRow" />
+      <msdata:Relationship name="FK_Student_To_Subject" msdata:parent="Subject" msdata:child="Student" msdata:parentkey="SubjectID" msdata:childkey="SubjectID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Subject" msprop:Generator_ParentPropName="SubjectRow" msprop:Generator_RelationVarName="relationFK_Student_To_Subject" msprop:Generator_UserParentTable="Subject" />
+      <msdata:Relationship name="FK_Student_To_Teacher" msdata:parent="Teacher" msdata:child="Student" msdata:parentkey="TeacherID" msdata:childkey="TeacherID" msprop:Generator_UserChildTable="Student" msprop:Generator_ChildPropName="GetStudentRows" msprop:Generator_UserRelationName="FK_Student_To_Teacher" msprop:Generator_ParentPropName="TeacherRow" msprop:Generator_RelationVarName="relationFK_Student_To_Teacher" msprop:Generator_UserParentTable="Teacher" />
+      <msdata:Relationship name="FK_Teacher_To_Student" msdata:parent="Student" msdata:child="Teacher" msdata:parentkey="StudentId" msdata:childkey="StudentID" msprop:Generator_UserChildTable="Teacher" msprop:Generator_ChildPropName="GetTeacherRows" msprop:Generator_UserRelationName="FK_Teacher_To_Student" msprop:Generator_RelationVarName="relationFK_Teacher_To_Student" msprop:Generator_UserParentTable="Student" msprop:Generator_ParentPropName="StudentRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

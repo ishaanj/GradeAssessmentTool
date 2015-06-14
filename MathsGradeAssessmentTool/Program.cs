@@ -31,7 +31,7 @@ namespace MathsGradeAssessmentTool
         }
 
 
-        public static void HideAllFrames()
+        public static void HideAllForms()
         {
             // Hide all the frames
             startTeacherForm.Hide();
@@ -56,10 +56,10 @@ namespace MathsGradeAssessmentTool
 
         }
 
-        public static void ShowFrame(Form f)
+        public static void ShowForm(Form f)
         {
             //Show specific frame
-            HideAllFrames();
+            HideAllForms();
 
             if(f != null)
                 f.Show();
