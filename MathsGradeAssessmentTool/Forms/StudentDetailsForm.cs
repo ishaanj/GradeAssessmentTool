@@ -31,5 +31,12 @@ namespace MathsGradeAssessmentTool.Forms
             this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
 
         }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            StartTeacherForm stf = new StartTeacherForm();
+            stf.Show();
+            this.Hide();
+        }
     }
 }
