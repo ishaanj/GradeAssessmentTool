@@ -29,6 +29,10 @@ namespace MathsGradeAssessmentTool.Forms
         {
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
             this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
 
         }
 
@@ -37,6 +41,22 @@ namespace MathsGradeAssessmentTool.Forms
             StartTeacherForm stf = new StartTeacherForm();
             stf.Show();
             this.Hide();
+        }
+
+        private void studentBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.studentBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
+
+        }
+
+        private void studentBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.studentBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
+
         }
     }
 }

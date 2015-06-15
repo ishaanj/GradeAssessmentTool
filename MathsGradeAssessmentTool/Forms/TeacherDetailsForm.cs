@@ -29,7 +29,7 @@ namespace MathsGradeAssessmentTool.Forms
         {
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Teacher' table. You can move, or remove it, as needed.
             this.teacherTableAdapter.Fill(this.mathsToolDatabaseDataSet.Teacher);
-
+           
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -37,6 +37,22 @@ namespace MathsGradeAssessmentTool.Forms
             StartTeacherForm stf = new StartTeacherForm();
             stf.Show();
             this.Hide();
+        }
+
+        private void teacherBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.teacherBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
+
+        }
+
+        private void teacherBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.teacherBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
+
         }
     }
 }

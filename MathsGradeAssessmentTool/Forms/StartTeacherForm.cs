@@ -74,24 +74,7 @@ namespace MathsGradeAssessmentTool.Forms
         private void onSelectedIndexChange(object sender, EventArgs e)
         {
             String name = teacherNameComboBox.Text;
-            Console.WriteLine(name);
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MathsToolDatabase.mdf;Integrated Security=True");
-            SqlConnection con = new SqlConnection(MathsGradeAssessmentTool.Properties.Settings.Default.MathsToolDatabaseConnectionString);
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Teacher where TeacherName='" + name + "'",con);
-           
-            /*DataTable table = new DataTable();
-
-            adapter.Fill(table);
-
-            String id = table.Rows[0][0].ToString();
-            Console.WriteLine(id);
-
-            adapter = new SqlDataAdapter("Select * from Student where TeacherID = " + id, con);
-            adapter.Fill(table);
-             */
-
-
-            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
+            
 
         }
 
