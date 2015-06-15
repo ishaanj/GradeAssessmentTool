@@ -129,6 +129,10 @@
       <DependentUpon>TeacherDetailsForm.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="MathsToolDatabaseDataSet.cs">
+      <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MathsToolDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,8 +186,8 @@
     </None>
     <None Include="MathsToolDatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MathsToolDatabaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>MathsToolDatabaseDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="MathsToolDatabaseDataSet.xss">
       <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>

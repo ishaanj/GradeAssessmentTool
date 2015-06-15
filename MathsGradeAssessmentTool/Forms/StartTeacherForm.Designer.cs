@@ -52,6 +52,9 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSubjectButton = new System.Windows.Forms.Button();
             this.Calc = new System.Windows.Forms.Button();
+            this.param1ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.param1ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillWithTIDToolStripButton = new System.Windows.Forms.ToolStripButton();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
@@ -204,24 +207,28 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentName";
             this.dataGridViewTextBoxColumn2.HeaderText = "StudentName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SubjectID";
             this.dataGridViewTextBoxColumn3.HeaderText = "SubjectID";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "CompetencyID";
             this.dataGridViewTextBoxColumn4.HeaderText = "CompetencyID";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TeacherID";
             this.dataGridViewTextBoxColumn5.HeaderText = "TeacherID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // addSubjectButton
             // 
@@ -242,6 +249,21 @@
             this.Calc.Text = "Ticks to Grade Calculator";
             this.Calc.UseVisualStyleBackColor = true;
             this.Calc.Click += new System.EventHandler(this.Calc_Click);
+            // 
+            // param1ToolStripLabel
+            // 
+            this.param1ToolStripLabel.Name = "param1ToolStripLabel";
+            this.param1ToolStripLabel.Size = new System.Drawing.Size(23, 23);
+            // 
+            // param1ToolStripTextBox
+            // 
+            this.param1ToolStripTextBox.Name = "param1ToolStripTextBox";
+            this.param1ToolStripTextBox.Size = new System.Drawing.Size(100, 23);
+            // 
+            // fillWithTIDToolStripButton
+            // 
+            this.fillWithTIDToolStripButton.Name = "fillWithTIDToolStripButton";
+            this.fillWithTIDToolStripButton.Size = new System.Drawing.Size(23, 23);
             // 
             // StartTeacherForm
             // 
@@ -289,13 +311,16 @@
         private System.Windows.Forms.ComboBox studentNameComboBox;
         private System.Windows.Forms.BindingSource fKStudentToTeacherBindingSource;
         private System.Windows.Forms.DataGridView studentDataGridView;
+        private System.Windows.Forms.Button addSubjectButton;
+        private System.Windows.Forms.Button Calc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Button addSubjectButton;
-        private System.Windows.Forms.Button Calc;
+        private System.Windows.Forms.ToolStripLabel param1ToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox param1ToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillWithTIDToolStripButton;
 
     }
 }

@@ -13,6 +13,8 @@ namespace MathsGradeAssessmentTool.Forms
 {
     public partial class StartTeacherForm : Form
     {
+        private int[] teacherIDS;
+
         public StartTeacherForm()
         {
             InitializeComponent();
@@ -41,6 +43,14 @@ namespace MathsGradeAssessmentTool.Forms
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Teacher' table. You can move, or remove it, as needed.
             this.teacherTableAdapter.Fill(this.mathsToolDatabaseDataSet.Teacher);
 
+            int count = teacherTableAdapter.GetData().Count;
+            teacherIDS = new int[count];
+
+            DataRowCollection rows = teacherTableAdapter.GetData().Rows;
+
+            for(int i = 0; i < count; i++) {
+                teacherIDS[i] =  Convert.ToInt32(rows[i]["TeacherID"]);
+            }
         }
 
         private void AddTeacher_Click(object sender, EventArgs e)
@@ -73,14 +83,14 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void onSelectedIndexChange(object sender, EventArgs e)
         {
-            /*String name = teacherNameComboBox.Text;
-            int position = studentNameComboBox.SelectedIndex;
+            String name = teacherNameComboBox.Text;
+            int position = teacherNameComboBox.SelectedIndex;
             if (position >= 0)
             {
-                int teacherID = Convert.ToInt32(studentTableAdapter.GetData().Rows[position]["TeacherID"]);
-                studentTableAdapter.FillByTeacherID(this.mathsToolDatabaseDataSet.Student, teacherID);
+                int teacherID = teacherIDS[position];
+                fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
             }
-            */
+            
 
         }
 
@@ -96,10 +106,6 @@ namespace MathsGradeAssessmentTool.Forms
             cpcf.Show();
             this.Hide();
         }
-
-       
-
-        
 
     }
 }
