@@ -2538,7 +2538,7 @@ SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM Student W
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM dbo.Studen" +
@@ -2550,6 +2550,12 @@ SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM Student W
                 "CompetencyID, Student.TeacherID\r\nFROM            Student INNER JOIN\r\n           " +
                 "              Teacher ON Student.TeacherID = Teacher.TeacherID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        StudentId, StudentName, SubjectID, CompetencyID, TeacherID\r\nFROM   " +
+                "         Student\r\nWHERE        (TeacherID = @teacherID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@teacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2587,6 +2593,42 @@ SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM Student W
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTeacherID(MathsToolDatabaseDataSet.StudentDataTable dataTable, global::System.Nullable<int> teacherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((teacherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(teacherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MathsToolDatabaseDataSet.StudentDataTable GetDataByTeacherID(global::System.Nullable<int> teacherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((teacherID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(teacherID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            MathsToolDatabaseDataSet.StudentDataTable dataTable = new MathsToolDatabaseDataSet.StudentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -29,10 +29,6 @@ namespace MathsGradeAssessmentTool.Forms
         {
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
             this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
-            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
-            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
-            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
-            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
 
         }
 

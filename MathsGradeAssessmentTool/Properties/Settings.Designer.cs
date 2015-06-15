@@ -26,8 +26,8 @@ namespace MathsGradeAssessmentTool.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\MathsToolDatabase.md" +
-            "f;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MathsToolData" +
+            "base.mdf;")]
         public string MathsToolDatabaseConnectionString {
             get {
                 return ((string)(this["MathsToolDatabaseConnectionString"]));

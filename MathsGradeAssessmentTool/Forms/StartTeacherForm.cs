@@ -73,23 +73,17 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void onSelectedIndexChange(object sender, EventArgs e)
         {
-            String name = teacherNameComboBox.Text;
-            
+            /*String name = teacherNameComboBox.Text;
+            int position = studentNameComboBox.SelectedIndex;
+            if (position >= 0)
+            {
+                int teacherID = Convert.ToInt32(studentTableAdapter.GetData().Rows[position]["TeacherID"]);
+                studentTableAdapter.FillByTeacherID(this.mathsToolDatabaseDataSet.Student, teacherID);
+            }
+            */
 
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.studentTableAdapter.FillBy(this.mathsToolDatabaseDataSet.Student);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         private void studentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
