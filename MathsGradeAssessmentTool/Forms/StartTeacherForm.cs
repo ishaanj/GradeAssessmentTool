@@ -113,6 +113,13 @@ namespace MathsGradeAssessmentTool.Forms
 
         }
 
+        private void Calc_Click(object sender, EventArgs e)
+        {
+            CompentencyPointerCalculationForm cpcf = new CompentencyPointerCalculationForm();
+            cpcf.Show();
+            this.Hide();
+        }
+
        
 
         

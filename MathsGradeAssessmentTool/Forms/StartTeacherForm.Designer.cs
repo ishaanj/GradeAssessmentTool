@@ -51,6 +51,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSubjectButton = new System.Windows.Forms.Button();
+            this.Calc = new System.Windows.Forms.Button();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
@@ -226,17 +227,28 @@
             // 
             this.addSubjectButton.Location = new System.Drawing.Point(639, 145);
             this.addSubjectButton.Name = "addSubjectButton";
-            this.addSubjectButton.Size = new System.Drawing.Size(113, 23);
+            this.addSubjectButton.Size = new System.Drawing.Size(113, 29);
             this.addSubjectButton.TabIndex = 8;
             this.addSubjectButton.Text = "Add Subject";
             this.addSubjectButton.UseVisualStyleBackColor = true;
             this.addSubjectButton.Click += new System.EventHandler(this.AddSubjectClicked_Clicked);
+            // 
+            // Calc
+            // 
+            this.Calc.Location = new System.Drawing.Point(639, 287);
+            this.Calc.Name = "Calc";
+            this.Calc.Size = new System.Drawing.Size(113, 95);
+            this.Calc.TabIndex = 9;
+            this.Calc.Text = "Ticks to Grade Calculator";
+            this.Calc.UseVisualStyleBackColor = true;
+            this.Calc.Click += new System.EventHandler(this.Calc_Click);
             // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Calc);
             this.Controls.Add(this.addSubjectButton);
             this.Controls.Add(this.studentDataGridView);
             this.Controls.Add(studentNameLabel);
@@ -283,6 +295,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Button addSubjectButton;
+        private System.Windows.Forms.Button Calc;
 
     }
 }
