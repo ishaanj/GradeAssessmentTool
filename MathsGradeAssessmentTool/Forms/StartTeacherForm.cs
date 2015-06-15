@@ -64,13 +64,20 @@ namespace MathsGradeAssessmentTool.Forms
             this.Hide();
         }
 
+        private void AddSubjectClicked_Clicked(object sender, EventArgs e)
+        {
+            SubjectEditForm sef = new SubjectEditForm();
+            sef.Show();
+            this.Hide();
+        }
+
         private void onSelectedIndexChange(object sender, EventArgs e)
         {
             String name = teacherNameComboBox.Text;
             Console.WriteLine(name);
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MathsToolDatabase.mdf;Integrated Security=True");
             SqlConnection con = new SqlConnection(MathsGradeAssessmentTool.Properties.Settings.Default.MathsToolDatabaseConnectionString);
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Teacher where TeacherName=" + name,con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Teacher where TeacherName='" + name + "'",con);
            
             /*DataTable table = new DataTable();
 
@@ -100,6 +107,15 @@ namespace MathsGradeAssessmentTool.Forms
             }
 
         }
+
+        private void studentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       
+
+        
 
     }
 }

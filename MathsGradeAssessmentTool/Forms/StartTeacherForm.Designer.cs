@@ -50,6 +50,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addSubjectButton = new System.Windows.Forms.Button();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
@@ -184,10 +185,11 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.studentDataGridView.DataSource = this.fKStudentToTeacherBindingSource;
-            this.studentDataGridView.Location = new System.Drawing.Point(121, 170);
+            this.studentDataGridView.Location = new System.Drawing.Point(81, 162);
             this.studentDataGridView.Name = "studentDataGridView";
             this.studentDataGridView.Size = new System.Drawing.Size(545, 220);
             this.studentDataGridView.TabIndex = 7;
+            this.studentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -220,11 +222,22 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "TeacherID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // addSubjectButton
+            // 
+            this.addSubjectButton.Location = new System.Drawing.Point(639, 145);
+            this.addSubjectButton.Name = "addSubjectButton";
+            this.addSubjectButton.Size = new System.Drawing.Size(113, 23);
+            this.addSubjectButton.TabIndex = 8;
+            this.addSubjectButton.Text = "Add Subject";
+            this.addSubjectButton.UseVisualStyleBackColor = true;
+            this.addSubjectButton.Click += new System.EventHandler(this.AddSubjectClicked_Clicked);
+            // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.addSubjectButton);
             this.Controls.Add(this.studentDataGridView);
             this.Controls.Add(studentNameLabel);
             this.Controls.Add(this.studentNameComboBox);
@@ -269,6 +282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button addSubjectButton;
 
     }
 }

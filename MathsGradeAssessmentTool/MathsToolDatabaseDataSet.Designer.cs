@@ -1039,6 +1039,8 @@ namespace MathsGradeAssessmentTool {
             
             private global::System.Data.DataColumn columnCompetencyID;
             
+            private global::System.Data.DataColumn columnSubjectMaxScore;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SubjectDataTable() {
@@ -1098,6 +1100,14 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubjectMaxScoreColumn {
+                get {
+                    return this.columnSubjectMaxScore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1133,12 +1143,13 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SubjectRow AddSubjectRow(int SubjectID, string SubjectName, string CompetencyID) {
+            public SubjectRow AddSubjectRow(int SubjectID, string SubjectName, string CompetencyID, int SubjectMaxScore) {
                 SubjectRow rowSubjectRow = ((SubjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SubjectID,
                         SubjectName,
-                        CompetencyID};
+                        CompetencyID,
+                        SubjectMaxScore};
                 rowSubjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSubjectRow);
                 return rowSubjectRow;
@@ -1171,6 +1182,7 @@ namespace MathsGradeAssessmentTool {
                 this.columnSubjectID = base.Columns["SubjectID"];
                 this.columnSubjectName = base.Columns["SubjectName"];
                 this.columnCompetencyID = base.Columns["CompetencyID"];
+                this.columnSubjectMaxScore = base.Columns["SubjectMaxScore"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1182,6 +1194,8 @@ namespace MathsGradeAssessmentTool {
                 base.Columns.Add(this.columnSubjectName);
                 this.columnCompetencyID = new global::System.Data.DataColumn("CompetencyID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencyID);
+                this.columnSubjectMaxScore = new global::System.Data.DataColumn("SubjectMaxScore", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectMaxScore);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSubjectID}, true));
                 this.columnSubjectID.AllowDBNull = false;
@@ -1189,6 +1203,7 @@ namespace MathsGradeAssessmentTool {
                 this.columnSubjectName.AllowDBNull = false;
                 this.columnSubjectName.MaxLength = 10;
                 this.columnCompetencyID.MaxLength = 10;
+                this.columnSubjectMaxScore.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1829,6 +1844,17 @@ namespace MathsGradeAssessmentTool {
                 }
                 set {
                     this[this.tableSubject.CompetencyIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SubjectMaxScore {
+                get {
+                    return ((int)(this[this.tableSubject.SubjectMaxScoreColumn]));
+                }
+                set {
+                    this[this.tableSubject.SubjectMaxScoreColumn] = value;
                 }
             }
             
@@ -2885,38 +2911,35 @@ SELECT StudentId, StudentName, SubjectID, CompetencyID, TeacherID FROM Student W
             tableMapping.ColumnMappings.Add("SubjectID", "SubjectID");
             tableMapping.ColumnMappings.Add("SubjectName", "SubjectName");
             tableMapping.ColumnMappings.Add("CompetencyID", "CompetencyID");
+            tableMapping.ColumnMappings.Add("SubjectMaxScore", "SubjectMaxScore");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Subject] WHERE (([SubjectID] = @Original_SubjectID) AND ([Subj" +
-                "ectName] = @Original_SubjectName) AND ((@IsNull_CompetencyID = 1 AND [Competency" +
-                "ID] IS NULL) OR ([CompetencyID] = @Original_CompetencyID)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Subject] WHERE (([SubjectID] = @Original_SubjectID) AND ([SubjectMax" +
+                "Score] = @Original_SubjectMaxScore))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectMaxScore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectMaxScore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Subject] ([SubjectID], [SubjectName], [CompetencyID]) VALUES (" +
-                "@SubjectID, @SubjectName, @CompetencyID);\r\nSELECT SubjectID, SubjectName, Compet" +
-                "encyID FROM Subject WHERE (SubjectID = @SubjectID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Subject] ([SubjectID], [SubjectName], [CompetencyID], [SubjectMaxScore]) VALUES (@SubjectID, @SubjectName, @CompetencyID, @SubjectMaxScore);
+SELECT SubjectID, SubjectName, CompetencyID, SubjectMaxScore FROM Subject WHERE (SubjectID = @SubjectID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectName", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectMaxScore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectMaxScore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Subject] SET [SubjectID] = @SubjectID, [SubjectName] = @SubjectName, [CompetencyID] = @CompetencyID WHERE (([SubjectID] = @Original_SubjectID) AND ([SubjectName] = @Original_SubjectName) AND ((@IsNull_CompetencyID = 1 AND [CompetencyID] IS NULL) OR ([CompetencyID] = @Original_CompetencyID)));
-SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @SubjectID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Subject] SET [SubjectID] = @SubjectID, [SubjectName] = @SubjectName, [CompetencyID] = @CompetencyID, [SubjectMaxScore] = @SubjectMaxScore WHERE (([SubjectID] = @Original_SubjectID) AND ([SubjectMaxScore] = @Original_SubjectMaxScore));
+SELECT SubjectID, SubjectName, CompetencyID, SubjectMaxScore FROM Subject WHERE (SubjectID = @SubjectID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectName", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectMaxScore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectMaxScore", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectMaxScore", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectMaxScore", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2932,7 +2955,7 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT SubjectID, SubjectName, CompetencyID FROM dbo.Subject";
+            this._commandCollection[0].CommandText = "SELECT SubjectID, SubjectName, CompetencyID, SubjectMaxScore FROM Subject";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2993,22 +3016,9 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_SubjectID, string Original_SubjectName, string Original_CompetencyID) {
+        public virtual int Delete(int Original_SubjectID, int Original_SubjectMaxScore) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_SubjectID));
-            if ((Original_SubjectName == null)) {
-                throw new global::System.ArgumentNullException("Original_SubjectName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_SubjectName));
-            }
-            if ((Original_CompetencyID == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_CompetencyID));
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_SubjectMaxScore));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3029,7 +3039,7 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int SubjectID, string SubjectName, string CompetencyID) {
+        public virtual int Insert(int SubjectID, string SubjectName, string CompetencyID, int SubjectMaxScore) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(SubjectID));
             if ((SubjectName == null)) {
                 throw new global::System.ArgumentNullException("SubjectName");
@@ -3043,6 +3053,7 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CompetencyID));
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(SubjectMaxScore));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3063,7 +3074,7 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int SubjectID, string SubjectName, string CompetencyID, int Original_SubjectID, string Original_SubjectName, string Original_CompetencyID) {
+        public virtual int Update(int SubjectID, string SubjectName, string CompetencyID, int SubjectMaxScore, int Original_SubjectID, int Original_SubjectMaxScore) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(SubjectID));
             if ((SubjectName == null)) {
                 throw new global::System.ArgumentNullException("SubjectName");
@@ -3077,21 +3088,9 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CompetencyID));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_SubjectID));
-            if ((Original_SubjectName == null)) {
-                throw new global::System.ArgumentNullException("Original_SubjectName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_SubjectName));
-            }
-            if ((Original_CompetencyID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_CompetencyID));
-            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(SubjectMaxScore));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SubjectID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_SubjectMaxScore));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3112,8 +3111,8 @@ SELECT SubjectID, SubjectName, CompetencyID FROM Subject WHERE (SubjectID = @Sub
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SubjectName, string CompetencyID, int Original_SubjectID, string Original_SubjectName, string Original_CompetencyID) {
-            return this.Update(Original_SubjectID, SubjectName, CompetencyID, Original_SubjectID, Original_SubjectName, Original_CompetencyID);
+        public virtual int Update(string SubjectName, string CompetencyID, int SubjectMaxScore, int Original_SubjectID, int Original_SubjectMaxScore) {
+            return this.Update(Original_SubjectID, SubjectName, CompetencyID, SubjectMaxScore, Original_SubjectID, Original_SubjectMaxScore);
         }
     }
     

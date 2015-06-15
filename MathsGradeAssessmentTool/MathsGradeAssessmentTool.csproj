@@ -65,6 +65,12 @@
     <Compile Include="Forms\CompentencyEditForm.Designer.cs">
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CompentencyPointerCalculationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompentencyPointerCalculationForm.Designer.cs">
+      <DependentUpon>CompentencyPointerCalculationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StartTeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CompentencyEditForm.resx">
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompentencyPointerCalculationForm.resx">
+      <DependentUpon>CompentencyPointerCalculationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartTeacherForm.resx">
       <DependentUpon>StartTeacherForm.cs</DependentUpon>
