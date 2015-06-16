@@ -90,8 +90,6 @@ namespace MathsGradeAssessmentTool.Forms
                 int teacherID = teacherIDS[position];
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
             }
-            
-
         }
 
 

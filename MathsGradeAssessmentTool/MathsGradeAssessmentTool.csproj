@@ -97,6 +97,12 @@
       <DependentUpon>StudentCompentency.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Forms\StudentCompetencyEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentCompetencyEditForm.Designer.cs">
+      <DependentUpon>StudentCompetencyEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentDetailsForm.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -133,7 +139,7 @@
       <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MathsToolDatabaseDataSet.Designer.cs">
+    <Compile Include="MathsToolDatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="Forms\StudentCompentency.resx">
       <DependentUpon>StudentCompentency.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentCompetencyEditForm.resx">
+      <DependentUpon>StudentCompetencyEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentDetailsForm.resx">
       <DependentUpon>StudentDetailsForm.cs</DependentUpon>
