@@ -73,14 +73,6 @@
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Forms\CompentencyPointerCalculationForm.cs">
-      <SubType>Form</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Forms\CompentencyPointerCalculationForm.Designer.cs">
-      <DependentUpon>CompentencyPointerCalculationForm.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Forms\StartTeacherForm.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -148,10 +140,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CompentencyEditForm.resx">
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CompentencyPointerCalculationForm.resx">
-      <DependentUpon>CompentencyPointerCalculationForm.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartTeacherForm.resx">

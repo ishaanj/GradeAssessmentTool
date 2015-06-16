@@ -14,6 +14,9 @@ namespace MathsGradeAssessmentTool.Forms
     public partial class StartTeacherForm : Form
     {
         private int[] teacherIDS;
+        SqlConnection con;
+        SqlDataAdapter ada;
+        DataTable dt;
 
         public StartTeacherForm()
         {
@@ -38,6 +41,8 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void StartTeacherForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
+            this.studentCompentencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.StudentCompentency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
             this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Teacher' table. You can move, or remove it, as needed.
@@ -51,6 +56,7 @@ namespace MathsGradeAssessmentTool.Forms
             for(int i = 0; i < count; i++) {
                 teacherIDS[i] =  Convert.ToInt32(rows[i]["TeacherID"]);
             }
+
         }
 
         private void AddTeacher_Click(object sender, EventArgs e)
@@ -95,14 +101,31 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void studentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            gTotalWeightedTextBox.Text = "";
+            gradeEquivalentTextBox.Text = "";
 
-        }
+            int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
+            con = new SqlConnection(@"Data Source=|DataDirectory|\MathsToolDatabase.mdf");
+            ada = new SqlDataAdapter("Select Studentid,GTotalWeighted,GradeEquivalent from StudentCompetency where Studentid ="+id, con);
+            dt = new DataTable();
+            ada.Fill(dt);
 
-        private void Calc_Click(object sender, EventArgs e)
-        {
-            CompentencyPointerCalculationForm cpcf = new CompentencyPointerCalculationForm();
-            cpcf.Show();
-            this.Hide();
+            int j = 0, flag = 0;
+
+            while(j < dt.Rows.Count)
+            {
+                if(id == (int)dt.Rows[j][0])
+                {
+                    flag++;
+                    break;
+                }
+            }
+
+            if (flag == 1)
+            {
+                gTotalWeightedTextBox.Text = (String)dt.Rows[j][0];
+                gradeEquivalentTextBox.Text = (String)dt.Rows[j][1];
+            }
         }
 
     }

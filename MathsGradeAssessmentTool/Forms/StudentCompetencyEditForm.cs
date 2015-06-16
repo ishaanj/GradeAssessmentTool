@@ -70,6 +70,58 @@ namespace MathsGradeAssessmentTool.Forms
             }
             
         }
+
+        private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = 3;
+            int sum = 0;
+
+            //Calculate Weighted Score
+            if (studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex] == studentCompentencyDataGridView.Rows[e.RowIndex].Cells[10])
+            {
+                for (; i < 11; i++)
+                {
+
+                    if (i == 3 || i == 5)
+                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 2);
+
+                    else if (i == 4 || i == 6)
+                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 2);
+
+                    else if (i == 7 || i == 9 || i == 10)
+                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 2);
+
+                    else if (i == 8)
+                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 2);
+
+                }
+
+                studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value = sum;
+
+                //Calculate Grade Equivalent from weighted score
+                int temp = (int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value;
+                double temp2;
+                int j = 0;
+                int[] gradeEq = { 0, 4, 12, 24, 40, 60, 84, 112, 144, 180 };
+
+                for (j = 0; j < 9; j++)
+                {
+                    if (gradeEq[j] > temp)
+                        break;
+                }
+
+                j--;
+                temp = temp - gradeEq[j];
+                temp2 = (double)temp / (gradeEq[j + 1] - gradeEq[j]);
+                temp2 += j;
+
+                studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = temp2;
+            }
+          }
+
+            
+ 
+
     }
 }
 
