@@ -94,7 +94,7 @@
             // gTotalWeightedLabel
             // 
             gTotalWeightedLabel.AutoSize = true;
-            gTotalWeightedLabel.Location = new System.Drawing.Point(458, 227);
+            gTotalWeightedLabel.Location = new System.Drawing.Point(555, 255);
             gTotalWeightedLabel.Name = "gTotalWeightedLabel";
             gTotalWeightedLabel.Size = new System.Drawing.Size(91, 13);
             gTotalWeightedLabel.TabIndex = 9;
@@ -103,7 +103,7 @@
             // gradeEquivalentLabel
             // 
             gradeEquivalentLabel.AutoSize = true;
-            gradeEquivalentLabel.Location = new System.Drawing.Point(458, 270);
+            gradeEquivalentLabel.Location = new System.Drawing.Point(555, 298);
             gradeEquivalentLabel.Name = "gradeEquivalentLabel";
             gradeEquivalentLabel.Size = new System.Drawing.Size(92, 13);
             gradeEquivalentLabel.TabIndex = 11;
@@ -218,7 +218,7 @@
             this.studentDataGridView.DataSource = this.fKStudentToTeacherBindingSource;
             this.studentDataGridView.Location = new System.Drawing.Point(12, 182);
             this.studentDataGridView.Name = "studentDataGridView";
-            this.studentDataGridView.Size = new System.Drawing.Size(342, 220);
+            this.studentDataGridView.Size = new System.Drawing.Size(537, 226);
             this.studentDataGridView.TabIndex = 7;
             this.studentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
@@ -294,7 +294,7 @@
             // gTotalWeightedTextBox
             // 
             this.gTotalWeightedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GTotalWeighted", true));
-            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(555, 224);
+            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(652, 252);
             this.gTotalWeightedTextBox.Name = "gTotalWeightedTextBox";
             this.gTotalWeightedTextBox.Size = new System.Drawing.Size(100, 20);
             this.gTotalWeightedTextBox.TabIndex = 10;
@@ -302,7 +302,7 @@
             // gradeEquivalentTextBox
             // 
             this.gradeEquivalentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GradeEquivalent", true));
-            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(556, 267);
+            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(653, 295);
             this.gradeEquivalentTextBox.Name = "gradeEquivalentTextBox";
             this.gradeEquivalentTextBox.Size = new System.Drawing.Size(100, 20);
             this.gradeEquivalentTextBox.TabIndex = 12;

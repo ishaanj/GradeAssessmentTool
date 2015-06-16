@@ -14,9 +14,6 @@ namespace MathsGradeAssessmentTool.Forms
     public partial class StartTeacherForm : Form
     {
         private int[] teacherIDS;
-        SqlConnection con;
-        SqlDataAdapter ada;
-        DataTable dt;
 
         public StartTeacherForm()
         {
@@ -103,28 +100,21 @@ namespace MathsGradeAssessmentTool.Forms
         {
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
-
-            int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
-            con = new SqlConnection(@"Data Source=|DataDirectory|\MathsToolDatabase.mdf");
-            ada = new SqlDataAdapter("Select Studentid,GTotalWeighted,GradeEquivalent from StudentCompetency where Studentid ="+id, con);
-            dt = new DataTable();
-            ada.Fill(dt);
-
-            int j = 0, flag = 0;
-
-            while(j < dt.Rows.Count)
+            if (e.RowIndex >= 0)
             {
-                if(id == (int)dt.Rows[j][0])
+                int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
+                var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
+
+                if (data.Rows.Count > 0)
                 {
-                    flag++;
-                    break;
+                    int sumTotal = 0, sumGrade = 0;
+                    foreach (DataRow r in data.Rows) {
+                        sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
+                        sumGrade += Convert.ToInt32(r["GradeEquivalent"]);
+                    }
+                    gTotalWeightedTextBox.Text = sumTotal + "";
+                    gradeEquivalentTextBox.Text = sumGrade + "";
                 }
-            }
-
-            if (flag == 1)
-            {
-                gTotalWeightedTextBox.Text = (String)dt.Rows[j][0];
-                gradeEquivalentTextBox.Text = (String)dt.Rows[j][1];
             }
         }
 

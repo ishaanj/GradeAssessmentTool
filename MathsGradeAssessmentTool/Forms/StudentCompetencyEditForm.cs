@@ -26,7 +26,6 @@ namespace MathsGradeAssessmentTool.Forms
             this.Validate();
             this.studentCompentencyBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
-            Console.WriteLine("Writing Data");
         }
 
         private void StudentCompetencyEditForm_Load(object sender, EventArgs e)
@@ -47,59 +46,98 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void studentCompentencyDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == studentCompentencyDataGridView.Columns[2].Index)
+            /*if (e.ColumnIndex == studentCompentencyDataGridView.Columns[1].Index)
             {
+                this.datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
                 if (datacount > 0)
                 {
-                    int compID = Convert.ToInt32(studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    var rows = competencyTableAdapter1.GetCompetencyNameByID(compID).Rows;
-                    if(rows.Count == 1)
+                    int compID = 0;
+                    try
                     {
-                        String compName = Convert.ToString(rows[0]["CompetencyName"]);
-
-                        var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                        cells.ToolTipText = compName;
+                         compID = Convert.ToInt32(studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;);
                     }
+                    catch (Exception ex)
+                    {
+                        compID = -1;
+                    }
+                    if (compID > 0)
+                    {
+                        var rows = competencyTableAdapter1.GetCompetencyNameByID(compID).Rows;
+                        if (rows.Count == 1)
+                        {
+                            String compName = Convert.ToString(rows[0]["CompetencyName"]);
+
+                            var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                            cells.ToolTipText = compName;
+                        }
+                    }
+                    
                     
                 }
             }
-            else if (e.ColumnIndex == studentCompentencyDataGridView.Columns[1].Index)
+              */
+            /*if (e.ColumnIndex == studentCompentencyDataGridView.Columns[2].Index)
             {
                 var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 cells.Value = StudentID;
             }
-            
+            */
+        }
+
+        
+        private void studentCompentencyDataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[2];
+            cells.Value = StudentID;
+
+            int primaryKey = Convert.ToInt32(studentCompentencyTableAdapter.GetMaxPrimaryKey()) + 1;
+            cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[0];
+            if(cells.Value == null || cells.Value == DBNull.Value)
+                cells.Value = primaryKey + "";
         }
 
         private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             int i = 3;
             int sum = 0;
+            
 
             //Calculate Weighted Score
-            if (studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex] == studentCompentencyDataGridView.Rows[e.RowIndex].Cells[10])
-            {
+            
                 for (; i < 11; i++)
                 {
-
                     if (i == 3 || i == 5)
-                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 2);
-
+                        try
+                        {
+                            sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 2);
+                        }
+                        catch (Exception ex) { }
+                    
                     else if (i == 4 || i == 6)
-                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 2);
+                        try
+                        {
+                            sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 2);
+                        }
+                        catch (Exception ex) { }
 
-                    else if (i == 7 || i == 9 || i == 10)
-                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 2);
-
+                    else if (i == 7 || i == 9 || i == 10) 
+                        try {
+                            sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 2);
+                        }
+                        catch (Exception ex) { }
+                        
                     else if (i == 8)
-                        sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 2);
-
+                        try
+                        {
+                            sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 2);
+                        }
+                        catch(Exception ex)  { }
                 }
 
                 studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value = sum;
 
                 //Calculate Grade Equivalent from weighted score
-                int temp = (int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value;
+                int temp = sum;
                 double temp2;
                 int j = 0;
                 int[] gradeEq = { 0, 4, 12, 24, 40, 60, 84, 112, 144, 180 };
@@ -116,11 +154,10 @@ namespace MathsGradeAssessmentTool.Forms
                 temp2 += j;
 
                 studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = temp2;
-            }
-          }
+            
 
             
- 
+          }
 
     }
 }
