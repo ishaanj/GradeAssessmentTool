@@ -54,14 +54,17 @@ namespace MathsGradeAssessmentTool.Forms
             this.tableAdapterManager.UpdateAll(this.mathsToolDatabaseDataSet);
 
         }
+        
 
-        private void studentDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void selectStudentAndSeeCompetencies_Click(object sender, EventArgs e)
         {
-            int rowindex = e.RowIndex;
-            int studentID = studentDataGridView.Rows[rowindex]["StudentID"];
-            int compentencyID = studentDataGridView.Rows[rowindex]["CompetencyID"];
+            int rowindex = studentDataGridView.SelectedCells[0].RowIndex;
+            int studentID = Convert.ToInt32(studentTableAdapter.GetData().Rows[rowindex]["StudentID"]);
 
-
+            StudentCompetencyEditForm scef = new StudentCompetencyEditForm();
+            scef.StudentID = studentID;
+            scef.Show();
+            this.Hide();
         }
     }
 }
