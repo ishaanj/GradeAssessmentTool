@@ -52,6 +52,33 @@ namespace MathsGradeAssessmentTool.Forms
                 if (datacount > 0)
                 {
                     int compID = Convert.ToInt32(studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    var rows = competencyTableAdapter1.GetCompetencyNameByID(compID).Rows;
+                    if(rows.Count == 1)
+                    {
+                        String compName = Convert.ToString(rows[0]["CompetencyName"]);
+
+                        var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        cells.ToolTipText = compName;
+                    }
+                    
+                }
+            }
+            else if (e.ColumnIndex == studentCompentencyDataGridView.Columns[1].Index)
+            {
+                var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                cells.Value = StudentID;
+            }
+            
+        }
+    }
+}
+
+/*
+ if (e.ColumnIndex == studentCompentencyDataGridView.Columns[2].Index)
+            {
+                if (datacount > 0)
+                {
+                    int compID = Convert.ToInt32(studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                     Console.WriteLine("CompID = " + compID);
                     var rows = competencyTableAdapter1.GetCompetencyNameByID(compID).Rows;
                     if(rows.Count == 1)
@@ -70,7 +97,4 @@ namespace MathsGradeAssessmentTool.Forms
                 var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 cells.Value = StudentID;
             }
-            
-        }
-    }
-}
+ */
