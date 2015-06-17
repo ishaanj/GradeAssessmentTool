@@ -112,6 +112,7 @@ namespace MathsGradeAssessmentTool.Forms
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToInt32(r["GradeEquivalent"]);
                     }
+                    //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
                     gradeEquivalentTextBox.Text = sumGrade/(float)data.Rows.Count + "";
                 }
