@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentCompetencyEditForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.returnToStudentButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
-            this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
-            this.studentCompentencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
-            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.studentCompentencyBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.studentCompentencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -51,6 +49,9 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentCompentencyBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.studentCompentencyDataGridView = new System.Windows.Forms.DataGridView();
+            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
+            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
+            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +65,10 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).BeginInit();
             this.studentCompentencyBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,34 +87,6 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "StudentCompId";
             this.dataGridViewTextBoxColumn1.HeaderText = "StudentCompId";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // competencyTableAdapter1
-            // 
-            this.competencyTableAdapter1.ClearBeforeFill = true;
-            // 
-            // mathsToolDatabaseDataSet
-            // 
-            this.mathsToolDatabaseDataSet.DataSetName = "MathsToolDatabaseDataSet";
-            this.mathsToolDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentCompentencyBindingSource
-            // 
-            this.studentCompentencyBindingSource.DataMember = "StudentCompentency";
-            this.studentCompentencyBindingSource.DataSource = this.mathsToolDatabaseDataSet;
-            // 
-            // studentCompentencyTableAdapter
-            // 
-            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CompetencyTableAdapter = this.competencyTableAdapter1;
-            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
-            this.tableAdapterManager.StudentTableAdapter = null;
-            this.tableAdapterManager.SubjectTableAdapter = null;
-            this.tableAdapterManager.TeacherTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // studentCompentencyBindingNavigator
             // 
@@ -153,6 +126,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // studentCompentencyBindingSource
+            // 
+            this.studentCompentencyBindingSource.DataMember = "StudentCompentency";
+            this.studentCompentencyBindingSource.DataSource = this.mathsToolDatabaseDataSet;
+            // 
+            // mathsToolDatabaseDataSet
+            // 
+            this.mathsToolDatabaseDataSet.DataSetName = "MathsToolDatabaseDataSet";
+            this.mathsToolDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -266,6 +249,24 @@
             this.studentCompentencyDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellEndEdit);
             this.studentCompentencyDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentCompentencyDataGridView_CellFormatting);
             // 
+            // competencyTableAdapter1
+            // 
+            this.competencyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // studentCompentencyTableAdapter
+            // 
+            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CompetencyTableAdapter = this.competencyTableAdapter1;
+            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
+            this.tableAdapterManager.StudentTableAdapter = null;
+            this.tableAdapterManager.SubjectTableAdapter = null;
+            this.tableAdapterManager.TeacherTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentCompId";
@@ -341,8 +342,12 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "GradeEquivalent";
+            dataGridViewCellStyle1.Format = "N6";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn14.HeaderText = "GradeEquivalent";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // StudentCompetencyEditForm
             // 
@@ -356,11 +361,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Competency";
             this.Load += new System.EventHandler(this.StudentCompetencyEditForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).EndInit();
             this.studentCompentencyBindingNavigator.ResumeLayout(false);
             this.studentCompentencyBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

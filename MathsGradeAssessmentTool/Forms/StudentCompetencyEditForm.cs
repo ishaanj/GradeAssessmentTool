@@ -137,10 +137,10 @@ namespace MathsGradeAssessmentTool.Forms
                 studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value = sum;
 
                 //Calculate Grade Equivalent from weighted score
-                int temp = sum;
-                double temp2;
+                float temp = (float)sum;
+                float temp2;
                 int j = 0;
-                int[] gradeEq = { 0, 4, 12, 24, 40, 60, 84, 112, 144, 180 };
+                float[] gradeEq = { 0, 4, 12, 24, 40, 60, 84, 112, 144, 180 };
 
                 for (j = 0; j < 9; j++)
                 {
@@ -150,10 +150,13 @@ namespace MathsGradeAssessmentTool.Forms
 
                 j--;
                 temp = temp - gradeEq[j];
-                temp2 = (double)temp / (gradeEq[j + 1] - gradeEq[j]);
-                temp2 += j;
+                temp2 = temp / (gradeEq[j + 1] - gradeEq[j]);
+                temp2 += (float)j;
+
+                Console.WriteLine(temp2);
 
                 studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = temp2;
+                
             
 
             
