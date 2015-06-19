@@ -241,18 +241,20 @@
             // 
             // returnToMainScreenButton
             // 
+            this.returnToMainScreenButton.BackColor = System.Drawing.Color.White;
             this.returnToMainScreenButton.Location = new System.Drawing.Point(578, 28);
             this.returnToMainScreenButton.Name = "returnToMainScreenButton";
             this.returnToMainScreenButton.Size = new System.Drawing.Size(141, 47);
             this.returnToMainScreenButton.TabIndex = 2;
             this.returnToMainScreenButton.Text = "Return to Main Screen";
-            this.returnToMainScreenButton.UseVisualStyleBackColor = true;
+            this.returnToMainScreenButton.UseVisualStyleBackColor = false;
             this.returnToMainScreenButton.Click += new System.EventHandler(this.onReturnToMainScreen);
             // 
             // SubjectEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.returnToMainScreenButton);
             this.Controls.Add(this.subjectDataGridView);

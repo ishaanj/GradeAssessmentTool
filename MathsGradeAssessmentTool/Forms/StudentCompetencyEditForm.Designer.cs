@@ -73,12 +73,13 @@
             // 
             // returnToStudentButton
             // 
+            this.returnToStudentButton.BackColor = System.Drawing.Color.White;
             this.returnToStudentButton.Location = new System.Drawing.Point(544, 29);
             this.returnToStudentButton.Name = "returnToStudentButton";
             this.returnToStudentButton.Size = new System.Drawing.Size(130, 52);
             this.returnToStudentButton.TabIndex = 2;
             this.returnToStudentButton.Text = "Return to Student";
-            this.returnToStudentButton.UseVisualStyleBackColor = true;
+            this.returnToStudentButton.UseVisualStyleBackColor = false;
             this.returnToStudentButton.Click += new System.EventHandler(this.returnToStudentButton_Click);
             // 
             // dataGridViewTextBoxColumn1
@@ -348,6 +349,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.studentCompentencyDataGridView);
             this.Controls.Add(this.studentCompentencyBindingNavigator);

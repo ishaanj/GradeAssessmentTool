@@ -152,32 +152,35 @@
             // 
             // AddTeacher
             // 
+            this.AddTeacher.BackColor = System.Drawing.Color.White;
             this.AddTeacher.Location = new System.Drawing.Point(639, 36);
             this.AddTeacher.Name = "AddTeacher";
             this.AddTeacher.Size = new System.Drawing.Size(113, 31);
             this.AddTeacher.TabIndex = 3;
             this.AddTeacher.Text = "Add Teacher";
-            this.AddTeacher.UseVisualStyleBackColor = true;
+            this.AddTeacher.UseVisualStyleBackColor = false;
             this.AddTeacher.Click += new System.EventHandler(this.AddTeacher_Click);
             // 
             // AddStudent
             // 
+            this.AddStudent.BackColor = System.Drawing.Color.White;
             this.AddStudent.Location = new System.Drawing.Point(639, 73);
             this.AddStudent.Name = "AddStudent";
             this.AddStudent.Size = new System.Drawing.Size(113, 29);
             this.AddStudent.TabIndex = 4;
             this.AddStudent.Text = "Add Student";
-            this.AddStudent.UseVisualStyleBackColor = true;
+            this.AddStudent.UseVisualStyleBackColor = false;
             this.AddStudent.Click += new System.EventHandler(this.AddStudent_Click);
             // 
             // AddCompetency
             // 
+            this.AddCompetency.BackColor = System.Drawing.Color.White;
             this.AddCompetency.Location = new System.Drawing.Point(639, 109);
             this.AddCompetency.Name = "AddCompetency";
             this.AddCompetency.Size = new System.Drawing.Size(113, 29);
             this.AddCompetency.TabIndex = 5;
             this.AddCompetency.Text = "Add Competency";
-            this.AddCompetency.UseVisualStyleBackColor = true;
+            this.AddCompetency.UseVisualStyleBackColor = false;
             this.AddCompetency.Click += new System.EventHandler(this.AddCompetency_Click);
             // 
             // studentBindingSource
@@ -259,12 +262,13 @@
             // 
             // addSubjectButton
             // 
+            this.addSubjectButton.BackColor = System.Drawing.Color.White;
             this.addSubjectButton.Location = new System.Drawing.Point(639, 145);
             this.addSubjectButton.Name = "addSubjectButton";
             this.addSubjectButton.Size = new System.Drawing.Size(113, 29);
             this.addSubjectButton.TabIndex = 8;
             this.addSubjectButton.Text = "Add Subject";
-            this.addSubjectButton.UseVisualStyleBackColor = true;
+            this.addSubjectButton.UseVisualStyleBackColor = false;
             this.addSubjectButton.Click += new System.EventHandler(this.AddSubjectClicked_Clicked);
             // 
             // param1ToolStripLabel
@@ -311,6 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(gradeEquivalentLabel);
             this.Controls.Add(this.gradeEquivalentTextBox);

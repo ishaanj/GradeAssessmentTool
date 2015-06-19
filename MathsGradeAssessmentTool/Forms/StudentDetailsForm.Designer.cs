@@ -64,12 +64,13 @@
             // 
             // Back
             // 
+            this.Back.BackColor = System.Drawing.Color.White;
             this.Back.Location = new System.Drawing.Point(631, 28);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(113, 47);
             this.Back.TabIndex = 2;
             this.Back.Text = "Back To Main Page";
-            this.Back.UseVisualStyleBackColor = true;
+            this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // studentBindingNavigator
@@ -269,18 +270,20 @@
             // 
             // selectStudentAndSeeCompetencies
             // 
+            this.selectStudentAndSeeCompetencies.BackColor = System.Drawing.Color.White;
             this.selectStudentAndSeeCompetencies.Location = new System.Drawing.Point(631, 100);
             this.selectStudentAndSeeCompetencies.Name = "selectStudentAndSeeCompetencies";
             this.selectStudentAndSeeCompetencies.Size = new System.Drawing.Size(113, 50);
             this.selectStudentAndSeeCompetencies.TabIndex = 4;
             this.selectStudentAndSeeCompetencies.Text = "See Student Competencies";
-            this.selectStudentAndSeeCompetencies.UseVisualStyleBackColor = true;
+            this.selectStudentAndSeeCompetencies.UseVisualStyleBackColor = false;
             this.selectStudentAndSeeCompetencies.Click += new System.EventHandler(this.selectStudentAndSeeCompetencies_Click);
             // 
             // StudentDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.selectStudentAndSeeCompetencies);
             this.Controls.Add(this.studentDataGridView);
