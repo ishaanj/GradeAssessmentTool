@@ -52,6 +52,7 @@ namespace MathsGradeAssessmentTool.Forms
 
             for(int i = 0; i < count; i++) {
                 teacherIDS[i] =  Convert.ToInt32(rows[i]["TeacherID"]);
+                Console.WriteLine("Teacher IDS[] = " + teacherIDS[i]);
             }
 
         }
@@ -91,6 +92,7 @@ namespace MathsGradeAssessmentTool.Forms
             if (position >= 0)
             {
                 int teacherID = teacherIDS[position];
+                Console.WriteLine("Teacher ID = " + teacherID);
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
             }
         }
@@ -102,25 +104,33 @@ namespace MathsGradeAssessmentTool.Forms
             gradeEquivalentTextBox.Text = "";
 
             //Todo: Add horizontal line at current grade
-            chart1.ChartAreas[0].AxisX2.Crossing = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
-            chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
+            
 
             if (e.RowIndex >= 0)
             {
+                try
+                {
+                    chart1.ChartAreas[0].AxisX2.Crossing = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
+                    chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
+                }
+                catch (Exception ex) { }
+                
+
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
 
                 if (data.Rows.Count > 0)
                 {
-                    int sumTotal = 0, sumGrade = 0;
+                    int sumTotal = 0;
+                    double sumGrade = 0.0;
                     foreach (DataRow r in data.Rows) {
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
-                        sumGrade += Convert.ToInt32(r["GradeEquivalent"]);
+                        sumGrade += Convert.ToDouble(r["GradeEquivalent"]);
                         chart1.Series["Grades"].Points.AddXY(r[1], r[12]);
                     }
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
-                    gradeEquivalentTextBox.Text = sumGrade/(float)data.Rows.Count + "";
+                    gradeEquivalentTextBox.Text = sumGrade/(double)data.Rows.Count + "";
                 }
 
             }

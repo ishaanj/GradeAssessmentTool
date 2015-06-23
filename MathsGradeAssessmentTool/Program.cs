@@ -9,14 +9,7 @@ namespace MathsGradeAssessmentTool
 {
     static class Program
     {
-        public static StartTeacherForm startTeacherForm;
-        public static CompentencyEditForm compentencyEditForm;
-        public static StudentCompentency studentCompentencyForm;
-        public static StudentDetailsForm studentDetailsForm;
-        public static StudentSelectForm studentSelectForm;
-        public static SubjectEditForm subjectEditForm;
-        public static TeacherDetailsForm teacherDetailsForm;
-
+        static StartTeacherForm startTeacherForm;
 
         /// <summary>
         /// The main entry point for the application.
@@ -30,43 +23,5 @@ namespace MathsGradeAssessmentTool
             Application.Run(startTeacherForm);
         }
 
-
-        public static void HideAllForms()
-        {
-            // Hide all the frames
-            startTeacherForm.Hide();
-
-            if (compentencyEditForm != null)
-                compentencyEditForm.Hide();
-
-            if (studentCompentencyForm != null)
-                studentCompentencyForm.Hide();
-
-            if (studentDetailsForm != null)
-                studentDetailsForm.Hide();
-
-            if (studentSelectForm != null)
-                studentSelectForm.Hide();
-
-            if (subjectEditForm != null)
-                subjectEditForm.Hide();
-
-            if (teacherDetailsForm != null)
-                teacherDetailsForm.Hide();
-
-        }
-
-        public static void ShowForm(Form f)
-        {
-            //Show specific frame
-            HideAllForms();
-
-            if(f != null)
-                f.Show();
-            else
-            {
-                MessageBox.Show("Form is null.");    
-            }
-        }
     }
 }

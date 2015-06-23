@@ -42,10 +42,10 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
             this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.selectStudentAndSeeCompetencies = new System.Windows.Forms.Button();
-            this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).BeginInit();
             this.studentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -81,7 +81,7 @@
             this.studentBindingNavigator.MovePreviousItem = null;
             this.studentBindingNavigator.Name = "studentBindingNavigator";
             this.studentBindingNavigator.PositionItem = null;
-            this.studentBindingNavigator.Size = new System.Drawing.Size(730, 25);
+            this.studentBindingNavigator.Size = new System.Drawing.Size(784, 25);
             this.studentBindingNavigator.TabIndex = 3;
             this.studentBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -163,6 +163,12 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "TeacherID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // CurrentGrade
+            // 
+            this.CurrentGrade.DataPropertyName = "CurrentGrade";
+            this.CurrentGrade.HeaderText = "CurrentGrade";
+            this.CurrentGrade.Name = "CurrentGrade";
+            // 
             // studentTableAdapter
             // 
             this.studentTableAdapter.ClearBeforeFill = true;
@@ -188,18 +194,12 @@
             this.selectStudentAndSeeCompetencies.UseVisualStyleBackColor = false;
             this.selectStudentAndSeeCompetencies.Click += new System.EventHandler(this.selectStudentAndSeeCompetencies_Click);
             // 
-            // CurrentGrade
-            // 
-            this.CurrentGrade.DataPropertyName = "CurrentGrade";
-            this.CurrentGrade.HeaderText = "CurrentGrade";
-            this.CurrentGrade.Name = "CurrentGrade";
-            // 
             // StudentDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(730, 561);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.selectStudentAndSeeCompetencies);
             this.Controls.Add(this.studentDataGridView);
             this.Controls.Add(this.studentBindingNavigator);
