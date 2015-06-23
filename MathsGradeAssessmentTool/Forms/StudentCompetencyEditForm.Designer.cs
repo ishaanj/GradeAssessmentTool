@@ -49,9 +49,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentCompentencyBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.studentCompentencyDataGridView = new System.Windows.Forms.DataGridView();
-            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
-            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
-            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +62,9 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
+            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
+            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).BeginInit();
             this.studentCompentencyBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
@@ -250,24 +250,6 @@
             this.studentCompentencyDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellEndEdit);
             this.studentCompentencyDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.studentCompentencyDataGridView_CellFormatting);
             // 
-            // competencyTableAdapter1
-            // 
-            this.competencyTableAdapter1.ClearBeforeFill = true;
-            // 
-            // studentCompentencyTableAdapter
-            // 
-            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CompetencyTableAdapter = this.competencyTableAdapter1;
-            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
-            this.tableAdapterManager.StudentTableAdapter = null;
-            this.tableAdapterManager.SubjectTableAdapter = null;
-            this.tableAdapterManager.TeacherTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentCompId";
@@ -349,6 +331,24 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "GradeEquivalent";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // competencyTableAdapter1
+            // 
+            this.competencyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // studentCompentencyTableAdapter
+            // 
+            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CompetencyTableAdapter = this.competencyTableAdapter1;
+            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
+            this.tableAdapterManager.StudentTableAdapter = null;
+            this.tableAdapterManager.SubjectTableAdapter = null;
+            this.tableAdapterManager.TeacherTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // StudentCompetencyEditForm
             // 

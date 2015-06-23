@@ -100,6 +100,11 @@ namespace MathsGradeAssessmentTool.Forms
         {
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
+
+            //Todo: Add horizontal line at current grade
+            chart1.ChartAreas[0].AxisX2.Crossing = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
+            chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
+
             if (e.RowIndex >= 0)
             {
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
@@ -111,12 +116,15 @@ namespace MathsGradeAssessmentTool.Forms
                     foreach (DataRow r in data.Rows) {
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToInt32(r["GradeEquivalent"]);
+                        chart1.Series["Grades"].Points.AddXY(r[1], r[12]);
                     }
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
                     gradeEquivalentTextBox.Text = sumGrade/(float)data.Rows.Count + "";
                 }
+
             }
+
         }
 
     }
