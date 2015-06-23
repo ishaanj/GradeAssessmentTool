@@ -33,6 +33,9 @@
             System.Windows.Forms.Label studentNameLabel;
             System.Windows.Forms.Label gTotalWeightedLabel;
             System.Windows.Forms.Label gradeEquivalentLabel;
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TeacherTableAdapter();
@@ -50,8 +53,8 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSubjectButton = new System.Windows.Forms.Button();
             this.param1ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.param1ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -60,6 +63,7 @@
             this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
             this.gTotalWeightedTextBox = new System.Windows.Forms.TextBox();
             this.gradeEquivalentTextBox = new System.Windows.Forms.TextBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -71,12 +75,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.fKStudentToTeacherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // teacherNameLabel
             // 
             teacherNameLabel.AutoSize = true;
-            teacherNameLabel.Location = new System.Drawing.Point(259, 84);
+            teacherNameLabel.Location = new System.Drawing.Point(61, 81);
             teacherNameLabel.Name = "teacherNameLabel";
             teacherNameLabel.Size = new System.Drawing.Size(81, 13);
             teacherNameLabel.TabIndex = 1;
@@ -85,7 +90,7 @@
             // studentNameLabel
             // 
             studentNameLabel.AutoSize = true;
-            studentNameLabel.Location = new System.Drawing.Point(262, 125);
+            studentNameLabel.Location = new System.Drawing.Point(64, 122);
             studentNameLabel.Name = "studentNameLabel";
             studentNameLabel.Size = new System.Drawing.Size(78, 13);
             studentNameLabel.TabIndex = 5;
@@ -94,7 +99,7 @@
             // gTotalWeightedLabel
             // 
             gTotalWeightedLabel.AutoSize = true;
-            gTotalWeightedLabel.Location = new System.Drawing.Point(555, 255);
+            gTotalWeightedLabel.Location = new System.Drawing.Point(345, 81);
             gTotalWeightedLabel.Name = "gTotalWeightedLabel";
             gTotalWeightedLabel.Size = new System.Drawing.Size(91, 13);
             gTotalWeightedLabel.TabIndex = 9;
@@ -103,7 +108,7 @@
             // gradeEquivalentLabel
             // 
             gradeEquivalentLabel.AutoSize = true;
-            gradeEquivalentLabel.Location = new System.Drawing.Point(555, 298);
+            gradeEquivalentLabel.Location = new System.Drawing.Point(345, 122);
             gradeEquivalentLabel.Name = "gradeEquivalentLabel";
             gradeEquivalentLabel.Size = new System.Drawing.Size(92, 13);
             gradeEquivalentLabel.TabIndex = 11;
@@ -139,7 +144,7 @@
             this.teacherNameComboBox.DataSource = this.teacherBindingSource1;
             this.teacherNameComboBox.DisplayMember = "TeacherName";
             this.teacherNameComboBox.FormattingEnabled = true;
-            this.teacherNameComboBox.Location = new System.Drawing.Point(346, 81);
+            this.teacherNameComboBox.Location = new System.Drawing.Point(148, 78);
             this.teacherNameComboBox.Name = "teacherNameComboBox";
             this.teacherNameComboBox.Size = new System.Drawing.Size(121, 21);
             this.teacherNameComboBox.TabIndex = 2;
@@ -153,7 +158,7 @@
             // AddTeacher
             // 
             this.AddTeacher.BackColor = System.Drawing.Color.White;
-            this.AddTeacher.Location = new System.Drawing.Point(639, 36);
+            this.AddTeacher.Location = new System.Drawing.Point(64, 12);
             this.AddTeacher.Name = "AddTeacher";
             this.AddTeacher.Size = new System.Drawing.Size(113, 31);
             this.AddTeacher.TabIndex = 3;
@@ -164,7 +169,7 @@
             // AddStudent
             // 
             this.AddStudent.BackColor = System.Drawing.Color.White;
-            this.AddStudent.Location = new System.Drawing.Point(639, 73);
+            this.AddStudent.Location = new System.Drawing.Point(324, 13);
             this.AddStudent.Name = "AddStudent";
             this.AddStudent.Size = new System.Drawing.Size(113, 29);
             this.AddStudent.TabIndex = 4;
@@ -175,7 +180,7 @@
             // AddCompetency
             // 
             this.AddCompetency.BackColor = System.Drawing.Color.White;
-            this.AddCompetency.Location = new System.Drawing.Point(639, 109);
+            this.AddCompetency.Location = new System.Drawing.Point(589, 13);
             this.AddCompetency.Name = "AddCompetency";
             this.AddCompetency.Size = new System.Drawing.Size(113, 29);
             this.AddCompetency.TabIndex = 5;
@@ -198,7 +203,7 @@
             this.studentNameComboBox.DataSource = this.fKStudentToTeacherBindingSource;
             this.studentNameComboBox.DisplayMember = "StudentName";
             this.studentNameComboBox.FormattingEnabled = true;
-            this.studentNameComboBox.Location = new System.Drawing.Point(346, 122);
+            this.studentNameComboBox.Location = new System.Drawing.Point(148, 119);
             this.studentNameComboBox.Name = "studentNameComboBox";
             this.studentNameComboBox.Size = new System.Drawing.Size(121, 21);
             this.studentNameComboBox.TabIndex = 6;
@@ -216,12 +221,12 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.CurrentGrade});
             this.studentDataGridView.DataSource = this.fKStudentToTeacherBindingSource;
-            this.studentDataGridView.Location = new System.Drawing.Point(12, 182);
+            this.studentDataGridView.Location = new System.Drawing.Point(23, 166);
             this.studentDataGridView.Name = "studentDataGridView";
-            this.studentDataGridView.Size = new System.Drawing.Size(537, 226);
+            this.studentDataGridView.Size = new System.Drawing.Size(522, 243);
             this.studentDataGridView.TabIndex = 7;
             this.studentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
@@ -246,13 +251,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CompetencyID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CompetencyID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TeacherID";
@@ -260,10 +258,16 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
+            // CurrentGrade
+            // 
+            this.CurrentGrade.DataPropertyName = "CurrentGrade";
+            this.CurrentGrade.HeaderText = "CurrentGrade";
+            this.CurrentGrade.Name = "CurrentGrade";
+            // 
             // addSubjectButton
             // 
             this.addSubjectButton.BackColor = System.Drawing.Color.White;
-            this.addSubjectButton.Location = new System.Drawing.Point(639, 145);
+            this.addSubjectButton.Location = new System.Drawing.Point(867, 13);
             this.addSubjectButton.Name = "addSubjectButton";
             this.addSubjectButton.Size = new System.Drawing.Size(113, 29);
             this.addSubjectButton.TabIndex = 8;
@@ -298,25 +302,47 @@
             // gTotalWeightedTextBox
             // 
             this.gTotalWeightedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GTotalWeighted", true));
-            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(652, 252);
+            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(445, 78);
             this.gTotalWeightedTextBox.Name = "gTotalWeightedTextBox";
+            this.gTotalWeightedTextBox.ReadOnly = true;
             this.gTotalWeightedTextBox.Size = new System.Drawing.Size(100, 20);
             this.gTotalWeightedTextBox.TabIndex = 10;
             // 
             // gradeEquivalentTextBox
             // 
             this.gradeEquivalentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GradeEquivalent", true));
-            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(653, 295);
+            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(445, 119);
             this.gradeEquivalentTextBox.Name = "gradeEquivalentTextBox";
+            this.gradeEquivalentTextBox.ReadOnly = true;
             this.gradeEquivalentTextBox.Size = new System.Drawing.Size(100, 20);
             this.gradeEquivalentTextBox.TabIndex = 12;
+            // 
+            // chart1
+            // 
+            chartArea1.AxisX2.Crossing = -1.7976931348623157E+308D;
+            chartArea1.AxisY.Interval = 1D;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(551, 78);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Grades";
+            series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(459, 331);
+            this.chart1.TabIndex = 13;
+            this.chart1.Text = "Grade Chart";
             // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1022, 422);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(gradeEquivalentLabel);
             this.Controls.Add(this.gradeEquivalentTextBox);
             this.Controls.Add(gTotalWeightedLabel);
@@ -341,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fKStudentToTeacherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,11 +390,6 @@
         private System.Windows.Forms.BindingSource fKStudentToTeacherBindingSource;
         private System.Windows.Forms.DataGridView studentDataGridView;
         private System.Windows.Forms.Button addSubjectButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.ToolStripLabel param1ToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox param1ToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillWithTIDToolStripButton;
@@ -375,6 +397,12 @@
         private MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter studentCompentencyTableAdapter;
         private System.Windows.Forms.TextBox gTotalWeightedTextBox;
         private System.Windows.Forms.TextBox gradeEquivalentTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentGrade;
 
     }
 }
