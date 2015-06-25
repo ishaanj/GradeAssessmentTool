@@ -36,6 +36,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label3 = new System.Windows.Forms.Label();
             this.fileBox = new System.Windows.Forms.TextBox();
+            this.ReturnButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addFileButton
@@ -103,11 +104,22 @@
             this.fileBox.Size = new System.Drawing.Size(321, 20);
             this.fileBox.TabIndex = 6;
             // 
+            // ReturnButton
+            // 
+            this.ReturnButton.Location = new System.Drawing.Point(454, 12);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(105, 52);
+            this.ReturnButton.TabIndex = 7;
+            this.ReturnButton.Text = "Return to Main Screen";
+            this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
+            // 
             // MailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 305);
+            this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.fileBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.mailToBox);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox fileBox;
+        private System.Windows.Forms.Button ReturnButton;
     }
 }

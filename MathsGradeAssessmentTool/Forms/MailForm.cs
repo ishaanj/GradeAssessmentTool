@@ -38,12 +38,16 @@ namespace MathsGradeAssessmentTool.Forms
             }
         }
 
+        //EDIT THE EMPTY STRINGS HERE
+        private string fromAddress = "";
+        private string fromPassword = "";
+
         private void sendMailButton_Click(object sender, EventArgs e)
         {
             if (mailToBox.Text == null || mailToBox.Text == "")
-                Console.WriteLine("enter an email address");
+                MessageBox.Show("Enter an email address");
             else if (file == null || file == "")
-                Console.WriteLine("Add an attachment");
+                MessageBox.Show("Add an attachment");
             else
             {
                 try
@@ -53,24 +57,33 @@ namespace MathsGradeAssessmentTool.Forms
 
                     Attachment attach = new Attachment(file);
 
-                    mail.From = new MailAddress("ishjain@hotmail.com");
+                    mail.From = new MailAddress(fromAddress);
                     mail.To.Add(mailToBox.Text);
                     mail.Subject = "Student Report in Excel";
                     mail.Body = "Excel sheet for student report";
                     mail.Attachments.Add(attach);
 
                     SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("username","password");
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
                     SmtpServer.EnableSsl = true;
+                    SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    SmtpServer.UseDefaultCredentials = false;
 
                     SmtpServer.Send(mail);
-                    MessageBox.Show("mail Sent");
+                    MessageBox.Show("Mail sent to : " + to);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            StartTeacherForm sf = new StartTeacherForm();
+            sf.Show();
+            this.Hide();
         }
     }
 }
