@@ -39,8 +39,8 @@ namespace MathsGradeAssessmentTool.Forms
         }
 
         //EDIT THE EMPTY STRINGS HERE
-        private string fromAddress = "";
-        private string fromPassword = "";
+        private string fromAddress = "titu1994@gmail.com";
+        private string fromPassword = "zxc1234567890";
 
         private void sendMailButton_Click(object sender, EventArgs e)
         {
@@ -54,6 +54,11 @@ namespace MathsGradeAssessmentTool.Forms
                 {
                     MailMessage mail = new MailMessage();
                     SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                    SmtpServer.Port = 587;
+                    SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    SmtpServer.EnableSsl = true;
+                    SmtpServer.UseDefaultCredentials = false;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
 
                     Attachment attach = new Attachment(file);
 
@@ -63,14 +68,8 @@ namespace MathsGradeAssessmentTool.Forms
                     mail.Body = "Excel sheet for student report";
                     mail.Attachments.Add(attach);
 
-                    SmtpServer.Port = 587;
-                    SmtpServer.EnableSsl = true;
-                    SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    SmtpServer.UseDefaultCredentials = false;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
-
                     SmtpServer.Send(mail);
-                    MessageBox.Show("Mail sent to : " + to);
+                    MessageBox.Show("Mail sent to : " + mailToBox.Text.ToString());
                 }
                 catch (Exception ex)
                 {

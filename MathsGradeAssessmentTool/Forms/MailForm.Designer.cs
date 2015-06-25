@@ -41,7 +41,7 @@
             // 
             // addFileButton
             // 
-            this.addFileButton.Location = new System.Drawing.Point(218, 115);
+            this.addFileButton.Location = new System.Drawing.Point(334, 159);
             this.addFileButton.Name = "addFileButton";
             this.addFileButton.Size = new System.Drawing.Size(143, 39);
             this.addFileButton.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // sendMailButton
             // 
-            this.sendMailButton.Location = new System.Drawing.Point(157, 212);
+            this.sendMailButton.Location = new System.Drawing.Point(266, 350);
             this.sendMailButton.Name = "sendMailButton";
             this.sendMailButton.Size = new System.Drawing.Size(262, 67);
             this.sendMailButton.TabIndex = 1;
@@ -62,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 52);
+            this.label1.Location = new System.Drawing.Point(231, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 2;
@@ -71,16 +71,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 99);
+            this.label2.Location = new System.Drawing.Point(201, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 3;
             // 
             // mailToBox
             // 
-            this.mailToBox.Location = new System.Drawing.Point(275, 49);
+            this.mailToBox.Location = new System.Drawing.Point(319, 86);
             this.mailToBox.Name = "mailToBox";
-            this.mailToBox.Size = new System.Drawing.Size(100, 20);
+            this.mailToBox.Size = new System.Drawing.Size(209, 20);
             this.mailToBox.TabIndex = 4;
             // 
             // openFileDialog1
@@ -90,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(100, 170);
+            this.label3.Location = new System.Drawing.Point(194, 226);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             // fileBox
             // 
-            this.fileBox.Location = new System.Drawing.Point(163, 167);
+            this.fileBox.Location = new System.Drawing.Point(257, 223);
             this.fileBox.Name = "fileBox";
             this.fileBox.ReadOnly = true;
             this.fileBox.Size = new System.Drawing.Size(321, 20);
@@ -106,7 +106,7 @@
             // 
             // ReturnButton
             // 
-            this.ReturnButton.Location = new System.Drawing.Point(454, 12);
+            this.ReturnButton.Location = new System.Drawing.Point(586, 54);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(105, 52);
             this.ReturnButton.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 305);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.fileBox);
             this.Controls.Add(this.label3);
@@ -128,6 +128,7 @@
             this.Controls.Add(this.sendMailButton);
             this.Controls.Add(this.addFileButton);
             this.Name = "MailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MailForm";
             this.ResumeLayout(false);
             this.PerformLayout();
