@@ -33,9 +33,9 @@
             System.Windows.Forms.Label studentNameLabel;
             System.Windows.Forms.Label gTotalWeightedLabel;
             System.Windows.Forms.Label gradeEquivalentLabel;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TeacherTableAdapter();
@@ -64,6 +64,7 @@
             this.gTotalWeightedTextBox = new System.Windows.Forms.TextBox();
             this.gradeEquivalentTextBox = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.mail = new System.Windows.Forms.Button();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -158,9 +159,9 @@
             // AddTeacher
             // 
             this.AddTeacher.BackColor = System.Drawing.Color.White;
-            this.AddTeacher.Location = new System.Drawing.Point(64, 12);
+            this.AddTeacher.Location = new System.Drawing.Point(67, 14);
             this.AddTeacher.Name = "AddTeacher";
-            this.AddTeacher.Size = new System.Drawing.Size(113, 31);
+            this.AddTeacher.Size = new System.Drawing.Size(113, 28);
             this.AddTeacher.TabIndex = 3;
             this.AddTeacher.Text = "Add Teacher";
             this.AddTeacher.UseVisualStyleBackColor = false;
@@ -169,7 +170,7 @@
             // AddStudent
             // 
             this.AddStudent.BackColor = System.Drawing.Color.White;
-            this.AddStudent.Location = new System.Drawing.Point(324, 13);
+            this.AddStudent.Location = new System.Drawing.Point(245, 13);
             this.AddStudent.Name = "AddStudent";
             this.AddStudent.Size = new System.Drawing.Size(113, 29);
             this.AddStudent.TabIndex = 4;
@@ -180,7 +181,7 @@
             // AddCompetency
             // 
             this.AddCompetency.BackColor = System.Drawing.Color.White;
-            this.AddCompetency.Location = new System.Drawing.Point(589, 13);
+            this.AddCompetency.Location = new System.Drawing.Point(445, 14);
             this.AddCompetency.Name = "AddCompetency";
             this.AddCompetency.Size = new System.Drawing.Size(113, 29);
             this.AddCompetency.TabIndex = 5;
@@ -267,7 +268,7 @@
             // addSubjectButton
             // 
             this.addSubjectButton.BackColor = System.Drawing.Color.White;
-            this.addSubjectButton.Location = new System.Drawing.Point(867, 13);
+            this.addSubjectButton.Location = new System.Drawing.Point(648, 14);
             this.addSubjectButton.Name = "addSubjectButton";
             this.addSubjectButton.Size = new System.Drawing.Size(113, 29);
             this.addSubjectButton.TabIndex = 8;
@@ -319,22 +320,33 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX2.Crossing = -1.7976931348623157E+308D;
-            chartArea1.AxisY.Interval = 1D;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.AxisX2.Crossing = -1.7976931348623157E+308D;
+            chartArea2.AxisY.Interval = 1D;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(551, 78);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Grades";
-            series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Grades";
+            series2.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(459, 331);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "Grade Chart";
+            // 
+            // mail
+            // 
+            this.mail.BackColor = System.Drawing.Color.White;
+            this.mail.Location = new System.Drawing.Point(857, 12);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(112, 30);
+            this.mail.TabIndex = 14;
+            this.mail.Text = "Send Email";
+            this.mail.UseVisualStyleBackColor = false;
+            this.mail.Click += new System.EventHandler(this.mail_Click);
             // 
             // StartTeacherForm
             // 
@@ -342,6 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1022, 422);
+            this.Controls.Add(this.mail);
             this.Controls.Add(this.chart1);
             this.Controls.Add(gradeEquivalentLabel);
             this.Controls.Add(this.gradeEquivalentTextBox);
@@ -403,6 +416,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CurrentGrade;
+        private System.Windows.Forms.Button mail;
 
     }
 }

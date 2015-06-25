@@ -137,5 +137,12 @@ namespace MathsGradeAssessmentTool.Forms
 
         }
 
+        private void mail_Click(object sender, EventArgs e)
+        {
+            MailForm mf = new MailForm();
+            mf.Show();
+            this.Hide();
+        }
+
     }
 }

@@ -80,6 +80,12 @@
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Forms\MailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MailForm.Designer.cs">
+      <DependentUpon>MailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StartTeacherForm.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -132,6 +138,9 @@
     <EmbeddedResource Include="Forms\CompentencyEditForm.resx">
       <DependentUpon>CompentencyEditForm.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MailForm.resx">
+      <DependentUpon>MailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartTeacherForm.resx">
       <DependentUpon>StartTeacherForm.cs</DependentUpon>
