@@ -64,10 +64,10 @@ namespace MathsGradeAssessmentTool.Forms
                     mail.Attachments.Add(attach);
 
                     SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
                     SmtpServer.EnableSsl = true;
                     SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                     SmtpServer.UseDefaultCredentials = false;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
 
                     SmtpServer.Send(mail);
                     MessageBox.Show("Mail sent to : " + to);
