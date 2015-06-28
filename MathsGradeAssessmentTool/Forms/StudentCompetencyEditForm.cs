@@ -24,6 +24,8 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void StudentCompetencyEditForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
             this.studentCompentencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.StudentCompentency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
@@ -51,45 +53,49 @@ namespace MathsGradeAssessmentTool.Forms
         {
             var cells = studentCompentencyDataGridView.Rows[e.RowIndex].Cells[2];
             cells.Value = StudentID;
+            var row = studentTableAdapter.GetDataByStudentID((int)cells.Value);
+            studentCompentencyDataGridView.Rows[e.RowIndex].Cells[3].Value = row[0].CurrentGrade;
         }
 
          private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
          {
-             int i = 3;
+             int i = 4;
              int sum = 0;
 
-             for (; i < 11; i++)
+             for (; i < 12; i++)
              {
-                 if (i == 3 || i == 5)
+                 if (i == 4 || i == 6)
                      try
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 2);
+                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 3);
                      }
                      catch (Exception ex) { }
 
-                 else if (i == 4 || i == 6)
+                 else if (i == 5 || i == 7)
                      try
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 2);
+                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 3);
                      }
                      catch (Exception ex) { }
 
-                 else if (i == 7 || i == 9 || i == 10)
+                 else if (i == 8 || i == 10 || i == 11)
                      try
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 2);
+                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 3);
                      }
                      catch (Exception ex) { }
 
-                 else if (i == 8)
+                 else if (i == 9)
                      try
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 2);
+                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 3);
                      }
-                     catch (Exception ex) { }
+                     catch (Exception ex) {
+                         Console.WriteLine(ex.ToString());
+                     }
              }
 
-             studentCompentencyDataGridView.Rows[e.RowIndex].Cells[11].Value = sum;
+             studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = sum;
 
              //Calculate Grade Equivalent from weighted score
              float temp = (float)sum;
@@ -110,7 +116,7 @@ namespace MathsGradeAssessmentTool.Forms
 
              Console.WriteLine(temp2);
 
-             studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = temp2 + "";
+             studentCompentencyDataGridView.Rows[e.RowIndex].Cells[13].Value = temp2 + "";
          }
 
          private void ToeXcel(DataGridView dGV, string filename)
@@ -142,9 +148,10 @@ namespace MathsGradeAssessmentTool.Forms
 
          private void ExportToExcelButton_Click(object sender, EventArgs e)
          {
+             String name = studentTableAdapter.GetDataByStudentID(StudentID)[0].StudentName;
              SaveFileDialog sfd = new SaveFileDialog();
              sfd.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
-             sfd.FileName = "Student " + StudentID + ".xls";
+             sfd.FileName = name + " " +StudentID + ".xls";
              if (sfd.ShowDialog() == DialogResult.OK)
              {
                  ToeXcel(studentCompentencyDataGridView, sfd.FileName); 
