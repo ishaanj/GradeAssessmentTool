@@ -328,12 +328,13 @@
             chartArea1.AxisY.Interval = 1D;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
+            legend1.Name = "StudentYear";
+            legend1.Title = "StudentYear";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(551, 78);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
+            series1.Legend = "StudentYear";
             series1.Name = "Grades";
             series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.chart1.Series.Add(series1);

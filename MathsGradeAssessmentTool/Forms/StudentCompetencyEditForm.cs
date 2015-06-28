@@ -24,8 +24,6 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void StudentCompetencyEditForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
-            this.studentTableAdapter.Fill(this.mathsToolDatabaseDataSet.Student);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
             this.studentCompentencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.StudentCompentency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
@@ -148,7 +146,7 @@ namespace MathsGradeAssessmentTool.Forms
 
          private void ExportToExcelButton_Click(object sender, EventArgs e)
          {
-             String name = studentTableAdapter.GetDataByStudentID(StudentID)[0].StudentName;
+             String name = "Student " + studentTableAdapter.GetDataByStudentID(StudentID)[0].StudentName;
              SaveFileDialog sfd = new SaveFileDialog();
              sfd.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
              sfd.FileName = name + " " +StudentID + ".xls";

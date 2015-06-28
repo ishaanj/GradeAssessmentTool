@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MathsGradeAssessmentTool.Forms
 {
@@ -118,8 +119,21 @@ namespace MathsGradeAssessmentTool.Forms
             {
                 try
                 {
-                    chart1.ChartAreas[0].AxisX2.Crossing = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
+                    int currYear = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
+                    chart1.ChartAreas[0].AxisX2.Crossing = currYear;
                     chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
+
+                    StripLine currentYear = new StripLine();
+                    currentYear.Text = "Year";
+                    currentYear.Interval = 0;
+                    currentYear.IntervalOffset = (currYear) ;
+                    currentYear.StripWidth = 1;
+                    currentYear.BackColor = Color.FromArgb(64, Color.Blue);
+
+                    var strips = chart1.ChartAreas[0].AxisY.StripLines;
+                    if(strips.Count == 1)
+                        strips.RemoveAt(0);
+                    strips.Add(currentYear);
                 }
                 catch (Exception ex) { }
                 
