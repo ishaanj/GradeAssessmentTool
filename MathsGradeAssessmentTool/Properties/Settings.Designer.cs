@@ -33,5 +33,29 @@ namespace MathsGradeAssessmentTool.Properties {
                 return ((string)(this["MathsToolDatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailIdE {
+            get {
+                return ((string)(this["EmailIdE"]));
+            }
+            set {
+                this["EmailIdE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PasswordE {
+            get {
+                return ((string)(this["PasswordE"]));
+            }
+            set {
+                this["PasswordE"] = value;
+            }
+        }
     }
 }

@@ -8,16 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security;
 
 namespace MathsGradeAssessmentTool.Forms
 {
     public partial class StartTeacherForm : Form
     {
         private int[] teacherIDS;
+        private SecureString email, password;
         
         public StartTeacherForm()
         {
             InitializeComponent();
+            email = EncryptionClass.DecryptString(Convert.ToString(MathsGradeAssessmentTool.Properties.Settings.Default["EmailIdE"]));
+            password = EncryptionClass.DecryptString(Convert.ToString(MathsGradeAssessmentTool.Properties.Settings.Default["PasswordE"]));
+
+            if (!string.IsNullOrEmpty(EncryptionClass.ToInsecureString(email)))
+                mailFromBox.Text = EncryptionClass.ToInsecureString(email);
+
+            if (!string.IsNullOrEmpty(EncryptionClass.ToInsecureString(password)))
+                mailFromPwdBox.Text = EncryptionClass.ToInsecureString(password);
         }
 
         private void teacherBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -139,6 +149,28 @@ namespace MathsGradeAssessmentTool.Forms
         {
             String id = mailFromBox.Text;
             String pwd = mailFromPwdBox.Text;
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                MathsGradeAssessmentTool.Properties.Settings.Default["EmailIdE"] = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(id));
+                MathsGradeAssessmentTool.Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("Email ID cannot be empty");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(pwd))
+            {
+                MathsGradeAssessmentTool.Properties.Settings.Default["PasswordE"] = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(pwd));
+                MathsGradeAssessmentTool.Properties.Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("Password cannot be empty");
+                return;
+            }
 
             MailForm mf = new MailForm(id, pwd);
             mf.Show();
