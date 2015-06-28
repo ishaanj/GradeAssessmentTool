@@ -14,7 +14,7 @@ namespace MathsGradeAssessmentTool.Forms
     public partial class StartTeacherForm : Form
     {
         private int[] teacherIDS;
-
+        
         public StartTeacherForm()
         {
             InitializeComponent();
@@ -103,9 +103,7 @@ namespace MathsGradeAssessmentTool.Forms
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
 
-            //Todo: Add horizontal line at current grade
-            
-
+            //Todo: Add horizontal line at current grade            
             if (e.RowIndex >= 0)
             {
                 try
@@ -139,7 +137,10 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void mail_Click(object sender, EventArgs e)
         {
-            MailForm mf = new MailForm();
+            String id = mailFromBox.Text;
+            String pwd = mailFromPwdBox.Text;
+
+            MailForm mf = new MailForm(id, pwd);
             mf.Show();
             this.Hide();
         }

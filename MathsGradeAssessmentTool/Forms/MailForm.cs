@@ -16,9 +16,12 @@ namespace MathsGradeAssessmentTool.Forms
     {
 
         String file;
+        String id, pwd;
 
-        public MailForm()
+        public MailForm(String id, String pwd)
         {
+            this.id = id;
+            this.pwd = pwd;
             InitializeComponent();
         }
 
@@ -38,16 +41,13 @@ namespace MathsGradeAssessmentTool.Forms
             }
         }
 
-        //EDIT THE EMPTY STRINGS HERE
-        private string fromAddress = "titu1994@gmail.com";
-        private string fromPassword = "zxc1234567890";
-
         private void sendMailButton_Click(object sender, EventArgs e)
         {
             if (mailToBox.Text == null || mailToBox.Text == "")
                 MessageBox.Show("Enter an email address");
             else if (file == null || file == "")
                 MessageBox.Show("Add an attachment");
+
             else
             {
                 try
@@ -58,14 +58,23 @@ namespace MathsGradeAssessmentTool.Forms
                     SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                     SmtpServer.EnableSsl = true;
                     SmtpServer.UseDefaultCredentials = false;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(fromAddress, fromPassword);
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(id, pwd);
 
                     Attachment attach = new Attachment(file);
 
-                    mail.From = new MailAddress(fromAddress);
+                    mail.From = new MailAddress(id);
                     mail.To.Add(mailToBox.Text);
-                    mail.Subject = "Student Report in Excel";
-                    mail.Body = "Excel sheet for student report";
+
+                    if (mailSub.Text == "" || mailSub.Text == null)
+                        mail.Body = "Student Report in Excel";
+                    else
+                        mail.Body = mailBody.Text;
+                    
+                    if (mailBody.Text == "" || mailBody.Text == null)
+                        mail.Body = "Excel sheet for student report";
+                    else
+                        mail.Body = mailBody.Text;
+
                     mail.Attachments.Add(attach);
 
                     SmtpServer.Send(mail);
