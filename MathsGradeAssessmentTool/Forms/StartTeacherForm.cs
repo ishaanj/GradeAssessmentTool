@@ -114,6 +114,8 @@ namespace MathsGradeAssessmentTool.Forms
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
 
+            chart1.Series[0].Points.Clear();
+
             //Todo: Add horizontal line at current grade            
             if (e.RowIndex >= 0)
             {
@@ -126,8 +128,8 @@ namespace MathsGradeAssessmentTool.Forms
                     StripLine currentYear = new StripLine();
                     currentYear.Text = "Year";
                     currentYear.Interval = 0;
-                    currentYear.IntervalOffset = (currYear) ;
-                    currentYear.StripWidth = 1;
+                    currentYear.IntervalOffset = (currYear) - 0.125;
+                    currentYear.StripWidth = 0.25;
                     currentYear.BackColor = Color.FromArgb(64, Color.Blue);
 
                     var strips = chart1.ChartAreas[0].AxisY.StripLines;
