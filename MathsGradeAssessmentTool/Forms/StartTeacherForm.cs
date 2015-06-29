@@ -134,6 +134,8 @@ namespace MathsGradeAssessmentTool.Forms
                     if(strips.Count == 1)
                         strips.RemoveAt(0);
                     strips.Add(currentYear);
+
+                    chart1.Update();
                 }
                 catch (Exception ex) { }
                 

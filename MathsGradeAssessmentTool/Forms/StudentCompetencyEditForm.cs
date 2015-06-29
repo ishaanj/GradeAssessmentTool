@@ -112,14 +112,15 @@ namespace MathsGradeAssessmentTool.Forms
              temp2 = temp / (gradeEq[j + 1] - gradeEq[j]);
              temp2 += (float)j;
 
-             Console.WriteLine(temp2);
 
              studentCompentencyDataGridView.Rows[e.RowIndex].Cells[13].Value = temp2 + "";
          }
 
-         private void ToeXcel(DataGridView dGV, string filename)
+         private void ToeXcel(DataGridView dGV, string filename, MathsGradeAssessmentTool.MathsToolDatabaseDataSet.StudentRow studentData)
          {
-             string stOutput = "";
+             string stOutput = "Name : \t" + studentData.StudentName + "\r\n";
+             stOutput += "ID : \t" + studentData.StudentId + "\tGrade : \t" + studentData.CurrentGrade + "\r\n\r\n";
+
              // Export titles:
              string sHeaders = "";
 
@@ -146,13 +147,15 @@ namespace MathsGradeAssessmentTool.Forms
 
          private void ExportToExcelButton_Click(object sender, EventArgs e)
          {
-             String name = "Student " + studentTableAdapter.GetDataByStudentID(StudentID)[0].StudentName;
+             var studentData = studentTableAdapter.GetDataByStudentID(StudentID)[0];
+             string StudentName = studentData.StudentName;
+             String name = "Student " + StudentName;
              SaveFileDialog sfd = new SaveFileDialog();
              sfd.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
-             sfd.FileName = name + " " +StudentID + ".xls";
+             sfd.FileName = name + " ID - " +StudentID + ".xls";
              if (sfd.ShowDialog() == DialogResult.OK)
              {
-                 ToeXcel(studentCompentencyDataGridView, sfd.FileName); 
+                 ToeXcel(studentCompentencyDataGridView, sfd.FileName, studentData); 
              }  
          }  
 
