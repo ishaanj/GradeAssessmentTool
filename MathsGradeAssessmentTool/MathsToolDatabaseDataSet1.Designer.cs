@@ -451,7 +451,7 @@ namespace MathsGradeAssessmentTool {
             
             private global::System.Data.DataColumn columnCompetencyName;
             
-            private global::System.Data.DataColumn columnCompetencyWeightage;
+            private global::System.Data.DataColumn columnSubjectID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -504,9 +504,9 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CompetencyWeightageColumn {
+            public global::System.Data.DataColumn SubjectIDColumn {
                 get {
-                    return this.columnCompetencyWeightage;
+                    return this.columnSubjectID;
                 }
             }
             
@@ -547,12 +547,12 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CompetencyRow AddCompetencyRow(string CompetencyName, int CompetencyWeightage) {
+            public CompetencyRow AddCompetencyRow(string CompetencyName, int SubjectID) {
                 CompetencyRow rowCompetencyRow = ((CompetencyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         CompetencyName,
-                        CompetencyWeightage};
+                        SubjectID};
                 rowCompetencyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCompetencyRow);
                 return rowCompetencyRow;
@@ -584,7 +584,7 @@ namespace MathsGradeAssessmentTool {
             internal void InitVars() {
                 this.columnCompetencyID = base.Columns["CompetencyID"];
                 this.columnCompetencyName = base.Columns["CompetencyName"];
-                this.columnCompetencyWeightage = base.Columns["CompetencyWeightage"];
+                this.columnSubjectID = base.Columns["SubjectID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -594,8 +594,8 @@ namespace MathsGradeAssessmentTool {
                 base.Columns.Add(this.columnCompetencyID);
                 this.columnCompetencyName = new global::System.Data.DataColumn("CompetencyName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencyName);
-                this.columnCompetencyWeightage = new global::System.Data.DataColumn("CompetencyWeightage", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompetencyWeightage);
+                this.columnSubjectID = new global::System.Data.DataColumn("SubjectID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCompetencyID}, true));
                 this.columnCompetencyID.AutoIncrement = true;
@@ -604,7 +604,6 @@ namespace MathsGradeAssessmentTool {
                 this.columnCompetencyID.Unique = true;
                 this.columnCompetencyName.AllowDBNull = false;
                 this.columnCompetencyName.MaxLength = 20;
-                this.columnCompetencyWeightage.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2115,13 +2114,30 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int CompetencyWeightage {
+            public int SubjectID {
                 get {
-                    return ((int)(this[this.tableCompetency.CompetencyWeightageColumn]));
+                    try {
+                        return ((int)(this[this.tableCompetency.SubjectIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectID\' in table \'Competency\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableCompetency.CompetencyWeightageColumn] = value;
+                    this[this.tableCompetency.SubjectIDColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubjectIDNull() {
+                return this.IsNull(this.tableCompetency.SubjectIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubjectIDNull() {
+                this[this.tableCompetency.SubjectIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3021,36 +3037,37 @@ namespace MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters {
             tableMapping.DataSetTable = "Competency";
             tableMapping.ColumnMappings.Add("CompetencyID", "CompetencyID");
             tableMapping.ColumnMappings.Add("CompetencyName", "CompetencyName");
-            tableMapping.ColumnMappings.Add("CompetencyWeightage", "CompetencyWeightage");
+            tableMapping.ColumnMappings.Add("SubjectID", "SubjectID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Competency] WHERE (([CompetencyID] = @Original_CompetencyID) A" +
-                "ND ([CompetencyName] = @Original_CompetencyName) AND ([CompetencyWeightage] = @O" +
-                "riginal_CompetencyWeightage))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Competency] WHERE (([CompetencyID] = @Original_CompetencyID) AND ((@" +
+                "IsNull_SubjectID = 1 AND [SubjectID] IS NULL) OR ([SubjectID] = @Original_Subjec" +
+                "tID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyWeightage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyWeightage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Competency] ([CompetencyID], [CompetencyName], [CompetencyWeightage]) VALUES (@CompetencyID, @CompetencyName, @CompetencyWeightage);
-SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (CompetencyID = @CompetencyID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Competency] ([CompetencyID], [CompetencyName], [SubjectID]) VALUES (" +
+                "@CompetencyID, @CompetencyName, @SubjectID);\r\nSELECT CompetencyID, CompetencyNam" +
+                "e, SubjectID FROM Competency WHERE (CompetencyID = @CompetencyID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyWeightage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyWeightage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Competency] SET [CompetencyID] = @CompetencyID, [CompetencyName] = @CompetencyName, [CompetencyWeightage] = @CompetencyWeightage WHERE (([CompetencyID] = @Original_CompetencyID) AND ([CompetencyName] = @Original_CompetencyName) AND ([CompetencyWeightage] = @Original_CompetencyWeightage));
-SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (CompetencyID = @CompetencyID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Competency] SET [CompetencyID] = @CompetencyID, [CompetencyName] = @CompetencyName, [SubjectID] = @SubjectID WHERE (([CompetencyID] = @Original_CompetencyID) AND ((@IsNull_SubjectID = 1 AND [SubjectID] IS NULL) OR ([SubjectID] = @Original_SubjectID)));
+SELECT CompetencyID, CompetencyName, SubjectID FROM Competency WHERE (CompetencyID = @CompetencyID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyWeightage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyWeightage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyName", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyWeightage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyWeightage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubjectID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3066,12 +3083,12 @@ SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM dbo.Competency";
+            this._commandCollection[0].CommandText = "SELECT CompetencyID, CompetencyName, SubjectID FROM Competency";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        CompetencyID, CompetencyName, CompetencyWeightage, SubjectID\r\nFROM " +
-                "           Competency\r\nWHERE        (CompetencyID = @competencyid)";
+            this._commandCollection[1].CommandText = "SELECT CompetencyID, CompetencyName, SubjectID FROM Competency WHERE (CompetencyI" +
+                "D = @competencyid)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@competencyid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -3159,15 +3176,16 @@ SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_CompetencyID, string Original_CompetencyName, int Original_CompetencyWeightage) {
+        public virtual int Delete(int Original_CompetencyID, global::System.Nullable<int> Original_SubjectID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CompetencyID));
-            if ((Original_CompetencyName == null)) {
-                throw new global::System.ArgumentNullException("Original_CompetencyName");
+            if ((Original_SubjectID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_SubjectID.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_CompetencyName));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_CompetencyWeightage));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3188,15 +3206,20 @@ SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int CompetencyID, string CompetencyName, int CompetencyWeightage) {
+        public virtual int Insert(int CompetencyID, string CompetencyName, global::System.Nullable<int> SubjectID) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CompetencyID));
             if ((CompetencyName == null)) {
-                throw new global::System.ArgumentNullException("CompetencyName");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CompetencyName));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(CompetencyWeightage));
+            if ((SubjectID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(SubjectID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3217,23 +3240,29 @@ SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CompetencyID, string CompetencyName, int CompetencyWeightage, int Original_CompetencyID, string Original_CompetencyName, int Original_CompetencyWeightage) {
+        public virtual int Update(int CompetencyID, string CompetencyName, global::System.Nullable<int> SubjectID, int Original_CompetencyID, global::System.Nullable<int> Original_SubjectID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CompetencyID));
             if ((CompetencyName == null)) {
-                throw new global::System.ArgumentNullException("CompetencyName");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(CompetencyName));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(CompetencyWeightage));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_CompetencyID));
-            if ((Original_CompetencyName == null)) {
-                throw new global::System.ArgumentNullException("Original_CompetencyName");
+            if ((SubjectID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(SubjectID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_CompetencyName));
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_CompetencyWeightage));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_CompetencyID));
+            if ((Original_SubjectID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_SubjectID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3254,8 +3283,8 @@ SELECT CompetencyID, CompetencyName, CompetencyWeightage FROM Competency WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string CompetencyName, int CompetencyWeightage, int Original_CompetencyID, string Original_CompetencyName, int Original_CompetencyWeightage) {
-            return this.Update(Original_CompetencyID, CompetencyName, CompetencyWeightage, Original_CompetencyID, Original_CompetencyName, Original_CompetencyWeightage);
+        public virtual int Update(string CompetencyName, global::System.Nullable<int> SubjectID, int Original_CompetencyID, global::System.Nullable<int> Original_SubjectID) {
+            return this.Update(Original_CompetencyID, CompetencyName, SubjectID, Original_CompetencyID, Original_SubjectID);
         }
     }
     
