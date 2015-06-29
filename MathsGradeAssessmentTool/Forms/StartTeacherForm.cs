@@ -49,8 +49,6 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void StartTeacherForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Competency' table. You can move, or remove it, as needed.
-            this.competencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.Competency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
             this.studentCompentencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.StudentCompentency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Student' table. You can move, or remove it, as needed.
@@ -116,20 +114,21 @@ namespace MathsGradeAssessmentTool.Forms
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
 
-            chart1.Series[0].Points.Clear();
-
+            //Todo: Add horizontal line at current grade            
             if (e.RowIndex >= 0)
             {
                 try
                 {
                     int currYear = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
+                    chart1.ChartAreas[0].AxisX2.Crossing = currYear;
+                    chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
 
                     StripLine currentYear = new StripLine();
                     currentYear.Text = "Year";
                     currentYear.Interval = 0;
-                    currentYear.IntervalOffset = (currYear) - 0.125;
-                    currentYear.StripWidth = 0.25;
-                    currentYear.BackColor = Color.FromArgb(64, Color.DarkRed);
+                    currentYear.IntervalOffset = (currYear) ;
+                    currentYear.StripWidth = 1;
+                    currentYear.BackColor = Color.FromArgb(64, Color.Blue);
 
                     var strips = chart1.ChartAreas[0].AxisY.StripLines;
                     if(strips.Count == 1)
@@ -151,9 +150,7 @@ namespace MathsGradeAssessmentTool.Forms
                     foreach (DataRow r in data.Rows) {
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToDouble(r["GradeEquivalent"]);
-
-                        String compName = competencyTableAdapter.GetCompetencyNameByID((int)r[1])[0].CompetencyName;
-                        chart1.Series["Grades"].Points.AddXY(compName, r[12]);
+                        chart1.Series["Grades"].Points.AddXY(r[1], r[12]);
                     }
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
