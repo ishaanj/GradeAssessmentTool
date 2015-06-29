@@ -114,13 +114,16 @@ namespace MathsGradeAssessmentTool.Forms
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
 
-            chart1.Series[0].Points.Clear();
 
             //Todo: Add horizontal line at current grade            
             if (e.RowIndex >= 0)
             {
-                try
+                StripLinesCollection strips = chart1.ChartAreas[0].AxisY.StripLines;
+               try
                 {
+                    
+                    chart1.Series[0].Points.Clear();
+
                     int currYear = (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value;
                     chart1.ChartAreas[0].AxisX2.Crossing = currYear;
                     chart1.ChartAreas[0].AxisX2.IsMarksNextToAxis = false;
@@ -131,10 +134,9 @@ namespace MathsGradeAssessmentTool.Forms
                     currentYear.IntervalOffset = (currYear) - 0.125;
                     currentYear.StripWidth = 0.25;
                     currentYear.BackColor = Color.FromArgb(64, Color.Blue);
-
-                    var strips = chart1.ChartAreas[0].AxisY.StripLines;
-                    if(strips.Count == 1)
-                        strips.RemoveAt(0);
+                    
+                    if (strips.Count > 0)
+                        strips.Clear();
                     strips.Add(currentYear);
 
                     chart1.Update();
@@ -157,6 +159,19 @@ namespace MathsGradeAssessmentTool.Forms
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
                     gradeEquivalentTextBox.Text = sumGrade/(double)data.Rows.Count + "";
+
+                    try
+                    {
+                        StripLine currentCompetency = new StripLine();
+                        currentCompetency.Text = "Competency";
+                        currentCompetency.Interval = 0;
+                        currentCompetency.IntervalOffset = (sumGrade / (double)data.Rows.Count) - 0.25;
+                        currentCompetency.StripWidth = 0.25;
+                        currentCompetency.BackColor = Color.FromArgb(64, Color.OrangeRed);
+
+                        strips.Add(currentCompetency);
+                    }
+                    catch (Exception ex) { }
                 }
 
             }

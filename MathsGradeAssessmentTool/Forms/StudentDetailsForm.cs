@@ -58,13 +58,18 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void selectStudentAndSeeCompetencies_Click(object sender, EventArgs e)
         {
-            int rowindex = studentDataGridView.SelectedCells[0].RowIndex;
-            int studentID = Convert.ToInt32(studentTableAdapter.GetData().Rows[rowindex]["StudentID"]);
+            try
+            {
+                int rowindex = studentDataGridView.SelectedCells[0].RowIndex;
+                int studentID = Convert.ToInt32(studentTableAdapter.GetData().Rows[rowindex]["StudentID"]);
 
-            StudentCompetencyEditForm scef = new StudentCompetencyEditForm();
-            scef.StudentID = studentID;
-            scef.Show();
-            this.Hide();
+                StudentCompetencyEditForm scef = new StudentCompetencyEditForm();
+                scef.StudentID = studentID;
+                scef.Show();
+                this.Hide();
+            }
+            catch (Exception ex) { }
+           
         }
     }
 }
