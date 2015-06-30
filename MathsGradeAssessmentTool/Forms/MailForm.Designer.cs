@@ -45,22 +45,24 @@
             // 
             // addFileButton
             // 
+            this.addFileButton.BackColor = System.Drawing.Color.White;
             this.addFileButton.Location = new System.Drawing.Point(335, 225);
             this.addFileButton.Name = "addFileButton";
             this.addFileButton.Size = new System.Drawing.Size(143, 39);
             this.addFileButton.TabIndex = 0;
             this.addFileButton.Text = "Add Files";
-            this.addFileButton.UseVisualStyleBackColor = true;
+            this.addFileButton.UseVisualStyleBackColor = false;
             this.addFileButton.Click += new System.EventHandler(this.addFileButton_Click);
             // 
             // sendMailButton
             // 
+            this.sendMailButton.BackColor = System.Drawing.Color.White;
             this.sendMailButton.Location = new System.Drawing.Point(278, 343);
             this.sendMailButton.Name = "sendMailButton";
             this.sendMailButton.Size = new System.Drawing.Size(262, 67);
             this.sendMailButton.TabIndex = 1;
             this.sendMailButton.Text = "Send Email";
-            this.sendMailButton.UseVisualStyleBackColor = true;
+            this.sendMailButton.UseVisualStyleBackColor = false;
             this.sendMailButton.Click += new System.EventHandler(this.sendMailButton_Click);
             // 
             // label1
@@ -102,6 +104,7 @@
             // 
             // fileBox
             // 
+            this.fileBox.BackColor = System.Drawing.Color.White;
             this.fileBox.Location = new System.Drawing.Point(319, 285);
             this.fileBox.Name = "fileBox";
             this.fileBox.ReadOnly = true;
@@ -110,12 +113,13 @@
             // 
             // ReturnButton
             // 
+            this.ReturnButton.BackColor = System.Drawing.Color.White;
             this.ReturnButton.Location = new System.Drawing.Point(667, 28);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(105, 52);
             this.ReturnButton.TabIndex = 7;
             this.ReturnButton.Text = "Return to Main Screen";
-            this.ReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // label4
@@ -157,6 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.mailBody);
             this.Controls.Add(this.mailSub);

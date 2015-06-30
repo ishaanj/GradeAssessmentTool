@@ -16,6 +16,7 @@ namespace MathsGradeAssessmentTool.Forms
     public partial class StartTeacherForm : Form
     {
         private int[] teacherIDS;
+        private int[] schoolIDS;
         private SecureString email, password;
 
         public StartTeacherForm()
@@ -49,6 +50,8 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void StartTeacherForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.School' table. You can move, or remove it, as needed.
+            this.schoolTableAdapter.Fill(this.mathsToolDatabaseDataSet.School);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Competency' table. You can move, or remove it, as needed.
             this.competencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.Competency);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
@@ -66,6 +69,16 @@ namespace MathsGradeAssessmentTool.Forms
             for (int i = 0; i < count; i++)
             {
                 teacherIDS[i] = Convert.ToInt32(rows[i]["TeacherID"]);
+            }
+
+            count = schoolTableAdapter.GetData().Count;
+            schoolIDS = new int[count];
+
+            rows = schoolTableAdapter.GetData().Rows;
+
+            for (int i = 0; i < count; i++)
+            {
+                schoolIDS[i] = Convert.ToInt32(rows[i]["SchoolID"]);
             }
 
         }
@@ -98,14 +111,43 @@ namespace MathsGradeAssessmentTool.Forms
             this.Hide();
         }
 
+        private void SchoolComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int position = SchoolComboBox.SelectedIndex;
+            if (position >= 0)
+            {
+                int schoolid = schoolIDS[position];
+                this.teacherTableAdapter.FillBySchoolID(this.mathsToolDatabaseDataSet.Teacher, schoolid);
+
+                var teacherData = teacherTableAdapter.GetDataBySchoolID(schoolid);
+                int count = teacherData.Count;
+                teacherIDS = new int[count];
+
+                DataRowCollection rows = teacherData.Rows;
+
+                for (int i = 0; i < count; i++)
+                {
+                    teacherIDS[i] = Convert.ToInt32(rows[i]["TeacherID"]);
+                }
+
+                teacherBindingSource.DataSource = teacherData;
+
+                position = teacherNameComboBox.SelectedIndex;
+                if (position >= 0)
+                {
+                    int teacherID = teacherIDS[position];
+                    fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
+                }
+            }
+            
+        }
+
         private void onSelectedIndexChange(object sender, EventArgs e)
         {
-            String name = teacherNameComboBox.Text;
             int position = teacherNameComboBox.SelectedIndex;
             if (position >= 0)
             {
                 int teacherID = teacherIDS[position];
-                Console.WriteLine("Teacher ID = " + teacherID);
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
             }
         }
@@ -225,6 +267,15 @@ namespace MathsGradeAssessmentTool.Forms
             mf.Show();
             this.Hide();
         }
+
+        private void AddSchoolButton_Click(object sender, EventArgs e)
+        {
+            SchoolEditForm sef = new SchoolEditForm();
+            sef.Show();
+            this.Hide();
+        }
+
+        
 
     }
 }
