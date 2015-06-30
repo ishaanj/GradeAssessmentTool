@@ -23,7 +23,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Grade Assessment Tool</ProductName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -209,9 +209,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -224,9 +224,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.12.0">
       <Visible>False</Visible>
-      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <ProductName>SQL Server 2014 Express LocalDB</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">

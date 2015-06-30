@@ -17,7 +17,7 @@ namespace MathsGradeAssessmentTool.Forms
     {
         private int[] teacherIDS;
         private SecureString email, password;
-        
+
         public StartTeacherForm()
         {
             InitializeComponent();
@@ -63,9 +63,9 @@ namespace MathsGradeAssessmentTool.Forms
 
             DataRowCollection rows = teacherTableAdapter.GetData().Rows;
 
-            for(int i = 0; i < count; i++) {
-                teacherIDS[i] =  Convert.ToInt32(rows[i]["TeacherID"]);
-                Console.WriteLine("Teacher IDS[] = " + teacherIDS[i]);
+            for (int i = 0; i < count; i++)
+            {
+                teacherIDS[i] = Convert.ToInt32(rows[i]["TeacherID"]);
             }
 
         }
@@ -120,9 +120,9 @@ namespace MathsGradeAssessmentTool.Forms
             if (e.RowIndex >= 0)
             {
                 StripLinesCollection strips = chart1.ChartAreas[0].AxisY.StripLines;
-               try
+                try
                 {
-                    
+
                     chart1.Series[0].Points.Clear();
                     chart1.Series[1].Points.Clear();
 
@@ -134,7 +134,7 @@ namespace MathsGradeAssessmentTool.Forms
                     currentYear.IntervalOffset = (currYear) - 0.125;
                     currentYear.StripWidth = 0.25;
                     currentYear.BackColor = Color.FromArgb(64, Color.Blue);
-                    
+
                     if (strips.Count > 0)
                         strips.Clear();
                     strips.Add(currentYear);
@@ -142,27 +142,39 @@ namespace MathsGradeAssessmentTool.Forms
                     chart1.Update();
                 }
                 catch (Exception ex) { }
-                
+
 
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
+                String name = "";
 
                 if (data.Rows.Count > 0)
                 {
                     int sumTotal = 0;
                     double sumGrade = 0.0;
-                    foreach (DataRow r in data.Rows) {
+                    int compCount = 0;
+                    foreach (DataRow r in data.Rows)
+                    {
+                        compCount++;
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToDouble(r["GradeEquivalent"]);
-                        String name = competencyTableAdapter.GetCompetencyNameByID((int)r[1])[0].CompetencyName;
+
+                        try
+                        {
+                            name = competencyTableAdapter.GetCompetencyNameByID((int)r[1])[0].CompetencyName;
+                        }
+                        catch (Exception ex) 
+                        {
+                            name = "Competency " + compCount;
+                        }
                         if ((int)r[13] == (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value)
-                        chart1.Series["Grades"].Points.AddXY(name, r[12]);
+                            chart1.Series["Grades"].Points.AddXY(name, r[12]);
                         else
-                        chart1.Series["Previous Year"].Points.AddXY(name, r[12]);
+                            chart1.Series["Previous Year"].Points.AddXY(name, r[12]);
                     }
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
-                    gradeEquivalentTextBox.Text = sumGrade/(double)data.Rows.Count + "";
+                    gradeEquivalentTextBox.Text = sumGrade / (double)data.Rows.Count + "";
 
                     try
                     {

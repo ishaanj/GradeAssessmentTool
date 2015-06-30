@@ -125,14 +125,43 @@ namespace MathsGradeAssessmentTool.Forms
              string sHeaders = "";
 
              for (int j = 0; j < dGV.Columns.Count; j++)
-                 sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+             {
+                 if(j != 1)
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                 else
+                 {
+                     sHeaders = sHeaders.ToString() + "Competency Name" + "\t";
+                 }
+             }
+                 
              stOutput += sHeaders + "\r\n";
              // Export data.
              for (int i = 0; i < dGV.RowCount - 1; i++)
              {
                  string stLine = "";
                  for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
-                     stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                 {
+                     if (j != 1)
+                     {
+                         stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                     }
+                     else
+                     {
+                         String competencyName = "";
+                         try
+                         {
+                             var row = competencyTableAdapter1.GetCompetencyNameByID(Convert.ToInt32(dGV.Rows[i].Cells[j].Value))[0];
+                             competencyName = row.CompetencyName;
+                         }
+                         catch (Exception ex)
+                         {
+                             competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                         }
+
+                         stLine = stLine.ToString() + competencyName + "\t";
+                     }
+                 }
+                 
                  stOutput += stLine + "\r\n";
              }
              Encoding utf16 = Encoding.UTF8;

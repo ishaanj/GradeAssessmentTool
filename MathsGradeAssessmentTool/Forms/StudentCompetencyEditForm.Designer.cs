@@ -67,6 +67,7 @@
             this.ExportToExcelButton = new System.Windows.Forms.Button();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
+            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).BeginInit();
             this.studentCompentencyBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
@@ -371,6 +372,10 @@
             // 
             this.studentTableAdapter.ClearBeforeFill = true;
             // 
+            // competencyTableAdapter1
+            // 
+            this.competencyTableAdapter1.ClearBeforeFill = true;
+            // 
             // StudentCompetencyEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,5 +442,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
+        private MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter competencyTableAdapter1;
     }
 }
