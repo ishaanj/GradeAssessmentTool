@@ -346,6 +346,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CompetencyTableAdapter = null;
+            this.tableAdapterManager.SchoolTableAdapter = null;
             this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
             this.tableAdapterManager.StudentTableAdapter = null;
             this.tableAdapterManager.SubjectTableAdapter = null;

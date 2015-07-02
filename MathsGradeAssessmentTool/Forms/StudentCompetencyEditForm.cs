@@ -57,41 +57,31 @@ namespace MathsGradeAssessmentTool.Forms
 
          private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
          {
-             int i = 4;
-             int sum = 0;
+             int i = 4,sum = 0;
+             int[] compw = new int[8]; 
 
-             for (; i < 12; i++)
-             {
-                 if (i == 4 || i == 6)
+             var comp = competencyTableAdapter1.GetCompetencyNameByID((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[1].Value);
+
+             compw[0] = comp[0].MG1;
+             compw[1] = comp[0].MG2;
+             compw[2] = comp[0].MG3;
+             compw[3] = comp[0].MG4;
+             compw[4] = comp[0].MG5;
+             compw[5] = comp[0].MG6;
+             compw[6] = comp[0].MG7;
+             compw[7] = comp[0].MG8;
+
+                 for (; i < 12; i++)
+                 {
                      try
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value) * (i - 3);
+                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value * 4 / compw[i-4]) * (i - 3);
                      }
-                     catch (Exception ex) { }
-
-                 else if (i == 5 || i == 7)
-                     try
+                     catch (Exception ex)
                      {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 2) * (i - 3);
-                     }
-                     catch (Exception ex) { }
-
-                 else if (i == 8 || i == 10 || i == 11)
-                     try
-                     {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 3) * (i - 3);
-                     }
-                     catch (Exception ex) { }
-
-                 else if (i == 9)
-                     try
-                     {
-                         sum += ((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[i].Value / 4) * (i - 3);
-                     }
-                     catch (Exception ex) {
                          Console.WriteLine(ex.ToString());
                      }
-             }
+                 }
 
              studentCompentencyDataGridView.Rows[e.RowIndex].Cells[12].Value = sum;
 

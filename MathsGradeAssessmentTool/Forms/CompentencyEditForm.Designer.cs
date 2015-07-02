@@ -41,8 +41,16 @@
             this.competencyDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Back = new System.Windows.Forms.Button();
             this.SubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Back = new System.Windows.Forms.Button();
+            this.MG1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MG8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyBindingNavigator)).BeginInit();
@@ -68,6 +76,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CompetencyTableAdapter = this.competencyTableAdapter;
+            this.tableAdapterManager.SchoolTableAdapter = null;
             this.tableAdapterManager.StudentCompentencyTableAdapter = null;
             this.tableAdapterManager.StudentTableAdapter = null;
             this.tableAdapterManager.SubjectTableAdapter = null;
@@ -129,11 +138,19 @@
             this.competencyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.SubjectID});
+            this.SubjectID,
+            this.MG1,
+            this.MG2,
+            this.MG3,
+            this.MG4,
+            this.MG5,
+            this.MG6,
+            this.MG7,
+            this.MG8});
             this.competencyDataGridView.DataSource = this.competencyBindingSource;
-            this.competencyDataGridView.Location = new System.Drawing.Point(126, 111);
+            this.competencyDataGridView.Location = new System.Drawing.Point(12, 142);
             this.competencyDataGridView.Name = "competencyDataGridView";
-            this.competencyDataGridView.Size = new System.Drawing.Size(346, 240);
+            this.competencyDataGridView.Size = new System.Drawing.Size(760, 250);
             this.competencyDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -148,6 +165,12 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "CompetencyName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
+            // SubjectID
+            // 
+            this.SubjectID.DataPropertyName = "SubjectID";
+            this.SubjectID.HeaderText = "SubjectID";
+            this.SubjectID.Name = "SubjectID";
+            // 
             // Back
             // 
             this.Back.BackColor = System.Drawing.Color.White;
@@ -159,11 +182,53 @@
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
-            // SubjectID
+            // MG1
             // 
-            this.SubjectID.DataPropertyName = "SubjectID";
-            this.SubjectID.HeaderText = "SubjectID";
-            this.SubjectID.Name = "SubjectID";
+            this.MG1.DataPropertyName = "MG1";
+            this.MG1.HeaderText = "MG1";
+            this.MG1.Name = "MG1";
+            // 
+            // MG2
+            // 
+            this.MG2.DataPropertyName = "MG2";
+            this.MG2.HeaderText = "MG2";
+            this.MG2.Name = "MG2";
+            // 
+            // MG3
+            // 
+            this.MG3.DataPropertyName = "MG3";
+            this.MG3.HeaderText = "MG3";
+            this.MG3.Name = "MG3";
+            // 
+            // MG4
+            // 
+            this.MG4.DataPropertyName = "MG4";
+            this.MG4.HeaderText = "MG4";
+            this.MG4.Name = "MG4";
+            // 
+            // MG5
+            // 
+            this.MG5.DataPropertyName = "MG5";
+            this.MG5.HeaderText = "MG5";
+            this.MG5.Name = "MG5";
+            // 
+            // MG6
+            // 
+            this.MG6.DataPropertyName = "MG6";
+            this.MG6.HeaderText = "MG6";
+            this.MG6.Name = "MG6";
+            // 
+            // MG7
+            // 
+            this.MG7.DataPropertyName = "MG7";
+            this.MG7.HeaderText = "MG7";
+            this.MG7.Name = "MG7";
+            // 
+            // MG8
+            // 
+            this.MG8.DataPropertyName = "MG8";
+            this.MG8.HeaderText = "MG8";
+            this.MG8.Name = "MG8";
             // 
             // CompentencyEditForm
             // 
@@ -205,5 +270,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MG8;
     }
 }
