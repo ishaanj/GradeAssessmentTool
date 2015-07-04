@@ -25,8 +25,6 @@ namespace MathsGradeAssessmentTool.Forms
         private void StudentCompetencyEditForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
-            this.studentCompentencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.StudentCompentency);
-            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
             this.studentCompentencyTableAdapter.FillByStudentID(this.mathsToolDatabaseDataSet.StudentCompentency, StudentID);
             //studentCompentencyBindingSource.DataSource = studentCompentencyTableAdapter.GetDataByStudentID(StudentID);
             this.datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
@@ -58,18 +56,49 @@ namespace MathsGradeAssessmentTool.Forms
          private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
          {
              int i = 4,sum = 0;
-             int[] compw = new int[8]; 
+             int[] compw = new int[8];
 
-             var comp = competencyTableAdapter1.GetCompetencyNameByID((int)studentCompentencyDataGridView.Rows[e.RowIndex].Cells[1].Value);
+             MathsGradeAssessmentTool.MathsToolDatabaseDataSet.CompetencyRow comp = null;
+             int cid = 0;
+             try
+             {
+                 cid = Convert.ToInt32(studentCompentencyDataGridView.Rows[e.RowIndex].Cells[1].Value);
+                 var x = competencyTableAdapter1.GetData();
+                 foreach (MathsGradeAssessmentTool.MathsToolDatabaseDataSet.CompetencyRow row in x)
+                 {
+                     if (row.CompetencyID == cid)
+                     {
+                         comp = row;
+                         break;
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
 
-             compw[0] = comp[0].MG1;
-             compw[1] = comp[0].MG2;
-             compw[2] = comp[0].MG3;
-             compw[3] = comp[0].MG4;
-             compw[4] = comp[0].MG5;
-             compw[5] = comp[0].MG6;
-             compw[6] = comp[0].MG7;
-             compw[7] = comp[0].MG8;
+             }
+
+             if (comp == null)
+             {
+                 DialogResult r = MessageBox.Show("The Competency with ID " + cid + " was not found. Add Competency?", "Competency Not Found", MessageBoxButtons.OK);
+                 if (r == DialogResult.OK)
+                 {
+                     CompentencyEditForm cef = new CompentencyEditForm();
+                     cef.Show();
+                     this.Hide();
+                     return;
+                 }
+                 
+             }
+
+             compw[0] = comp.MG1;
+             compw[1] = comp.MG2;
+             compw[2] = comp.MG3;
+             compw[3] = comp.MG4;
+             compw[4] = comp.MG5;
+             compw[5] = comp.MG6;
+             compw[6] = comp.MG7;
+             compw[7] = comp.MG8;
 
                  for (; i < 12; i++)
                  {
@@ -79,7 +108,6 @@ namespace MathsGradeAssessmentTool.Forms
                      }
                      catch (Exception ex)
                      {
-                         Console.WriteLine(ex.ToString());
                      }
                  }
 
