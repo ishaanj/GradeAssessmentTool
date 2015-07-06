@@ -137,7 +137,7 @@ namespace MathsGradeAssessmentTool.Forms
          private void ToeXcel(DataGridView dGV, string filename, MathsGradeAssessmentTool.MathsToolDatabaseDataSet.StudentRow studentData)
          {
              string stOutput = "Name : \t" + studentData.StudentName + "\r\n";
-             stOutput += "ID : \t" + studentData.StudentId + "\tGrade : \t" + studentData.CurrentGrade + "\r\n\r\n";
+             stOutput += "ID : \t" + studentData.StudentId + "\tGrade : \t" + studentData.CurrentGrade + "\r\n";
 
              // Export titles:
              string sHeaders = "";
@@ -148,7 +148,7 @@ namespace MathsGradeAssessmentTool.Forms
                     sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
                  else
                  {
-                     sHeaders = sHeaders.ToString() + "Competency Name" + "\t";
+                     sHeaders = sHeaders.ToString() + "Competency Name" + "\t" + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
                  }
              }
                  
@@ -176,7 +176,7 @@ namespace MathsGradeAssessmentTool.Forms
                              competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                          }
 
-                         stLine = stLine.ToString() + competencyName + "\t";
+                         stLine = stLine.ToString() + competencyName + "\t" + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
                      }
                  }
                  
@@ -204,6 +204,77 @@ namespace MathsGradeAssessmentTool.Forms
              {
                  ToeXcel(studentCompentencyDataGridView, sfd.FileName, studentData); 
              }  
+         }
+
+         private void ImportFromExcelButton_Click(object sender, EventArgs e)
+         {
+             Stream myStream = null;
+             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+             openFileDialog1.InitialDirectory = "c:\\";
+             openFileDialog1.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
+             openFileDialog1.FilterIndex = 1;
+             openFileDialog1.RestoreDirectory = true;
+
+             if (openFileDialog1.ShowDialog() == DialogResult.OK)
+             {
+                 try
+                 {
+                     if ((myStream = openFileDialog1.OpenFile()) != null)
+                     {
+                         using (myStream)
+                         {
+                             StreamReader reader = new StreamReader(myStream, Encoding.UTF8);
+                             String line = "";
+                             String[] segs = null;
+                             char[] splitArr = new char[] { '\t' };
+
+                             studentCompentencyTableAdapter.DeleteByStudentID(StudentID);
+
+                             while (!string.IsNullOrEmpty(line = reader.ReadLine()))
+                             {
+                                 //Console.WriteLine(line);
+                                 if(line.Contains('\t'))
+                                     segs = line.Split(splitArr, StringSplitOptions.None);
+                                 else
+                                     continue;
+
+                                 if (segs[0].Equals("Name : "))
+                                     continue;
+
+                                 if (segs[0].Equals("ID : "))
+                                     continue;
+
+                                 if (segs[0].Equals("StudentCompId"))
+                                     continue;
+
+                                 int StudentCompId = Convert.ToInt32(segs[0]);
+                                 int CompetencyID = Convert.ToInt32(segs[2]);
+                                 int StudentId = Convert.ToInt32(segs[3]);
+                                 int GradeLevel = Convert.ToInt32(segs[4]);
+                                 int G1 = string.IsNullOrEmpty(segs[5]) ? 0 : Convert.ToInt32(segs[5]);
+                                 int G2 = string.IsNullOrEmpty(segs[6]) ? 0 : Convert.ToInt32(segs[6]);
+                                 int G3 = string.IsNullOrEmpty(segs[7]) ? 0 : Convert.ToInt32(segs[7]);
+                                 int G4 = string.IsNullOrEmpty(segs[8]) ? 0 : Convert.ToInt32(segs[8]);
+                                 int G5 = string.IsNullOrEmpty(segs[9]) ? 0 : Convert.ToInt32(segs[9]);
+                                 int G6 = string.IsNullOrEmpty(segs[10]) ? 0 : Convert.ToInt32(segs[10]);
+                                 int G7 = string.IsNullOrEmpty(segs[11]) ? 0 : Convert.ToInt32(segs[11]);
+                                 int G8 = string.IsNullOrEmpty(segs[12]) ? 0 : Convert.ToInt32(segs[12]);
+                                 int GTotalWeighted = Convert.ToInt32(segs[13]);
+                                 string GradeEquivalent = segs[14];
+
+                                 studentCompentencyTableAdapter.InsertWithStudentID(StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+                             }
+                             studentCompentencyTableAdapter.FillByStudentID(this.mathsToolDatabaseDataSet.StudentCompentency, StudentID);
+                             reader.Close();
+                         }
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show("Error: Could not read file from disk.");
+                 }
+             }
          }  
 
     }

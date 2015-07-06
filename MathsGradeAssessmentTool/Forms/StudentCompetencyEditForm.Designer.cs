@@ -68,6 +68,7 @@
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
             this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
+            this.ImportFromExcelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).BeginInit();
             this.studentCompentencyBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
@@ -356,7 +357,7 @@
             // ExportToExcelButton
             // 
             this.ExportToExcelButton.BackColor = System.Drawing.Color.White;
-            this.ExportToExcelButton.Location = new System.Drawing.Point(251, 38);
+            this.ExportToExcelButton.Location = new System.Drawing.Point(300, 38);
             this.ExportToExcelButton.Name = "ExportToExcelButton";
             this.ExportToExcelButton.Size = new System.Drawing.Size(139, 52);
             this.ExportToExcelButton.TabIndex = 4;
@@ -377,12 +378,24 @@
             // 
             this.competencyTableAdapter1.ClearBeforeFill = true;
             // 
+            // ImportFromExcelButton
+            // 
+            this.ImportFromExcelButton.BackColor = System.Drawing.Color.White;
+            this.ImportFromExcelButton.Location = new System.Drawing.Point(116, 38);
+            this.ImportFromExcelButton.Name = "ImportFromExcelButton";
+            this.ImportFromExcelButton.Size = new System.Drawing.Size(136, 52);
+            this.ImportFromExcelButton.TabIndex = 5;
+            this.ImportFromExcelButton.Text = "Import from Excel";
+            this.ImportFromExcelButton.UseVisualStyleBackColor = false;
+            this.ImportFromExcelButton.Click += new System.EventHandler(this.ImportFromExcelButton_Click);
+            // 
             // StudentCompetencyEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ImportFromExcelButton);
             this.Controls.Add(this.ExportToExcelButton);
             this.Controls.Add(this.studentCompentencyDataGridView);
             this.Controls.Add(this.studentCompentencyBindingNavigator);
@@ -444,5 +457,6 @@
         private System.Windows.Forms.BindingSource studentBindingSource;
         private MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter studentTableAdapter;
         private MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter competencyTableAdapter1;
+        private System.Windows.Forms.Button ImportFromExcelButton;
     }
 }
