@@ -189,6 +189,9 @@ namespace MathsGradeAssessmentTool.Forms
             bw.Flush();
             bw.Close();
             fs.Close();
+
+            var fileInfo = new FileInfo(filename);
+            fileInfo.IsReadOnly = true;
         }
 
         private void ExportToExcelButton_Click(object sender, EventArgs e)
@@ -197,7 +200,7 @@ namespace MathsGradeAssessmentTool.Forms
             string StudentName = studentData.StudentName;
             String name = "Student " + StudentName;
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
+            sfd.Filter = "Excel Documents (2003)|*.xls";
             sfd.FileName = name + " ID - " + StudentID + ".xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -211,7 +214,7 @@ namespace MathsGradeAssessmentTool.Forms
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Excel Documents (2003)|*.xls|Excel Document (2007)|*.xlsx";
+            openFileDialog1.Filter = "Excel Documents (2003)|*.xls";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
