@@ -33,10 +33,10 @@
             System.Windows.Forms.Label studentNameLabel;
             System.Windows.Forms.Label gTotalWeightedLabel;
             System.Windows.Forms.Label gradeEquivalentLabel;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TeacherTableAdapter();
@@ -77,6 +77,8 @@
             this.SchoolComboBox = new System.Windows.Forms.ComboBox();
             this.schoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schoolTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter();
+            this.teacherBox = new System.Windows.Forms.TextBox();
+            this.teacherLabel = new System.Windows.Forms.Label();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -114,20 +116,20 @@
             // gTotalWeightedLabel
             // 
             gTotalWeightedLabel.AutoSize = true;
-            gTotalWeightedLabel.Location = new System.Drawing.Point(336, 148);
+            gTotalWeightedLabel.Location = new System.Drawing.Point(276, 148);
             gTotalWeightedLabel.Name = "gTotalWeightedLabel";
-            gTotalWeightedLabel.Size = new System.Drawing.Size(91, 13);
+            gTotalWeightedLabel.Size = new System.Drawing.Size(154, 13);
             gTotalWeightedLabel.TabIndex = 9;
-            gTotalWeightedLabel.Text = "GTotal Weighted:";
+            gTotalWeightedLabel.Text = "Student Total Weighted Score:";
             // 
             // gradeEquivalentLabel
             // 
             gradeEquivalentLabel.AutoSize = true;
-            gradeEquivalentLabel.Location = new System.Drawing.Point(336, 189);
+            gradeEquivalentLabel.Location = new System.Drawing.Point(298, 189);
             gradeEquivalentLabel.Name = "gradeEquivalentLabel";
-            gradeEquivalentLabel.Size = new System.Drawing.Size(92, 13);
+            gradeEquivalentLabel.Size = new System.Drawing.Size(132, 13);
             gradeEquivalentLabel.TabIndex = 11;
-            gradeEquivalentLabel.Text = "Grade Equivalent:";
+            gradeEquivalentLabel.Text = "Student Grade Equivalent:";
             // 
             // mathsToolDatabaseDataSet
             // 
@@ -337,24 +339,24 @@
             // 
             // chart1
             // 
-            chartArea2.AxisX2.Crossing = -1.7976931348623157E+308D;
-            chartArea2.AxisY.Interval = 1D;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "StudentYear";
-            legend2.Title = "StudentYear";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.AxisX2.Crossing = -1.7976931348623157E+308D;
+            chartArea1.AxisY.Interval = 1D;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "StudentYear";
+            legend1.Title = "StudentYear";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(542, 145);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "StudentYear";
-            series3.Name = "Grades";
-            series3.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "StudentYear";
-            series4.Name = "Previous Year";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "StudentYear";
+            series1.Name = "Grades";
+            series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "StudentYear";
+            series2.Name = "Previous Year";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(459, 331);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "Grade Chart";
@@ -453,12 +455,31 @@
             // 
             this.schoolTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherBox
+            // 
+            this.teacherBox.Location = new System.Drawing.Point(436, 102);
+            this.teacherBox.Name = "teacherBox";
+            this.teacherBox.ReadOnly = true;
+            this.teacherBox.Size = new System.Drawing.Size(100, 20);
+            this.teacherBox.TabIndex = 22;
+            // 
+            // teacherLabel
+            // 
+            this.teacherLabel.AutoSize = true;
+            this.teacherLabel.Location = new System.Drawing.Point(276, 105);
+            this.teacherLabel.Name = "teacherLabel";
+            this.teacherLabel.Size = new System.Drawing.Size(154, 13);
+            this.teacherLabel.TabIndex = 23;
+            this.teacherLabel.Text = "Teacher Average Grade Level:";
+            // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1210, 561);
+            this.Controls.Add(this.teacherLabel);
+            this.Controls.Add(this.teacherBox);
             this.Controls.Add(this.SchoolComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddSchoolButton);
@@ -542,6 +563,8 @@
         private System.Windows.Forms.ComboBox SchoolComboBox;
         private System.Windows.Forms.BindingSource schoolBindingSource;
         private MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter schoolTableAdapter;
+        private System.Windows.Forms.TextBox teacherBox;
+        private System.Windows.Forms.Label teacherLabel;
 
     }
 }

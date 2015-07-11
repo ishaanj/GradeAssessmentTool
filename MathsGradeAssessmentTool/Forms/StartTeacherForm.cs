@@ -150,6 +150,24 @@ namespace MathsGradeAssessmentTool.Forms
                 int teacherID = teacherIDS[position];
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
             }
+
+            double average = 0;
+            int counter=0;
+            foreach (DataGridViewRow r in studentDataGridView.Rows)
+            {
+                Console.WriteLine(r.Cells[0].Value);
+                int x = Convert.ToInt16(r.Cells[0].Value);
+
+                var tab = studentCompentencyTableAdapter.GetDataByStudentID(x);
+                foreach (DataRow d in tab)
+                {
+                    counter++;
+                    average += Convert.ToDouble(d[12]);
+                }
+            }
+
+            average = (double)average / counter;
+            teacherBox.Text = average.ToString();
         }
 
 
