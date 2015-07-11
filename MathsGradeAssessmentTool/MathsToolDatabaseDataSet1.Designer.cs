@@ -1802,8 +1802,6 @@ namespace MathsGradeAssessmentTool {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class StudentCompentencyDataTable : global::System.Data.TypedTableBase<StudentCompentencyRow> {
             
-            private global::System.Data.DataColumn columnStudentCompId;
-            
             private global::System.Data.DataColumn columnCompetencyID;
             
             private global::System.Data.DataColumn columnStudentId;
@@ -1861,14 +1859,6 @@ namespace MathsGradeAssessmentTool {
             protected StudentCompentencyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StudentCompIdColumn {
-                get {
-                    return this.columnStudentCompId;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2017,7 +2007,6 @@ namespace MathsGradeAssessmentTool {
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        null,
                         G1,
                         G2,
                         G3,
@@ -2030,21 +2019,14 @@ namespace MathsGradeAssessmentTool {
                         GradeEquivalent,
                         GradeLevel};
                 if ((parentCompetencyRowByCompetency_StudentCompentency != null)) {
-                    columnValuesArray[1] = parentCompetencyRowByCompetency_StudentCompentency[0];
+                    columnValuesArray[0] = parentCompetencyRowByCompetency_StudentCompentency[0];
                 }
                 if ((parentStudentRowByStudent_StudentCompentency != null)) {
-                    columnValuesArray[2] = parentStudentRowByStudent_StudentCompentency[0];
+                    columnValuesArray[1] = parentStudentRowByStudent_StudentCompentency[0];
                 }
                 rowStudentCompentencyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentCompentencyRow);
                 return rowStudentCompentencyRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StudentCompentencyRow FindByStudentCompId(int StudentCompId) {
-                return ((StudentCompentencyRow)(this.Rows.Find(new object[] {
-                            StudentCompId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2064,7 +2046,6 @@ namespace MathsGradeAssessmentTool {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnStudentCompId = base.Columns["StudentCompId"];
                 this.columnCompetencyID = base.Columns["CompetencyID"];
                 this.columnStudentId = base.Columns["StudentId"];
                 this.columnG1 = base.Columns["G1"];
@@ -2083,8 +2064,6 @@ namespace MathsGradeAssessmentTool {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnStudentCompId = new global::System.Data.DataColumn("StudentCompId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentCompId);
                 this.columnCompetencyID = new global::System.Data.DataColumn("CompetencyID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencyID);
                 this.columnStudentId = new global::System.Data.DataColumn("StudentId", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2111,12 +2090,6 @@ namespace MathsGradeAssessmentTool {
                 base.Columns.Add(this.columnGradeEquivalent);
                 this.columnGradeLevel = new global::System.Data.DataColumn("GradeLevel", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGradeLevel);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnStudentCompId}, true));
-                this.columnStudentCompId.AutoIncrement = true;
-                this.columnStudentCompId.AutoIncrementSeed = 1;
-                this.columnStudentCompId.AllowDBNull = false;
-                this.columnStudentCompId.Unique = true;
                 this.columnCompetencyID.AllowDBNull = false;
                 this.columnStudentId.AllowDBNull = false;
                 this.columnGradeEquivalent.MaxLength = 20;
@@ -3100,17 +3073,6 @@ namespace MathsGradeAssessmentTool {
             internal StudentCompentencyRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableStudentCompentency = ((StudentCompentencyDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StudentCompId {
-                get {
-                    return ((int)(this[this.tableStudentCompentency.StudentCompIdColumn]));
-                }
-                set {
-                    this[this.tableStudentCompentency.StudentCompIdColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5734,7 +5696,6 @@ SELECT TeacherID, TeacherName, SchoolID FROM Teacher WHERE (TeacherID = @Teacher
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "StudentCompentency";
-            tableMapping.ColumnMappings.Add("StudentCompId", "StudentCompId");
             tableMapping.ColumnMappings.Add("CompetencyID", "CompetencyID");
             tableMapping.ColumnMappings.Add("StudentId", "StudentId");
             tableMapping.ColumnMappings.Add("G1", "G1");
@@ -5751,9 +5712,8 @@ SELECT TeacherID, TeacherName, SchoolID FROM Teacher WHERE (TeacherID = @Teacher
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StudentCompentency] WHERE (([StudentCompId] = @Original_StudentCompId) AND ([CompetencyID] = @Original_CompetencyID) AND ([StudentId] = @Original_StudentId) AND ((@IsNull_G1 = 1 AND [G1] IS NULL) OR ([G1] = @Original_G1)) AND ((@IsNull_G2 = 1 AND [G2] IS NULL) OR ([G2] = @Original_G2)) AND ((@IsNull_G3 = 1 AND [G3] IS NULL) OR ([G3] = @Original_G3)) AND ((@IsNull_G4 = 1 AND [G4] IS NULL) OR ([G4] = @Original_G4)) AND ((@IsNull_G5 = 1 AND [G5] IS NULL) OR ([G5] = @Original_G5)) AND ((@IsNull_G6 = 1 AND [G6] IS NULL) OR ([G6] = @Original_G6)) AND ((@IsNull_G7 = 1 AND [G7] IS NULL) OR ([G7] = @Original_G7)) AND ((@IsNull_G8 = 1 AND [G8] IS NULL) OR ([G8] = @Original_G8)) AND ((@IsNull_GTotalWeighted = 1 AND [GTotalWeighted] IS NULL) OR ([GTotalWeighted] = @Original_GTotalWeighted)) AND ((@IsNull_GradeEquivalent = 1 AND [GradeEquivalent] IS NULL) OR ([GradeEquivalent] = @Original_GradeEquivalent)) AND ([GradeLevel] = @Original_GradeLevel))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StudentCompentency] WHERE (([CompetencyID] = @Original_CompetencyID) AND ([StudentId] = @Original_StudentId) AND ((@IsNull_G1 = 1 AND [G1] IS NULL) OR ([G1] = @Original_G1)) AND ((@IsNull_G2 = 1 AND [G2] IS NULL) OR ([G2] = @Original_G2)) AND ((@IsNull_G3 = 1 AND [G3] IS NULL) OR ([G3] = @Original_G3)) AND ((@IsNull_G4 = 1 AND [G4] IS NULL) OR ([G4] = @Original_G4)) AND ((@IsNull_G5 = 1 AND [G5] IS NULL) OR ([G5] = @Original_G5)) AND ((@IsNull_G6 = 1 AND [G6] IS NULL) OR ([G6] = @Original_G6)) AND ((@IsNull_G7 = 1 AND [G7] IS NULL) OR ([G7] = @Original_G7)) AND ((@IsNull_G8 = 1 AND [G8] IS NULL) OR ([G8] = @Original_G8)) AND ((@IsNull_GTotalWeighted = 1 AND [GTotalWeighted] IS NULL) OR ([GTotalWeighted] = @Original_GTotalWeighted)) AND ((@IsNull_GradeEquivalent = 1 AND [GradeEquivalent] IS NULL) OR ([GradeEquivalent] = @Original_GradeEquivalent)) AND ([GradeLevel] = @Original_GradeLevel))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentCompId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentCompId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_G1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "G1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5779,10 +5739,8 @@ SELECT TeacherID, TeacherName, SchoolID FROM Teacher WHERE (TeacherID = @Teacher
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GradeLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StudentCompentency] ([StudentCompId], [CompetencyID], [StudentId], [G1], [G2], [G3], [G4], [G5], [G6], [G7], [G8], [GTotalWeighted], [GradeEquivalent], [GradeLevel]) VALUES (@StudentCompId, @CompetencyID, @StudentId, @G1, @G2, @G3, @G4, @G5, @G6, @G7, @G8, @GTotalWeighted, @GradeEquivalent, @GradeLevel);
-SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency WHERE (StudentCompId = @StudentCompId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StudentCompentency] ([CompetencyID], [StudentId], [G1], [G2], [G3], [G4], [G5], [G6], [G7], [G8], [GTotalWeighted], [GradeEquivalent], [GradeLevel]) VALUES (@CompetencyID, @StudentId, @G1, @G2, @G3, @G4, @G5, @G6, @G7, @G8, @GTotalWeighted, @GradeEquivalent, @GradeLevel)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentCompId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentCompId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@G1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "G1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5854,8 +5812,8 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GT" +
-                "otalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency";
+            this._commandCollection[0].CommandText = "SELECT CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, G" +
+                "radeEquivalent, GradeLevel FROM StudentCompentency";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5864,23 +5822,23 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GT" +
-                "otalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency WHERE (Student" +
-                "Id = @studentid)";
+            this._commandCollection[2].CommandText = "SELECT CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, G" +
+                "radeEquivalent, GradeLevel FROM StudentCompentency WHERE (StudentId = @studentid" +
+                ")";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studentid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GT" +
-                "otalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency WHERE (Student" +
-                "CompId = @studcompid)";
+            this._commandCollection[3].CommandText = "SELECT CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, G" +
+                "radeEquivalent, GradeLevel FROM StudentCompentency WHERE (StudentCompId = @studc" +
+                "ompid)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studcompid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentCompId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GT" +
-                "otalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency WHERE (Compete" +
-                "ncyID = @compentencyid) AND (StudentId = @studentid)";
+            this._commandCollection[4].CommandText = "SELECT CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, G" +
+                "radeEquivalent, GradeLevel FROM StudentCompentency WHERE (CompetencyID = @compen" +
+                "tencyid) AND (StudentId = @studentid)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@compentencyid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studentid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5891,11 +5849,9 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"INSERT INTO StudentCompentency
-                         (StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel)
-VALUES        (@StudentCompId,@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalWeighted,@GradeEquivalent,@GradeLevel);  
-SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel FROM StudentCompentency WHERE (StudentCompId = @StudentCompId)";
+                         (CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel)
+VALUES        (@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalWeighted,@GradeEquivalent,@GradeLevel)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentCompId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentCompId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@G1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "G1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6153,71 +6109,70 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int StudentCompId, int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StudentCompId));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CompetencyID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(StudentId));
+        public virtual int Insert(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CompetencyID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(StudentId));
             if ((G1.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(G1.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(G1.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((G2.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(G2.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((G2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(G2.Value));
+            if ((G3.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(G3.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((G3.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(G3.Value));
+            if ((G4.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(G4.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((G4.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(G4.Value));
+            if ((G5.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(G5.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((G5.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(G5.Value));
+            if ((G6.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(G6.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((G6.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(G6.Value));
+            if ((G7.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(G7.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((G7.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(G7.Value));
+            if ((G8.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(G8.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((G8.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(G8.Value));
+            if ((GTotalWeighted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(GTotalWeighted.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((GTotalWeighted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(GTotalWeighted.Value));
-            }
-            else {
+            if ((GradeEquivalent == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((GradeEquivalent == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(GradeEquivalent));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(GradeEquivalent));
             }
-            this.Adapter.InsertCommand.Parameters[13].Value = ((int)(GradeLevel));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(GradeLevel));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6434,41 +6389,6 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int CompetencyID, 
-                    int StudentId, 
-                    global::System.Nullable<int> G1, 
-                    global::System.Nullable<int> G2, 
-                    global::System.Nullable<int> G3, 
-                    global::System.Nullable<int> G4, 
-                    global::System.Nullable<int> G5, 
-                    global::System.Nullable<int> G6, 
-                    global::System.Nullable<int> G7, 
-                    global::System.Nullable<int> G8, 
-                    global::System.Nullable<int> GTotalWeighted, 
-                    string GradeEquivalent, 
-                    int GradeLevel, 
-                    int Original_StudentCompId, 
-                    int Original_CompetencyID, 
-                    int Original_StudentId, 
-                    global::System.Nullable<int> Original_G1, 
-                    global::System.Nullable<int> Original_G2, 
-                    global::System.Nullable<int> Original_G3, 
-                    global::System.Nullable<int> Original_G4, 
-                    global::System.Nullable<int> Original_G5, 
-                    global::System.Nullable<int> Original_G6, 
-                    global::System.Nullable<int> Original_G7, 
-                    global::System.Nullable<int> Original_G8, 
-                    global::System.Nullable<int> Original_GTotalWeighted, 
-                    string Original_GradeEquivalent, 
-                    int Original_GradeLevel) {
-            return this.Update(Original_StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel, Original_StudentCompId, Original_CompetencyID, Original_StudentId, Original_G1, Original_G2, Original_G3, Original_G4, Original_G5, Original_G6, Original_G7, Original_G8, Original_GTotalWeighted, Original_GradeEquivalent, Original_GradeLevel);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteByStudentID(int studentID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
@@ -6522,72 +6442,71 @@ SELECT StudentCompId, CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, G
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertWithStudentID(int StudentCompId, int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
+        public virtual int InsertWithStudentID(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
-            command.Parameters[0].Value = ((int)(StudentCompId));
-            command.Parameters[1].Value = ((int)(CompetencyID));
-            command.Parameters[2].Value = ((int)(StudentId));
+            command.Parameters[0].Value = ((int)(CompetencyID));
+            command.Parameters[1].Value = ((int)(StudentId));
             if ((G1.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(G1.Value));
+                command.Parameters[2].Value = ((int)(G1.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((G2.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(G2.Value));
             }
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((G2.HasValue == true)) {
-                command.Parameters[4].Value = ((int)(G2.Value));
+            if ((G3.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(G3.Value));
             }
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((G3.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(G3.Value));
+            if ((G4.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(G4.Value));
             }
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((G4.HasValue == true)) {
-                command.Parameters[6].Value = ((int)(G4.Value));
+            if ((G5.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(G5.Value));
             }
             else {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((G5.HasValue == true)) {
-                command.Parameters[7].Value = ((int)(G5.Value));
+            if ((G6.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(G6.Value));
             }
             else {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((G6.HasValue == true)) {
-                command.Parameters[8].Value = ((int)(G6.Value));
+            if ((G7.HasValue == true)) {
+                command.Parameters[8].Value = ((int)(G7.Value));
             }
             else {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((G7.HasValue == true)) {
-                command.Parameters[9].Value = ((int)(G7.Value));
+            if ((G8.HasValue == true)) {
+                command.Parameters[9].Value = ((int)(G8.Value));
             }
             else {
                 command.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((G8.HasValue == true)) {
-                command.Parameters[10].Value = ((int)(G8.Value));
+            if ((GTotalWeighted.HasValue == true)) {
+                command.Parameters[10].Value = ((int)(GTotalWeighted.Value));
             }
             else {
                 command.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((GTotalWeighted.HasValue == true)) {
-                command.Parameters[11].Value = ((int)(GTotalWeighted.Value));
-            }
-            else {
+            if ((GradeEquivalent == null)) {
                 command.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((GradeEquivalent == null)) {
-                command.Parameters[12].Value = global::System.DBNull.Value;
-            }
             else {
-                command.Parameters[12].Value = ((string)(GradeEquivalent));
+                command.Parameters[11].Value = ((string)(GradeEquivalent));
             }
-            command.Parameters[13].Value = ((int)(GradeLevel));
+            command.Parameters[12].Value = ((int)(GradeLevel));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

@@ -137,6 +137,8 @@ namespace MathsGradeAssessmentTool.Forms
                 {
                     int teacherID = teacherIDS[position];
                     fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
+
+                    updateTeachersAverageScore(position);
                 }
             }
             
@@ -149,10 +151,15 @@ namespace MathsGradeAssessmentTool.Forms
             {
                 int teacherID = teacherIDS[position];
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
-            }
 
+                updateTeachersAverageScore(position);
+            }
+        }
+
+        private void updateTeachersAverageScore(int position)
+        {
             double average = 0;
-            int counter=0;
+            int counter = 0;
             foreach (DataGridViewRow r in studentDataGridView.Rows)
             {
                 Console.WriteLine(r.Cells[0].Value);
@@ -162,7 +169,7 @@ namespace MathsGradeAssessmentTool.Forms
                 foreach (DataRow d in tab)
                 {
                     counter++;
-                    average += Convert.ToDouble(d[12]);
+                    average += Convert.ToDouble(d[11]);
                 }
             }
 
@@ -205,6 +212,11 @@ namespace MathsGradeAssessmentTool.Forms
 
 
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
+                int tid = (int)studentDataGridView.Rows[e.RowIndex].Cells[3].Value;
+
+                if(tid > 0)
+                    updateTeachersAverageScore(tid);
+
                 var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
                 String name = "";
 
@@ -218,19 +230,19 @@ namespace MathsGradeAssessmentTool.Forms
                         compCount++;
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToDouble(r["GradeEquivalent"]);
-
+                        
                         try
                         {
-                            name = competencyTableAdapter.GetCompetencyNameByID((int)r[1])[0].CompetencyName;
+                            name = competencyTableAdapter.GetCompetencyNameByID((int)r[0])[0].CompetencyName;
                         }
                         catch (Exception ex) 
                         {
                             name = "Competency " + compCount;
                         }
-                        if ((int)r[13] == (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value)
-                            chart1.Series["Grades"].Points.AddXY(name, r[12]);
+                        if ((int)r[12] == (int)studentDataGridView.Rows[e.RowIndex].Cells[4].Value)
+                            chart1.Series["Grades"].Points.AddXY(name, r[11]);
                         else
-                            chart1.Series["Previous Year"].Points.AddXY(name, r[12]);
+                            chart1.Series["Previous Year"].Points.AddXY(name, r[11]);
                     }
                     //TODO: Check Convertions
                     gTotalWeightedTextBox.Text = sumTotal + "";
@@ -250,6 +262,7 @@ namespace MathsGradeAssessmentTool.Forms
                     catch (Exception ex) { }
                 }
 
+                
             }
 
         }
