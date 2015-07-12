@@ -79,6 +79,7 @@
             this.schoolTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter();
             this.teacherBox = new System.Windows.Forms.TextBox();
             this.teacherLabel = new System.Windows.Forms.Label();
+            this.StudentAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -116,7 +117,7 @@
             // gTotalWeightedLabel
             // 
             gTotalWeightedLabel.AutoSize = true;
-            gTotalWeightedLabel.Location = new System.Drawing.Point(276, 148);
+            gTotalWeightedLabel.Location = new System.Drawing.Point(398, 148);
             gTotalWeightedLabel.Name = "gTotalWeightedLabel";
             gTotalWeightedLabel.Size = new System.Drawing.Size(154, 13);
             gTotalWeightedLabel.TabIndex = 9;
@@ -125,7 +126,7 @@
             // gradeEquivalentLabel
             // 
             gradeEquivalentLabel.AutoSize = true;
-            gradeEquivalentLabel.Location = new System.Drawing.Point(298, 189);
+            gradeEquivalentLabel.Location = new System.Drawing.Point(420, 189);
             gradeEquivalentLabel.Name = "gradeEquivalentLabel";
             gradeEquivalentLabel.Size = new System.Drawing.Size(132, 13);
             gradeEquivalentLabel.TabIndex = 11;
@@ -188,7 +189,7 @@
             // AddStudent
             // 
             this.AddStudent.BackColor = System.Drawing.Color.White;
-            this.AddStudent.Location = new System.Drawing.Point(245, 13);
+            this.AddStudent.Location = new System.Drawing.Point(301, 14);
             this.AddStudent.Name = "AddStudent";
             this.AddStudent.Size = new System.Drawing.Size(113, 29);
             this.AddStudent.TabIndex = 4;
@@ -199,7 +200,7 @@
             // AddCompetency
             // 
             this.AddCompetency.BackColor = System.Drawing.Color.White;
-            this.AddCompetency.Location = new System.Drawing.Point(445, 14);
+            this.AddCompetency.Location = new System.Drawing.Point(545, 14);
             this.AddCompetency.Name = "AddCompetency";
             this.AddCompetency.Size = new System.Drawing.Size(113, 29);
             this.AddCompetency.TabIndex = 5;
@@ -242,11 +243,12 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn5,
-            this.CurrentGrade});
+            this.CurrentGrade,
+            this.StudentAverageGrade});
             this.studentDataGridView.DataSource = this.fKStudentToTeacherBindingSource;
             this.studentDataGridView.Location = new System.Drawing.Point(14, 233);
             this.studentDataGridView.Name = "studentDataGridView";
-            this.studentDataGridView.Size = new System.Drawing.Size(522, 243);
+            this.studentDataGridView.Size = new System.Drawing.Size(644, 243);
             this.studentDataGridView.TabIndex = 7;
             this.studentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
@@ -287,7 +289,7 @@
             // addSubjectButton
             // 
             this.addSubjectButton.BackColor = System.Drawing.Color.White;
-            this.addSubjectButton.Location = new System.Drawing.Point(648, 14);
+            this.addSubjectButton.Location = new System.Drawing.Point(812, 14);
             this.addSubjectButton.Name = "addSubjectButton";
             this.addSubjectButton.Size = new System.Drawing.Size(113, 29);
             this.addSubjectButton.TabIndex = 8;
@@ -322,7 +324,7 @@
             // gTotalWeightedTextBox
             // 
             this.gTotalWeightedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GTotalWeighted", true));
-            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(436, 145);
+            this.gTotalWeightedTextBox.Location = new System.Drawing.Point(558, 145);
             this.gTotalWeightedTextBox.Name = "gTotalWeightedTextBox";
             this.gTotalWeightedTextBox.ReadOnly = true;
             this.gTotalWeightedTextBox.Size = new System.Drawing.Size(100, 20);
@@ -331,7 +333,7 @@
             // gradeEquivalentTextBox
             // 
             this.gradeEquivalentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCompentencyBindingSource, "GradeEquivalent", true));
-            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(436, 186);
+            this.gradeEquivalentTextBox.Location = new System.Drawing.Point(558, 186);
             this.gradeEquivalentTextBox.Name = "gradeEquivalentTextBox";
             this.gradeEquivalentTextBox.ReadOnly = true;
             this.gradeEquivalentTextBox.Size = new System.Drawing.Size(100, 20);
@@ -346,7 +348,7 @@
             legend1.Name = "StudentYear";
             legend1.Title = "StudentYear";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(542, 145);
+            this.chart1.Location = new System.Drawing.Point(664, 145);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "StudentYear";
@@ -364,7 +366,7 @@
             // mail
             // 
             this.mail.BackColor = System.Drawing.Color.White;
-            this.mail.Location = new System.Drawing.Point(1065, 230);
+            this.mail.Location = new System.Drawing.Point(1139, 233);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(112, 30);
             this.mail.TabIndex = 14;
@@ -374,14 +376,14 @@
             // 
             // mailFromBox
             // 
-            this.mailFromBox.Location = new System.Drawing.Point(1096, 142);
+            this.mailFromBox.Location = new System.Drawing.Point(1175, 145);
             this.mailFromBox.Name = "mailFromBox";
             this.mailFromBox.Size = new System.Drawing.Size(100, 20);
             this.mailFromBox.TabIndex = 15;
             // 
             // mailFromPwdBox
             // 
-            this.mailFromPwdBox.Location = new System.Drawing.Point(1096, 182);
+            this.mailFromPwdBox.Location = new System.Drawing.Point(1175, 182);
             this.mailFromPwdBox.Name = "mailFromPwdBox";
             this.mailFromPwdBox.PasswordChar = '*';
             this.mailFromPwdBox.Size = new System.Drawing.Size(100, 20);
@@ -390,7 +392,7 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(1033, 145);
+            this.lb1.Location = new System.Drawing.Point(1120, 148);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(49, 13);
             this.lb1.TabIndex = 17;
@@ -399,7 +401,7 @@
             // lb2
             // 
             this.lb2.AutoSize = true;
-            this.lb2.Location = new System.Drawing.Point(1033, 185);
+            this.lb2.Location = new System.Drawing.Point(1113, 185);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(56, 13);
             this.lb2.TabIndex = 18;
@@ -417,7 +419,7 @@
             // AddSchoolButton
             // 
             this.AddSchoolButton.BackColor = System.Drawing.Color.White;
-            this.AddSchoolButton.Location = new System.Drawing.Point(831, 14);
+            this.AddSchoolButton.Location = new System.Drawing.Point(1061, 14);
             this.AddSchoolButton.Name = "AddSchoolButton";
             this.AddSchoolButton.Size = new System.Drawing.Size(108, 29);
             this.AddSchoolButton.TabIndex = 19;
@@ -457,7 +459,7 @@
             // 
             // teacherBox
             // 
-            this.teacherBox.Location = new System.Drawing.Point(436, 102);
+            this.teacherBox.Location = new System.Drawing.Point(558, 105);
             this.teacherBox.Name = "teacherBox";
             this.teacherBox.ReadOnly = true;
             this.teacherBox.Size = new System.Drawing.Size(100, 20);
@@ -466,18 +468,24 @@
             // teacherLabel
             // 
             this.teacherLabel.AutoSize = true;
-            this.teacherLabel.Location = new System.Drawing.Point(276, 105);
+            this.teacherLabel.Location = new System.Drawing.Point(398, 108);
             this.teacherLabel.Name = "teacherLabel";
             this.teacherLabel.Size = new System.Drawing.Size(154, 13);
             this.teacherLabel.TabIndex = 23;
             this.teacherLabel.Text = "Teacher Average Grade Level:";
+            // 
+            // StudentAverageGrade
+            // 
+            this.StudentAverageGrade.DataPropertyName = "StudentAverageGrade";
+            this.StudentAverageGrade.HeaderText = "StudentAverageGrade";
+            this.StudentAverageGrade.Name = "StudentAverageGrade";
             // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1210, 561);
+            this.ClientSize = new System.Drawing.Size(1277, 561);
             this.Controls.Add(this.teacherLabel);
             this.Controls.Add(this.teacherBox);
             this.Controls.Add(this.SchoolComboBox);
@@ -565,6 +573,7 @@
         private MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter schoolTableAdapter;
         private System.Windows.Forms.TextBox teacherBox;
         private System.Windows.Forms.Label teacherLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentAverageGrade;
 
     }
 }

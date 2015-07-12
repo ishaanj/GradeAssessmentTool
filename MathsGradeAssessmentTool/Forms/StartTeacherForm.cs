@@ -182,7 +182,7 @@ namespace MathsGradeAssessmentTool.Forms
         {
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
-
+            double avgGrade = 0;
             //Todo: Add horizontal line at current grade            
             if (e.RowIndex >= 0)
             {
@@ -244,16 +244,17 @@ namespace MathsGradeAssessmentTool.Forms
                         else
                             chart1.Series["Previous Year"].Points.AddXY(name, r[11]);
                     }
-                    //TODO: Check Convertions
+                   
                     gTotalWeightedTextBox.Text = sumTotal + "";
-                    gradeEquivalentTextBox.Text = sumGrade / (double)data.Rows.Count + "";
+                    avgGrade = sumGrade / (double)data.Rows.Count;
+                    gradeEquivalentTextBox.Text = avgGrade + "";
 
                     try
                     {
                         StripLine currentCompetency = new StripLine();
                         currentCompetency.Text = "Competency";
                         currentCompetency.Interval = 0;
-                        currentCompetency.IntervalOffset = (sumGrade / (double)data.Rows.Count) - 0.25;
+                        currentCompetency.IntervalOffset = avgGrade - 0.25;
                         currentCompetency.StripWidth = 0.25;
                         currentCompetency.BackColor = Color.FromArgb(64, Color.OrangeRed);
 
@@ -264,6 +265,7 @@ namespace MathsGradeAssessmentTool.Forms
 
                 
             }
+            studentDataGridView.Rows[e.RowIndex].Cells[5].Value = avgGrade;
 
         }
 
