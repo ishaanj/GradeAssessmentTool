@@ -138,10 +138,25 @@ namespace MathsGradeAssessmentTool.Forms
                     int teacherID = teacherIDS[position];
                     fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
 
-                    updateTeachersAverageScore(position);
+                    UpdateTeachersAverageScore(position);
+                }
+
+                position = SchoolComboBox.SelectedIndex;
+                if (position >= 0)
+                {
+                    UpdateSchoolAverageScore(position);
+
+                    
+                    int sID = schoolIDS[position];
+                    var schoolData = schoolTableAdapter.GetDataBySchoolID(sID);
+
+                    //Display schoolAvg string above this line in some text lable or something
+                    string schoolAvg = schoolData[0].SchoolAvgGrade;
+
+
                 }
             }
-            
+
         }
 
         private void onSelectedIndexChange(object sender, EventArgs e)
@@ -152,21 +167,20 @@ namespace MathsGradeAssessmentTool.Forms
                 int teacherID = teacherIDS[position];
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
 
-                updateTeachersAverageScore(position);
+                UpdateTeachersAverageScore(position);
             }
         }
 
-        private void updateTeachersAverageScore(int position)
+        private void UpdateTeachersAverageScore(int position)
         {
             double average = 0;
             int counter = 0;
             foreach (DataGridViewRow r in studentDataGridView.Rows)
             {
-                Console.WriteLine(r.Cells[0].Value);
                 int x = Convert.ToInt16(r.Cells[0].Value);
 
                 var tab = studentCompentencyTableAdapter.GetDataByStudentID(x);
-                foreach (DataRow d in tab)
+                foreach (MathsToolDatabaseDataSet.StudentCompentencyRow d in tab)
                 {
                     counter++;
                     average += Convert.ToDouble(d[11]);
@@ -175,6 +189,23 @@ namespace MathsGradeAssessmentTool.Forms
 
             average = (double)average / counter;
             teacherBox.Text = average.ToString();
+
+            int tID = teacherIDS[position];
+            teacherTableAdapter.UpdateTeacherAverageGradeByID(Convert.ToString(average), tID);
+        }
+
+        private void UpdateSchoolAverageScore(int position)
+        {
+            //Call this function whenever you want to update the value of SchoolAvgGrade.
+
+            double average = 0.0;
+            //Calculate here
+
+
+
+            //To Update : 
+            int sID = schoolIDS[position];
+            schoolTableAdapter.UpdateSchoolAvgGradeByID(Convert.ToString(average), sID);
         }
 
 
@@ -214,8 +245,8 @@ namespace MathsGradeAssessmentTool.Forms
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
                 int tid = (int)studentDataGridView.Rows[e.RowIndex].Cells[3].Value;
 
-                if(tid > 0)
-                    updateTeachersAverageScore(tid);
+                if (tid > 0)
+                    UpdateTeachersAverageScore(tid);
 
                 var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
                 String name = "";
@@ -230,12 +261,12 @@ namespace MathsGradeAssessmentTool.Forms
                         compCount++;
                         sumTotal += Convert.ToInt32(r["GTotalWeighted"]);
                         sumGrade += Convert.ToDouble(r["GradeEquivalent"]);
-                        
+
                         try
                         {
                             name = competencyTableAdapter.GetCompetencyNameByID((int)r[0])[0].CompetencyName;
                         }
-                        catch (Exception ex) 
+                        catch (Exception ex)
                         {
                             name = "Competency " + compCount;
                         }
@@ -244,7 +275,7 @@ namespace MathsGradeAssessmentTool.Forms
                         else
                             chart1.Series["Previous Year"].Points.AddXY(name, r[11]);
                     }
-                   
+
                     gTotalWeightedTextBox.Text = sumTotal + "";
                     avgGrade = sumGrade / (double)data.Rows.Count;
                     gradeEquivalentTextBox.Text = avgGrade + "";
@@ -263,7 +294,7 @@ namespace MathsGradeAssessmentTool.Forms
                     catch (Exception ex) { }
                 }
 
-                
+
             }
             studentDataGridView.Rows[e.RowIndex].Cells[5].Value = avgGrade;
 
@@ -308,7 +339,7 @@ namespace MathsGradeAssessmentTool.Forms
             this.Hide();
         }
 
-        
+
 
     }
 }

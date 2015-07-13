@@ -190,8 +190,7 @@ namespace MathsGradeAssessmentTool.Forms
             bw.Close();
             fs.Close();
 
-            var fileInfo = new FileInfo(filename);
-            fileInfo.IsReadOnly = true;
+            var fileInfo = new FileInfo(filename) {IsReadOnly = true};
         }
 
         private void ExportToExcelButton_Click(object sender, EventArgs e)
