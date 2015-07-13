@@ -132,28 +132,19 @@ namespace MathsGradeAssessmentTool.Forms
 
                 teacherBindingSource.DataSource = teacherData;
 
-                position = teacherNameComboBox.SelectedIndex;
-                if (position >= 0)
+                int tposition = teacherNameComboBox.SelectedIndex;
+                if (tposition >= 0)
                 {
                     int teacherID = teacherIDS[position];
                     fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
 
-                    UpdateTeachersAverageScore(position);
+                    UpdateTeachersAverageScore(tposition, true);
                 }
 
                 position = SchoolComboBox.SelectedIndex;
                 if (position >= 0)
                 {
                     UpdateSchoolAverageScore(position);
-
-                    
-                    int sID = schoolIDS[position];
-                    var schoolData = schoolTableAdapter.GetDataBySchoolID(sID);
-
-                    //Display schoolAvg string above this line in some text lable or something
-                    string schoolAvg = schoolData[0].SchoolAvgGrade;
-
-
                 }
             }
 
@@ -167,11 +158,11 @@ namespace MathsGradeAssessmentTool.Forms
                 int teacherID = teacherIDS[position];
                 fKStudentToTeacherBindingSource.DataSource = studentTableAdapter.GetDataByTeacherID(teacherID);
 
-                UpdateTeachersAverageScore(position);
+                UpdateTeachersAverageScore(position, true);
             }
         }
 
-        private void UpdateTeachersAverageScore(int position)
+        private void UpdateTeachersAverageScore(int position, bool displayAsWell)
         {
             double average = 0;
             int counter = 0;
@@ -182,13 +173,20 @@ namespace MathsGradeAssessmentTool.Forms
                 var tab = studentCompentencyTableAdapter.GetDataByStudentID(x);
                 foreach (MathsToolDatabaseDataSet.StudentCompentencyRow d in tab)
                 {
-                    counter++;
-                    average += Convert.ToDouble(d[11]);
+                    try
+                    {
+                        average += Convert.ToDouble(d[11]);
+                        counter++;
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                    }  
                 }
             }
 
             average = (double)average / counter;
-            teacherBox.Text = average.ToString();
+            if (teacherBox != null && displayAsWell) teacherBox.Text = average.ToString();
 
             int tID = teacherIDS[position];
             teacherTableAdapter.UpdateTeacherAverageGradeByID(Convert.ToString(average), tID);
@@ -199,18 +197,25 @@ namespace MathsGradeAssessmentTool.Forms
             double average = 0.0;
             int counter = 0;
 
-            var tab = teacherTableAdapter.GetDataBySchoolID(position);
+            int sID = schoolIDS[position];
+            var tab = teacherTableAdapter.GetDataBySchoolID(sID);
             foreach (MathsToolDatabaseDataSet.TeacherRow d in tab)
             {
-                    counter++;
+                try
+                {
                     average += Convert.ToDouble(d[3]);
+                    counter++;
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                
             }
-            
 
             average = (double)average / counter;
-            schoolBox.Text = average.ToString();
+            if (schoolBox != null) schoolBox.Text = average + "";
 
-            int sID = schoolIDS[position];
             schoolTableAdapter.UpdateSchoolAvgGradeByID(Convert.ToString(average), sID);
         }
 
@@ -226,7 +231,6 @@ namespace MathsGradeAssessmentTool.Forms
                 StripLinesCollection strips = chart1.ChartAreas[0].AxisY.StripLines;
                 try
                 {
-
                     chart1.Series[0].Points.Clear();
                     chart1.Series[1].Points.Clear();
 
@@ -249,10 +253,6 @@ namespace MathsGradeAssessmentTool.Forms
 
 
                 int id = (int)studentDataGridView.Rows[e.RowIndex].Cells[0].Value;
-                int tid = (int)studentDataGridView.Rows[e.RowIndex].Cells[3].Value;
-
-                if (tid > 0)
-                    UpdateTeachersAverageScore(tid);
 
                 var data = studentCompentencyTableAdapter.GetDataByStudentID(id);
                 String name = "";
