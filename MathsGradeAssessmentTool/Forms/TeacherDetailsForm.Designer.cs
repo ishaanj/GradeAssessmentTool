@@ -43,6 +43,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SchoolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingNavigator)).BeginInit();
@@ -141,11 +142,12 @@
             this.teacherDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.SchoolID});
+            this.SchoolID,
+            this.TeacherAverageGrade});
             this.teacherDataGridView.DataSource = this.teacherBindingSource;
             this.teacherDataGridView.Location = new System.Drawing.Point(133, 165);
             this.teacherDataGridView.Name = "teacherDataGridView";
-            this.teacherDataGridView.Size = new System.Drawing.Size(344, 210);
+            this.teacherDataGridView.Size = new System.Drawing.Size(444, 210);
             this.teacherDataGridView.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
@@ -165,6 +167,12 @@
             this.SchoolID.DataPropertyName = "SchoolID";
             this.SchoolID.HeaderText = "SchoolID";
             this.SchoolID.Name = "SchoolID";
+            // 
+            // TeacherAverageGrade
+            // 
+            this.TeacherAverageGrade.DataPropertyName = "TeacherAverageGrade";
+            this.TeacherAverageGrade.HeaderText = "TeacherAverageGrade";
+            this.TeacherAverageGrade.Name = "TeacherAverageGrade";
             // 
             // TeacherDetailsForm
             // 
@@ -205,5 +213,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn SchoolID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherAverageGrade;
     }
 }

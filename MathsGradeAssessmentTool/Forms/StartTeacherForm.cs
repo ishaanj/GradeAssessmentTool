@@ -196,14 +196,20 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void UpdateSchoolAverageScore(int position)
         {
-            //Call this function whenever you want to update the value of SchoolAvgGrade.
-
             double average = 0.0;
-            //Calculate here
+            int counter = 0;
 
+            var tab = teacherTableAdapter.GetDataBySchoolID(position);
+            foreach (MathsToolDatabaseDataSet.TeacherRow d in tab)
+            {
+                    counter++;
+                    average += Convert.ToDouble(d[3]);
+            }
+            
 
+            average = (double)average / counter;
+            schoolBox.Text = average.ToString();
 
-            //To Update : 
             int sID = schoolIDS[position];
             schoolTableAdapter.UpdateSchoolAvgGradeByID(Convert.ToString(average), sID);
         }

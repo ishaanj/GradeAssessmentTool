@@ -56,6 +56,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSubjectButton = new System.Windows.Forms.Button();
             this.param1ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.param1ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -79,7 +80,7 @@
             this.schoolTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter();
             this.teacherBox = new System.Windows.Forms.TextBox();
             this.teacherLabel = new System.Windows.Forms.Label();
-            this.StudentAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schoolBox = new System.Windows.Forms.TextBox();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -286,6 +287,12 @@
             this.CurrentGrade.HeaderText = "CurrentGrade";
             this.CurrentGrade.Name = "CurrentGrade";
             // 
+            // StudentAverageGrade
+            // 
+            this.StudentAverageGrade.DataPropertyName = "StudentAverageGrade";
+            this.StudentAverageGrade.HeaderText = "StudentAverageGrade";
+            this.StudentAverageGrade.Name = "StudentAverageGrade";
+            // 
             // addSubjectButton
             // 
             this.addSubjectButton.BackColor = System.Drawing.Color.White;
@@ -474,11 +481,13 @@
             this.teacherLabel.TabIndex = 23;
             this.teacherLabel.Text = "Teacher Average Grade Level:";
             // 
-            // StudentAverageGrade
+            // schoolBox
             // 
-            this.StudentAverageGrade.DataPropertyName = "StudentAverageGrade";
-            this.StudentAverageGrade.HeaderText = "StudentAverageGrade";
-            this.StudentAverageGrade.Name = "StudentAverageGrade";
+            this.schoolBox.Location = new System.Drawing.Point(266, 102);
+            this.schoolBox.Name = "schoolBox";
+            this.schoolBox.ReadOnly = true;
+            this.schoolBox.Size = new System.Drawing.Size(100, 20);
+            this.schoolBox.TabIndex = 24;
             // 
             // StartTeacherForm
             // 
@@ -486,6 +495,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1277, 561);
+            this.Controls.Add(this.schoolBox);
             this.Controls.Add(this.teacherLabel);
             this.Controls.Add(this.teacherBox);
             this.Controls.Add(this.SchoolComboBox);
@@ -574,6 +584,7 @@
         private System.Windows.Forms.TextBox teacherBox;
         private System.Windows.Forms.Label teacherLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentAverageGrade;
+        private System.Windows.Forms.TextBox schoolBox;
 
     }
 }
