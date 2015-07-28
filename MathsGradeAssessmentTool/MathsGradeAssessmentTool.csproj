@@ -215,6 +215,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MathsToolDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Publish\TEMP.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
