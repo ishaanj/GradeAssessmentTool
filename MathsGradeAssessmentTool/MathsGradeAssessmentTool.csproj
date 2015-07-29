@@ -11,19 +11,21 @@
     <AssemblyName>MathsGradeAssessmentTool</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Yue\Desktop\</PublishUrl>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Yue\Source\Repos\GradeAssessmentTool\MathsGradeAssessmentTool\Publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://raw.githubusercontent.com/ishaanj/GradeAssessmentTool/master/MathsGradeAssessmentTool/Publish/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/ishaanj/GradeAssessmentTool/master/MathsGradeAssessmentTool/Publish/</UpdateUrl>
     <ProductName>Grade Assessment Tool</ProductName>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>20</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -203,6 +205,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.application" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.config.deploy" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.deploy" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.manifest" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsToolDatabase.mdf.deploy" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsToolDatabase_log.ldf.deploy" />
+    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\Publish\TEMP.txt.deploy" />
+    <None Include="Publish\MathsGradeAssessmentTool.application" />
+    <None Include="Publish\sqllocaldb2014\x64\sqllocaldb.msi" />
+    <None Include="Publish\sqllocaldb2014\x86\sqllocaldb.msi" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -215,14 +227,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MathsToolDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Publish\setup.exe" />
     <Content Include="Publish\TEMP.txt" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -236,11 +244,6 @@
     <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.12.0">
       <Visible>False</Visible>
       <ProductName>SQL Server 2014 Express LocalDB</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
