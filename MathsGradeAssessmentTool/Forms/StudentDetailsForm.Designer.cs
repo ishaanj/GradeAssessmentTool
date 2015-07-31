@@ -46,6 +46,8 @@
             this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
             this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.selectStudentAndSeeCompetencies = new System.Windows.Forms.Button();
+            this.studentCompentencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
+            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).BeginInit();
             this.studentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -177,6 +179,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CompetencyTableAdapter = null;
+            this.tableAdapterManager.SchoolTableAdapter = null;
             this.tableAdapterManager.StudentCompentencyTableAdapter = null;
             this.tableAdapterManager.StudentTableAdapter = this.studentTableAdapter;
             this.tableAdapterManager.SubjectTableAdapter = null;
@@ -193,6 +196,14 @@
             this.selectStudentAndSeeCompetencies.Text = "See Student Competencies";
             this.selectStudentAndSeeCompetencies.UseVisualStyleBackColor = false;
             this.selectStudentAndSeeCompetencies.Click += new System.EventHandler(this.selectStudentAndSeeCompetencies_Click);
+            // 
+            // studentCompentencyTableAdapter1
+            // 
+            this.studentCompentencyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // competencyTableAdapter1
+            // 
+            this.competencyTableAdapter1.ClearBeforeFill = true;
             // 
             // StudentDetailsForm
             // 
@@ -237,5 +248,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn CurrentGrade;
+        private MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter studentCompentencyTableAdapter1;
+        private MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter competencyTableAdapter1;
     }
 }

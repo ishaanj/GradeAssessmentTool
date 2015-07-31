@@ -190,7 +190,7 @@ namespace MathsGradeAssessmentTool.Forms
             bw.Close();
             fs.Close();
 
-            var fileInfo = new FileInfo(filename) {IsReadOnly = true};
+            var fileInfo = new FileInfo(filename) { IsReadOnly = true };
         }
 
         private void ExportToExcelButton_Click(object sender, EventArgs e)
@@ -208,6 +208,11 @@ namespace MathsGradeAssessmentTool.Forms
         }
 
         private void ImportFromExcelButton_Click(object sender, EventArgs e)
+        {
+            ImportFromExcel(false);
+        }
+
+        private void ImportFromExcel(bool allstudents)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
@@ -229,8 +234,8 @@ namespace MathsGradeAssessmentTool.Forms
                             String line = "";
                             String[] segs = null;
                             char[] splitArr = new char[] { '\t' };
-
-                            studentCompentencyTableAdapter.DeleteByStudentID(StudentID);
+                            if (!allstudents)
+                                studentCompentencyTableAdapter.DeleteByStudentID(StudentID);
                             while (!string.IsNullOrEmpty(line = reader.ReadLine()))
                             {
                                 if (line.Contains('\t'))
@@ -275,5 +280,88 @@ namespace MathsGradeAssessmentTool.Forms
             }
         }
 
+        private void ExportAllToExcelButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (2003)|*.xls";
+            sfd.FileName = "All Student Competencies.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ToeXcel(studentCompentencyDataGridView, sfd.FileName);
+            }
+        }
+
+        private void ToeXcel(DataGridView dGV, string filename)
+        {
+
+            studentCompentencyTableAdapter.Fill(mathsToolDatabaseDataSet.StudentCompentency);
+            //studentCompentencyBindingSource.DataSource = studentCompentencyTableAdapter.GetDataByStudentID(StudentID);
+            datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
+
+            string stOutput = "";
+
+            // Export titles:
+            string sHeaders = "";
+
+            for (int j = 0; j < dGV.Columns.Count; j++)
+            {
+                if (j != 0)
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                else
+                {
+                    sHeaders = sHeaders.ToString() + "Competency Name" + "\t" + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                }
+            }
+
+            stOutput += sHeaders + "\r\n";
+            // Export data.
+            for (int i = 0; i < dGV.RowCount - 1; i++)
+            {
+                string stLine = "";
+                for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
+                {
+                    if (j != 0)
+                    {
+                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                    }
+                    else
+                    {
+                        String competencyName = "";
+                        try
+                        {
+                            var row = competencyTableAdapter1.GetCompetencyNameByID(Convert.ToInt32(dGV.Rows[i].Cells[j].Value))[0];
+                            competencyName = row.CompetencyName;
+                        }
+                        catch (Exception ex)
+                        {
+                            competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                        }
+
+                        stLine = stLine.ToString() + competencyName + "\t" + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                    }
+                }
+
+                stOutput += stLine + "\r\n";
+            }
+            Encoding utf16 = Encoding.UTF8;
+            byte[] output = utf16.GetBytes(stOutput);
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(output, 0, output.Length); //write the encoded file
+            bw.Flush();
+            bw.Close();
+            fs.Close();
+
+            var fileInfo = new FileInfo(filename) { IsReadOnly = true };
+
+            studentCompentencyTableAdapter.FillByStudentID(mathsToolDatabaseDataSet.StudentCompentency, StudentID);
+            //studentCompentencyBindingSource.DataSource = studentCompentencyTableAdapter.GetDataByStudentID(StudentID);
+            datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
+        }
+
+        private void ExportAllStudents_Click(object sender, EventArgs e)
+        {
+            ExportAllToExcelButton_Click(sender, e);
+        }
     }
 }

@@ -48,13 +48,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentCompentencyBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.studentCompentencyDataGridView = new System.Windows.Forms.DataGridView();
-            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
-            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
-            this.ExportToExcelButton = new System.Windows.Forms.Button();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
-            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
-            this.ImportFromExcelButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GradeLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +61,14 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
+            this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.ExportToExcelButton = new System.Windows.Forms.Button();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentTableAdapter();
+            this.competencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter();
+            this.ImportFromExcelButton = new System.Windows.Forms.Button();
+            this.ExportAllStudents = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingNavigator)).BeginInit();
             this.studentCompentencyBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentCompentencyBindingSource)).BeginInit();
@@ -79,7 +80,7 @@
             // returnToStudentButton
             // 
             this.returnToStudentButton.BackColor = System.Drawing.Color.White;
-            this.returnToStudentButton.Location = new System.Drawing.Point(544, 38);
+            this.returnToStudentButton.Location = new System.Drawing.Point(620, 38);
             this.returnToStudentButton.Name = "returnToStudentButton";
             this.returnToStudentButton.Size = new System.Drawing.Size(130, 52);
             this.returnToStudentButton.TabIndex = 2;
@@ -253,56 +254,6 @@
             this.studentCompentencyDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.studentCompentencyDataGridView_CellBeginEdit);
             this.studentCompentencyDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellEndEdit);
             // 
-            // studentCompentencyTableAdapter
-            // 
-            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CompetencyTableAdapter = null;
-            this.tableAdapterManager.SchoolTableAdapter = null;
-            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
-            this.tableAdapterManager.StudentTableAdapter = null;
-            this.tableAdapterManager.SubjectTableAdapter = null;
-            this.tableAdapterManager.TeacherTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // ExportToExcelButton
-            // 
-            this.ExportToExcelButton.BackColor = System.Drawing.Color.White;
-            this.ExportToExcelButton.Location = new System.Drawing.Point(300, 38);
-            this.ExportToExcelButton.Name = "ExportToExcelButton";
-            this.ExportToExcelButton.Size = new System.Drawing.Size(139, 52);
-            this.ExportToExcelButton.TabIndex = 4;
-            this.ExportToExcelButton.Text = "Export to Excel";
-            this.ExportToExcelButton.UseVisualStyleBackColor = false;
-            this.ExportToExcelButton.Click += new System.EventHandler(this.ExportToExcelButton_Click);
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataMember = "Student";
-            this.studentBindingSource.DataSource = this.mathsToolDatabaseDataSet;
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // competencyTableAdapter1
-            // 
-            this.competencyTableAdapter1.ClearBeforeFill = true;
-            // 
-            // ImportFromExcelButton
-            // 
-            this.ImportFromExcelButton.BackColor = System.Drawing.Color.White;
-            this.ImportFromExcelButton.Location = new System.Drawing.Point(116, 38);
-            this.ImportFromExcelButton.Name = "ImportFromExcelButton";
-            this.ImportFromExcelButton.Size = new System.Drawing.Size(136, 52);
-            this.ImportFromExcelButton.TabIndex = 5;
-            this.ImportFromExcelButton.Text = "Import from Excel";
-            this.ImportFromExcelButton.UseVisualStyleBackColor = false;
-            this.ImportFromExcelButton.Click += new System.EventHandler(this.ImportFromExcelButton_Click);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "CompetencyID";
@@ -381,12 +332,74 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "GradeEquivalent";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
+            // studentCompentencyTableAdapter
+            // 
+            this.studentCompentencyTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CompetencyTableAdapter = null;
+            this.tableAdapterManager.SchoolTableAdapter = null;
+            this.tableAdapterManager.StudentCompentencyTableAdapter = this.studentCompentencyTableAdapter;
+            this.tableAdapterManager.StudentTableAdapter = null;
+            this.tableAdapterManager.SubjectTableAdapter = null;
+            this.tableAdapterManager.TeacherTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // ExportToExcelButton
+            // 
+            this.ExportToExcelButton.BackColor = System.Drawing.Color.White;
+            this.ExportToExcelButton.Location = new System.Drawing.Point(182, 38);
+            this.ExportToExcelButton.Name = "ExportToExcelButton";
+            this.ExportToExcelButton.Size = new System.Drawing.Size(139, 52);
+            this.ExportToExcelButton.TabIndex = 4;
+            this.ExportToExcelButton.Text = "Export to Excel";
+            this.ExportToExcelButton.UseVisualStyleBackColor = false;
+            this.ExportToExcelButton.Click += new System.EventHandler(this.ExportToExcelButton_Click);
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataMember = "Student";
+            this.studentBindingSource.DataSource = this.mathsToolDatabaseDataSet;
+            // 
+            // studentTableAdapter
+            // 
+            this.studentTableAdapter.ClearBeforeFill = true;
+            // 
+            // competencyTableAdapter1
+            // 
+            this.competencyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ImportFromExcelButton
+            // 
+            this.ImportFromExcelButton.BackColor = System.Drawing.Color.White;
+            this.ImportFromExcelButton.Location = new System.Drawing.Point(21, 38);
+            this.ImportFromExcelButton.Name = "ImportFromExcelButton";
+            this.ImportFromExcelButton.Size = new System.Drawing.Size(136, 52);
+            this.ImportFromExcelButton.TabIndex = 5;
+            this.ImportFromExcelButton.Text = "Import from Excel";
+            this.ImportFromExcelButton.UseVisualStyleBackColor = false;
+            this.ImportFromExcelButton.Click += new System.EventHandler(this.ImportFromExcelButton_Click);
+            // 
+            // ExportAllStudents
+            // 
+            this.ExportAllStudents.BackColor = System.Drawing.Color.White;
+            this.ExportAllStudents.Location = new System.Drawing.Point(474, 38);
+            this.ExportAllStudents.Name = "ExportAllStudents";
+            this.ExportAllStudents.Size = new System.Drawing.Size(128, 52);
+            this.ExportAllStudents.TabIndex = 6;
+            this.ExportAllStudents.Text = "Export All Students";
+            this.ExportAllStudents.UseVisualStyleBackColor = false;
+            this.ExportAllStudents.Click += new System.EventHandler(this.ExportAllStudents_Click);
+            // 
             // StudentCompetencyEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ExportAllStudents);
             this.Controls.Add(this.ImportFromExcelButton);
             this.Controls.Add(this.ExportToExcelButton);
             this.Controls.Add(this.studentCompentencyDataGridView);
@@ -449,5 +462,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.Button ExportAllStudents;
     }
 }

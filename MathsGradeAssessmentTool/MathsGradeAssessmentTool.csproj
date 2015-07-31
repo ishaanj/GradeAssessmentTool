@@ -11,18 +11,17 @@
     <AssemblyName>MathsGradeAssessmentTool</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\Yue\Source\Repos\GradeAssessmentTool\MathsGradeAssessmentTool\Publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/ishaanj/GradeAssessmentTool/master/MathsGradeAssessmentTool/Publish/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/ishaanj/GradeAssessmentTool/master/MathsGradeAssessmentTool/Publish/</UpdateUrl>
     <ProductName>Grade Assessment Tool</ProductName>
     <ApplicationRevision>20</ApplicationRevision>
