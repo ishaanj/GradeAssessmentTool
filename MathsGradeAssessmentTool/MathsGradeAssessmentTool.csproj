@@ -205,16 +205,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.application" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.config.deploy" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.deploy" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsGradeAssessmentTool.exe.manifest" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsToolDatabase.mdf.deploy" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\MathsToolDatabase_log.ldf.deploy" />
-    <None Include="Publish\Application Files\MathsGradeAssessmentTool_1_0_0_19\Publish\TEMP.txt.deploy" />
-    <None Include="Publish\MathsGradeAssessmentTool.application" />
-    <None Include="Publish\sqllocaldb2014\x64\sqllocaldb.msi" />
-    <None Include="Publish\sqllocaldb2014\x86\sqllocaldb.msi" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -227,8 +217,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MathsToolDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="Publish\setup.exe" />
-    <Content Include="Publish\TEMP.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -261,6 +249,9 @@
       <IncludeHash>False</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Publish\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
