@@ -81,6 +81,11 @@
             this.teacherBox = new System.Windows.Forms.TextBox();
             this.teacherLabel = new System.Windows.Forms.Label();
             this.schoolBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.unlockButton = new System.Windows.Forms.Button();
+            this.lockButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.passkey = new System.Windows.Forms.TextBox();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -95,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // teacherNameLabel
@@ -366,14 +372,14 @@
             series2.Name = "Previous Year";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(459, 331);
+            this.chart1.Size = new System.Drawing.Size(555, 331);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "Grade Chart";
             // 
             // mail
             // 
             this.mail.BackColor = System.Drawing.Color.White;
-            this.mail.Location = new System.Drawing.Point(1139, 233);
+            this.mail.Location = new System.Drawing.Point(53, 158);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(112, 30);
             this.mail.TabIndex = 14;
@@ -383,14 +389,14 @@
             // 
             // mailFromBox
             // 
-            this.mailFromBox.Location = new System.Drawing.Point(1175, 145);
+            this.mailFromBox.Location = new System.Drawing.Point(98, 47);
             this.mailFromBox.Name = "mailFromBox";
             this.mailFromBox.Size = new System.Drawing.Size(100, 20);
             this.mailFromBox.TabIndex = 15;
             // 
             // mailFromPwdBox
             // 
-            this.mailFromPwdBox.Location = new System.Drawing.Point(1175, 182);
+            this.mailFromPwdBox.Location = new System.Drawing.Point(98, 89);
             this.mailFromPwdBox.Name = "mailFromPwdBox";
             this.mailFromPwdBox.PasswordChar = '*';
             this.mailFromPwdBox.Size = new System.Drawing.Size(100, 20);
@@ -399,7 +405,7 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(1120, 148);
+            this.lb1.Location = new System.Drawing.Point(19, 47);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(49, 13);
             this.lb1.TabIndex = 17;
@@ -408,7 +414,7 @@
             // lb2
             // 
             this.lb2.AutoSize = true;
-            this.lb2.Location = new System.Drawing.Point(1113, 185);
+            this.lb2.Location = new System.Drawing.Point(19, 92);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(56, 13);
             this.lb2.TabIndex = 18;
@@ -489,23 +495,74 @@
             this.schoolBox.Size = new System.Drawing.Size(100, 20);
             this.schoolBox.TabIndex = 24;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.unlockButton);
+            this.groupBox1.Controls.Add(this.lockButton);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.passkey);
+            this.groupBox1.Controls.Add(this.mailFromBox);
+            this.groupBox1.Controls.Add(this.lb1);
+            this.groupBox1.Controls.Add(this.mailFromPwdBox);
+            this.groupBox1.Controls.Add(this.lb2);
+            this.groupBox1.Controls.Add(this.mail);
+            this.groupBox1.Location = new System.Drawing.Point(1064, 213);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 352);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Other Controls";
+            // 
+            // unlockButton
+            // 
+            this.unlockButton.Location = new System.Drawing.Point(123, 297);
+            this.unlockButton.Name = "unlockButton";
+            this.unlockButton.Size = new System.Drawing.Size(75, 23);
+            this.unlockButton.TabIndex = 22;
+            this.unlockButton.Text = "Unlock";
+            this.unlockButton.UseVisualStyleBackColor = true;
+            this.unlockButton.Click += new System.EventHandler(this.unlockButton_Click);
+            // 
+            // lockButton
+            // 
+            this.lockButton.Location = new System.Drawing.Point(22, 297);
+            this.lockButton.Name = "lockButton";
+            this.lockButton.Size = new System.Drawing.Size(75, 23);
+            this.lockButton.TabIndex = 21;
+            this.lockButton.Text = "Lock";
+            this.lockButton.UseVisualStyleBackColor = true;
+            this.lockButton.Click += new System.EventHandler(this.lockButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Form Passkey:";
+            // 
+            // passkey
+            // 
+            this.passkey.Location = new System.Drawing.Point(98, 247);
+            this.passkey.Name = "passkey";
+            this.passkey.PasswordChar = '*';
+            this.passkey.Size = new System.Drawing.Size(100, 20);
+            this.passkey.TabIndex = 19;
+            // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1277, 561);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.schoolBox);
             this.Controls.Add(this.teacherLabel);
             this.Controls.Add(this.teacherBox);
             this.Controls.Add(this.SchoolComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddSchoolButton);
-            this.Controls.Add(this.lb2);
-            this.Controls.Add(this.lb1);
-            this.Controls.Add(this.mailFromPwdBox);
-            this.Controls.Add(this.mailFromBox);
-            this.Controls.Add(this.mail);
             this.Controls.Add(this.chart1);
             this.Controls.Add(gradeEquivalentLabel);
             this.Controls.Add(this.gradeEquivalentTextBox);
@@ -534,6 +591,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,6 +644,11 @@
         private System.Windows.Forms.Label teacherLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentAverageGrade;
         private System.Windows.Forms.TextBox schoolBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button unlockButton;
+        private System.Windows.Forms.Button lockButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox passkey;
 
     }
 }

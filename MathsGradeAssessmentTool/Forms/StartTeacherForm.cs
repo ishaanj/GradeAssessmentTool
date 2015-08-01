@@ -18,12 +18,22 @@ namespace MathsGradeAssessmentTool.Forms
         private int[] teacherIDS;
         private int[] schoolIDS;
         private SecureString email, password;
+        private String passkeyValidate = "mukta123";
+        private bool isLocked = true;
 
         public StartTeacherForm()
         {
             InitializeComponent();
             email = EncryptionClass.DecryptString(Convert.ToString(MathsGradeAssessmentTool.Properties.Settings.Default["EmailIdE"]));
             password = EncryptionClass.DecryptString(Convert.ToString(MathsGradeAssessmentTool.Properties.Settings.Default["PasswordE"]));
+            isLocked = Convert.ToBoolean(MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"]);
+
+            if (isLocked == true)
+            {
+                teacherLabel.Hide();
+                teacherBox.Hide();
+                schoolBox.Hide();
+            }
 
             if (!string.IsNullOrEmpty(EncryptionClass.ToInsecureString(email)))
                 mailFromBox.Text = EncryptionClass.ToInsecureString(email);
@@ -345,7 +355,50 @@ namespace MathsGradeAssessmentTool.Forms
             this.Hide();
         }
 
+        private void lockButton_Click(object sender, EventArgs e)
+        {
+            isLocked = Convert.ToBoolean(MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"]);
+            
+            if (isLocked == false)
+            {
+                passkey.BackColor = Color.Green;
+                MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] = true;
+                MathsGradeAssessmentTool.Properties.Settings.Default.Save();
+                passkey.Clear();
+                teacherLabel.Hide();
+                teacherBox.Hide();
+                schoolBox.Hide();
+            }
 
+            else if(isLocked == true)
+            {
+                passkey.BackColor = Color.Red;
+                passkey.Clear();
+            }
+        }
 
+        private void unlockButton_Click(object sender, EventArgs e)
+        {
+            isLocked = Convert.ToBoolean(MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"]);
+
+            if (passkey.Text.Equals(passkeyValidate) && isLocked == true)
+            {
+                passkey.BackColor = Color.Blue;
+                MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] = false;
+                MathsGradeAssessmentTool.Properties.Settings.Default.Save();
+                passkey.Clear();
+                teacherLabel.Show();
+                teacherBox.Show();
+                schoolBox.Show();
+            }
+
+            else if(!passkey.Text.Equals(passkeyValidate))
+            {
+                passkey.BackColor = Color.Red;
+                passkey.Clear();
+            }
+        }
+
+        
     }
 }
