@@ -15,6 +15,10 @@ namespace MathsGradeAssessmentTool.Forms
         public TeacherDetailsForm()
         {
             InitializeComponent();
+            if((bool)MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] == true)
+            {
+                teacherDataGridView.Columns[3].Visible = false;
+            }
         }
 
         private void teacherBindingNavigatorSaveItem_Click(object sender, EventArgs e)

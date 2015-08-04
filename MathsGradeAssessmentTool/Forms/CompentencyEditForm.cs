@@ -15,6 +15,11 @@ namespace MathsGradeAssessmentTool.Forms
         public CompentencyEditForm()
         {
             InitializeComponent();
+            if ((bool)MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] == true)
+            {
+                competencyBindingNavigator.Hide();
+                competencyDataGridView.Hide();
+            }
         }
 
         private void competencyBindingNavigatorSaveItem_Click(object sender, EventArgs e)
