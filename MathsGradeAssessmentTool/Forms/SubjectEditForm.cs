@@ -15,11 +15,6 @@ namespace MathsGradeAssessmentTool.Forms
         public SubjectEditForm()
         {
             InitializeComponent();
-            if ((bool)MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] == true)
-            {
-                subjectBindingNavigator.Hide();
-                subjectDataGridView.Hide();
-            }
         }
 
         private void subjectBindingNavigatorSaveItem_Click(object sender, EventArgs e)

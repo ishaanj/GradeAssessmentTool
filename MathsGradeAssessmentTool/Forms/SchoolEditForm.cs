@@ -15,11 +15,6 @@ namespace MathsGradeAssessmentTool.Forms
         public SchoolEditForm()
         {
             InitializeComponent();
-            if ((bool)MathsGradeAssessmentTool.Properties.Settings.Default["isLockedSet"] == true)
-            {
-                schoolBindingNavigator.Hide();
-                schoolDataGridView.Hide();
-            }
         }
 
         private void schoolBindingNavigatorSaveItem_Click(object sender, EventArgs e)
