@@ -135,20 +135,20 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void ToeXcel(DataGridView dGV, string filename, MathsGradeAssessmentTool.MathsToolDatabaseDataSet.StudentRow studentData)
         {
-            string stOutput = "Name : \t" + studentData.StudentName + "\r\n";
-            stOutput += "ID : \t" + studentData.StudentId + "\tGrade : \t" + studentData.CurrentGrade + "\r\n";
+            string stOutput = "Name : ," + studentData.StudentName + "\r\n";
+            stOutput += "ID : ," + studentData.StudentId + ",Grade : ," + studentData.CurrentGrade + "\r\n";
 
             // Export titles:
             string sHeaders = "";
 
             for (int j = 0; j < dGV.Columns.Count; j++)
             {
-                if (j != 0)
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                if(j == 0)
+                    sHeaders = sHeaders.ToString() + "Competency Name" + "," + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
+                else if (j == dGV.Columns.Count - 1)
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText);
                 else
-                {
-                    sHeaders = sHeaders.ToString() + "Competency Name" + "\t" + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
-                }
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
             }
 
             stOutput += sHeaders + "\r\n";
@@ -158,11 +158,7 @@ namespace MathsGradeAssessmentTool.Forms
                 string stLine = "";
                 for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
                 {
-                    if (j != 0)
-                    {
-                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
-                    }
-                    else
+                    if (j == 0)
                     {
                         String competencyName = "";
                         try
@@ -175,8 +171,12 @@ namespace MathsGradeAssessmentTool.Forms
                             competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                         }
 
-                        stLine = stLine.ToString() + competencyName + "\t" + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                        stLine = stLine.ToString() + competencyName + "," + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                     }
+                    else if (j == dGV.Rows[i].Cells.Count - 1)
+                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                    else
+                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                 }
 
                 stOutput += stLine + "\r\n";
@@ -185,6 +185,8 @@ namespace MathsGradeAssessmentTool.Forms
             byte[] output = utf16.GetBytes(stOutput);
             FileStream fs = new FileStream(filename, FileMode.Create);
             BinaryWriter bw = new BinaryWriter(fs);
+            byte[] preamble = Encoding.UTF8.GetPreamble();
+            bw.Write(preamble, 0, preamble.Length);
             bw.Write(output, 0, output.Length); //write the encoded file
             bw.Flush();
             bw.Close();
@@ -199,8 +201,8 @@ namespace MathsGradeAssessmentTool.Forms
             string StudentName = studentData.StudentName;
             String name = "Student " + StudentName;
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (2003)|*.xls";
-            sfd.FileName = name + " ID - " + StudentID + ".xls";
+            sfd.Filter = "Excel Documents (2003)|*.csv";
+            sfd.FileName = name + " ID - " + StudentID + ".csv";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 ToeXcel(studentCompentencyDataGridView, sfd.FileName, studentData);
@@ -217,7 +219,7 @@ namespace MathsGradeAssessmentTool.Forms
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Excel Documents (2003)|*.xls";
+            openFileDialog1.Filter = "Excel Documents (2003)|*.csv";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
@@ -233,12 +235,12 @@ namespace MathsGradeAssessmentTool.Forms
                             StreamReader reader = new StreamReader(myStream, Encoding.UTF8);
                             String line = "";
                             String[] segs = null;
-                            char[] splitArr = new char[] { '\t' };
+                            char[] splitArr = new char[] { ',' };
                             if (!allstudents)
                                 studentCompentencyTableAdapter.DeleteByStudentID(StudentID);
                             while (!string.IsNullOrEmpty(line = reader.ReadLine()))
                             {
-                                if (line.Contains('\t'))
+                                if (line.Contains(','))
                                     segs = line.Split(splitArr, StringSplitOptions.None);
                                 else
                                     continue;
@@ -283,8 +285,8 @@ namespace MathsGradeAssessmentTool.Forms
         private void ExportAllToExcelButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (2003)|*.xls";
-            sfd.FileName = "All Student Competencies.xls";
+            sfd.Filter = "Excel Documents (2003)|*.csv";
+            sfd.FileName = "All Student Competencies.csv";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 ToeXcel(studentCompentencyDataGridView, sfd.FileName);
@@ -305,12 +307,12 @@ namespace MathsGradeAssessmentTool.Forms
 
             for (int j = 0; j < dGV.Columns.Count; j++)
             {
-                if (j != 0)
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                if(j == 0)
+                    sHeaders = sHeaders.ToString() + "Competency Name" + "," + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
+                else if (j != dGV.Columns.Count - 1)
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText);
                 else
-                {
-                    sHeaders = sHeaders.ToString() + "Competency Name" + "\t" + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
-                }
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
             }
 
             stOutput += sHeaders + "\r\n";
@@ -320,11 +322,7 @@ namespace MathsGradeAssessmentTool.Forms
                 string stLine = "";
                 for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
                 {
-                    if (j != 0)
-                    {
-                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
-                    }
-                    else
+                    if (j == 0)
                     {
                         String competencyName = "";
                         try
@@ -337,8 +335,12 @@ namespace MathsGradeAssessmentTool.Forms
                             competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                         }
 
-                        stLine = stLine.ToString() + competencyName + "\t" + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                        stLine = stLine.ToString() + competencyName + "," + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                     }
+                    else if (j == dGV.Rows[i].Cells.Count - 1)
+                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                    else
+                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                 }
 
                 stOutput += stLine + "\r\n";
@@ -347,6 +349,8 @@ namespace MathsGradeAssessmentTool.Forms
             byte[] output = utf16.GetBytes(stOutput);
             FileStream fs = new FileStream(filename, FileMode.Create);
             BinaryWriter bw = new BinaryWriter(fs);
+            byte[] preamble = Encoding.UTF8.GetPreamble();
+            bw.Write(preamble, 0, preamble.Length);
             bw.Write(output, 0, output.Length); //write the encoded file
             bw.Flush();
             bw.Close();

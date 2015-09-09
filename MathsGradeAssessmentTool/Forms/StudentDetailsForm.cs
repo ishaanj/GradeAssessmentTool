@@ -75,8 +75,8 @@ namespace MathsGradeAssessmentTool.Forms
         private void SaveSelectedStudentDetails_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (2003)|*.xls";
-            sfd.FileName = "All Student Competencies.xls";
+            sfd.Filter = "Excel Documents (2003)|*.csv";
+            sfd.FileName = "All Student Competencies.csv";
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -94,12 +94,16 @@ namespace MathsGradeAssessmentTool.Forms
 
             for (int j = 0; j < dGV.Columns.Count; j++)
             {
-                if (j != 0)
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
-                else
+                if (j == 0)
                 {
-                    sHeaders = sHeaders.ToString() + "Competency Name" + "\t" + Convert.ToString(dGV.Columns[j].HeaderText) + "\t";
+                    sHeaders = sHeaders.ToString() + "Competency Name" + "," +
+                               Convert.ToString(dGV.Columns[j].HeaderText) + ",";
                 }
+                else if (j == dGV.Columns.Count - 1)
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText);
+                else  
+                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
+                    
             }
 
             stOutput += sHeaders + "\r\n";
@@ -128,16 +132,14 @@ namespace MathsGradeAssessmentTool.Forms
                     string stLine = "";
                     for (int j = 0; j < dGV.Rows[i].Cells.Count; j++)
                     {
-                        if (j != 0)
-                        {
-                            stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
-                        }
-                        else
+                        if (j == 0)
                         {
                             String competencyName = "";
                             try
                             {
-                                var row = competencyTableAdapter1.GetCompetencyNameByID(Convert.ToInt32(dGV.Rows[i].Cells[j].Value))[0];
+                                var row =
+                                    competencyTableAdapter1.GetCompetencyNameByID(
+                                        Convert.ToInt32(dGV.Rows[i].Cells[j].Value))[0];
                                 competencyName = row.CompetencyName;
                             }
                             catch (Exception ex)
@@ -145,8 +147,13 @@ namespace MathsGradeAssessmentTool.Forms
                                 competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                             }
 
-                            stLine = stLine.ToString() + competencyName + "\t" + Convert.ToString(dGV.Rows[i].Cells[j].Value) + "\t";
+                            stLine = stLine.ToString() + competencyName + "," +
+                                     Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                         }
+                        else if (j == dGV.Rows[i].Cells.Count - 1)
+                            stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                        else 
+                            stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                     }
 
                     stOutput += stLine + "\r\n";
@@ -158,6 +165,8 @@ namespace MathsGradeAssessmentTool.Forms
             byte[] output = utf16.GetBytes(stOutput);
             FileStream fs = new FileStream(filename, FileMode.Create);
             BinaryWriter bw = new BinaryWriter(fs);
+            byte[] preamble = Encoding.UTF8.GetPreamble();
+            bw.Write(preamble, 0, preamble.Length);
             bw.Write(output, 0, output.Length); //write the encoded file
             bw.Flush();
             bw.Close();
