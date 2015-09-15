@@ -2,6 +2,7 @@
 {
     partial class StartTeacherForm
     {
+        ///Hi
         /// <summary>
         /// Required designer variable.
         /// </summary>
