@@ -38,5 +38,12 @@ namespace MathsGradeAssessmentTool.Forms
             sf.Show();
             this.Hide();
         }
+
+        private void EmportExportBtn_Click(object sender, EventArgs e)
+        {
+            ExportImportForm f = new ExportImportForm();
+            f.Show();
+            this.Hide();
+        }
     }
 }

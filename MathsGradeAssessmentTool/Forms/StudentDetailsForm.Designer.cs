@@ -50,7 +50,6 @@
             this.SaveSelectedStudentDetails = new System.Windows.Forms.Button();
             this.studentCompentencyTableAdapter1 = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
             this.studentCompetencyDataAdapter = new System.Windows.Forms.DataGridView();
-            this.studentCompentencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.competencyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.g1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,7 @@
             this.gTotalWeightedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeEquivalentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gradeLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentCompentencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingNavigator)).BeginInit();
             this.studentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
@@ -155,7 +155,7 @@
             this.studentDataGridView.DataSource = this.studentBindingSource;
             this.studentDataGridView.Location = new System.Drawing.Point(46, 129);
             this.studentDataGridView.Name = "studentDataGridView";
-            this.studentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.studentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.studentDataGridView.Size = new System.Drawing.Size(544, 287);
             this.studentDataGridView.TabIndex = 3;
             // 
@@ -263,11 +263,6 @@
             this.studentCompetencyDataAdapter.TabIndex = 6;
             this.studentCompetencyDataAdapter.Visible = false;
             // 
-            // studentCompentencyBindingSource
-            // 
-            this.studentCompentencyBindingSource.DataMember = "StudentCompentency";
-            this.studentCompentencyBindingSource.DataSource = this.mathsToolDatabaseDataSet;
-            // 
             // competencyIDDataGridViewTextBoxColumn
             // 
             this.competencyIDDataGridViewTextBoxColumn.DataPropertyName = "CompetencyID";
@@ -358,6 +353,11 @@
             this.gradeLevelDataGridViewTextBoxColumn.HeaderText = "GradeLevel";
             this.gradeLevelDataGridViewTextBoxColumn.Name = "gradeLevelDataGridViewTextBoxColumn";
             this.gradeLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentCompentencyBindingSource
+            // 
+            this.studentCompentencyBindingSource.DataMember = "StudentCompentency";
+            this.studentCompentencyBindingSource.DataSource = this.mathsToolDatabaseDataSet;
             // 
             // StudentDetailsForm
             // 

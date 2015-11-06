@@ -42,6 +42,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnToMainScreen = new System.Windows.Forms.Button();
+            this.EmportExportBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingNavigator)).BeginInit();
@@ -158,12 +159,24 @@
             this.ReturnToMainScreen.UseVisualStyleBackColor = false;
             this.ReturnToMainScreen.Click += new System.EventHandler(this.ReturnToMainScreen_Click);
             // 
+            // EmportExportBtn
+            // 
+            this.EmportExportBtn.BackColor = System.Drawing.Color.White;
+            this.EmportExportBtn.Location = new System.Drawing.Point(22, 49);
+            this.EmportExportBtn.Name = "EmportExportBtn";
+            this.EmportExportBtn.Size = new System.Drawing.Size(138, 52);
+            this.EmportExportBtn.TabIndex = 3;
+            this.EmportExportBtn.Text = "Import/Export";
+            this.EmportExportBtn.UseVisualStyleBackColor = false;
+            this.EmportExportBtn.Click += new System.EventHandler(this.EmportExportBtn_Click);
+            // 
             // SchoolEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.EmportExportBtn);
             this.Controls.Add(this.ReturnToMainScreen);
             this.Controls.Add(this.schoolDataGridView);
             this.Controls.Add(this.schoolBindingNavigator);
@@ -196,5 +209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button ReturnToMainScreen;
+        private System.Windows.Forms.Button EmportExportBtn;
     }
 }

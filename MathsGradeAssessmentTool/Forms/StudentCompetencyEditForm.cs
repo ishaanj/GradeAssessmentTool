@@ -308,11 +308,11 @@ namespace MathsGradeAssessmentTool.Forms
             for (int j = 0; j < dGV.Columns.Count; j++)
             {
                 if(j == 0)
-                    sHeaders = sHeaders.ToString() + "Competency Name" + "," + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
-                else if (j != dGV.Columns.Count - 1)
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText);
+                    sHeaders = sHeaders + "Competency Name" + "," + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
+                else if (j == dGV.Columns.Count - 1)
+                    sHeaders = sHeaders + Convert.ToString(dGV.Columns[j].HeaderText);
                 else
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
+                    sHeaders = sHeaders + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
             }
 
             stOutput += sHeaders + "\r\n";
@@ -324,7 +324,7 @@ namespace MathsGradeAssessmentTool.Forms
                 {
                     if (j == 0)
                     {
-                        String competencyName = "";
+                        string competencyName = "";
                         try
                         {
                             var row = competencyTableAdapter1.GetCompetencyNameByID(Convert.ToInt32(dGV.Rows[i].Cells[j].Value))[0];
@@ -335,12 +335,12 @@ namespace MathsGradeAssessmentTool.Forms
                             competencyName = "Competency " + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                         }
 
-                        stLine = stLine.ToString() + competencyName + "," + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
+                        stLine = stLine + competencyName + "," + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                     }
                     else if (j == dGV.Rows[i].Cells.Count - 1)
-                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value);
+                        stLine = stLine + Convert.ToString(dGV.Rows[i].Cells[j].Value);
                     else
-                        stLine = stLine.ToString() + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
+                        stLine = stLine + Convert.ToString(dGV.Rows[i].Cells[j].Value) + ",";
                 }
 
                 stOutput += stLine + "\r\n";

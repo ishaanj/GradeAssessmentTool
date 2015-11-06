@@ -95,16 +95,14 @@ namespace MathsGradeAssessmentTool.Forms
             for (int j = 0; j < dGV.Columns.Count; j++)
             {
                 if (j == 0)
-                {
-                    sHeaders = sHeaders.ToString() + "Competency Name" + "," +
-                               Convert.ToString(dGV.Columns[j].HeaderText) + ",";
-                }
+                    sHeaders = "Competency Name" + "," + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
                 else if (j == dGV.Columns.Count - 1)
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText);
+                    sHeaders = sHeaders + Convert.ToString(dGV.Columns[j].HeaderText);
                 else  
-                    sHeaders = sHeaders.ToString() + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
-                    
+                    sHeaders = sHeaders + Convert.ToString(dGV.Columns[j].HeaderText) + ",";
             }
+
+            Console.WriteLine(sHeaders);
 
             stOutput += sHeaders + "\r\n";
 
