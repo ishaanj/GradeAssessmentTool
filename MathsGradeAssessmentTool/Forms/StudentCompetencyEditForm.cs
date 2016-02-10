@@ -268,7 +268,7 @@ namespace MathsGradeAssessmentTool.Forms
                                 int GTotalWeighted = Convert.ToInt32(segs[12]);
                                 string GradeEquivalent = segs[13];
 
-                                studentCompentencyTableAdapter.InsertWithStudentID(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+                                studentCompentencyTableAdapter.InsertStudentCompetency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
                             }
                             studentCompentencyTableAdapter.FillByStudentID(this.mathsToolDatabaseDataSet.StudentCompentency, StudentID);
                             reader.Close();

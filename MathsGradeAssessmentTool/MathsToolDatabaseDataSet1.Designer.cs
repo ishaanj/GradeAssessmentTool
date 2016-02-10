@@ -2032,7 +2032,7 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StudentCompentencyRow AddStudentCompentencyRow(CompetencyRow parentCompetencyRowByCompetency_StudentCompentency, StudentRow parentStudentRowByStudent_StudentCompentency, int G1, int G2, int G3, int G4, int G5, int G6, int G7, int G8, int GTotalWeighted, string GradeEquivalent, int GradeLevel) {
+            public StudentCompentencyRow AddStudentCompentencyRow(CompetencyRow parentCompetencyRowByCompetency_StudentCompentency, StudentRow parentStudentRowByStudent_StudentCompentency, int G1, int G2, int G3, int G4, int G5, int G6, int G7, int G8, double GTotalWeighted, string GradeEquivalent, int GradeLevel) {
                 StudentCompentencyRow rowStudentCompentencyRow = ((StudentCompentencyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2114,7 +2114,7 @@ namespace MathsGradeAssessmentTool {
                 base.Columns.Add(this.columnG7);
                 this.columnG8 = new global::System.Data.DataColumn("G8", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnG8);
-                this.columnGTotalWeighted = new global::System.Data.DataColumn("GTotalWeighted", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnGTotalWeighted = new global::System.Data.DataColumn("GTotalWeighted", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGTotalWeighted);
                 this.columnGradeEquivalent = new global::System.Data.DataColumn("GradeEquivalent", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGradeEquivalent);
@@ -3328,10 +3328,10 @@ namespace MathsGradeAssessmentTool {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int GTotalWeighted {
+            public double GTotalWeighted {
                 get {
                     try {
-                        return ((int)(this[this.tableStudentCompentency.GTotalWeightedColumn]));
+                        return ((double)(this[this.tableStudentCompentency.GTotalWeightedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'GTotalWeighted\' in table \'StudentCompentency\' is DBNull.", e);
@@ -6102,8 +6102,8 @@ SELECT TeacherID, TeacherName, SchoolID, TeacherAverageGrade FROM Teacher WHERE 
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = @"INSERT INTO StudentCompentency
-                         (CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel)
-VALUES        (@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalWeighted,@GradeEquivalent,@GradeLevel)";
+                  (CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel)
+VALUES (@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalWeighted,@GradeEquivalent,@GradeLevel)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompetencyID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CompetencyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6502,7 +6502,7 @@ VALUES        (@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalW
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertWithStudentID(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
+        public virtual int InsertStudentCompetency(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((int)(CompetencyID));
             command.Parameters[1].Value = ((int)(StudentId));

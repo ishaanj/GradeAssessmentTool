@@ -206,21 +206,27 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void ImportStudentCompetency(string[] segs)
         {
+            Console.WriteLine(string.Join(",", segs));
             int CompetencyID = Convert.ToInt32(segs[1]);
             int StudentId = Convert.ToInt32(segs[2]);
-            int GradeLevel = Convert.ToInt32(segs[3]);
-            int G1 = string.IsNullOrEmpty(segs[4]) ? 0 : Convert.ToInt32(segs[4]);
-            int G2 = string.IsNullOrEmpty(segs[5]) ? 0 : Convert.ToInt32(segs[5]);
-            int G3 = string.IsNullOrEmpty(segs[6]) ? 0 : Convert.ToInt32(segs[6]);
-            int G4 = string.IsNullOrEmpty(segs[7]) ? 0 : Convert.ToInt32(segs[7]);
-            int G5 = string.IsNullOrEmpty(segs[8]) ? 0 : Convert.ToInt32(segs[8]);
-            int G6 = string.IsNullOrEmpty(segs[9]) ? 0 : Convert.ToInt32(segs[9]);
-            int G7 = string.IsNullOrEmpty(segs[10]) ? 0 : Convert.ToInt32(segs[10]);
-            int G8 = string.IsNullOrEmpty(segs[11]) ? 0 : Convert.ToInt32(segs[11]);
-            int GTotalWeighted = Convert.ToInt32(segs[12]);
-            string GradeEquivalent = segs[13];
+            int G1 = string.IsNullOrEmpty(segs[3]) ? 0 : Convert.ToInt32(segs[3]);
+            int G2 = string.IsNullOrEmpty(segs[4]) ? 0 : Convert.ToInt32(segs[4]);
+            int G3 = string.IsNullOrEmpty(segs[5]) ? 0 : Convert.ToInt32(segs[5]);
+            int G4 = string.IsNullOrEmpty(segs[6]) ? 0 : Convert.ToInt32(segs[6]);
+            int G5 = string.IsNullOrEmpty(segs[7]) ? 0 : Convert.ToInt32(segs[7]);
+            int G6 = string.IsNullOrEmpty(segs[8]) ? 0 : Convert.ToInt32(segs[8]);
+            int G7 = string.IsNullOrEmpty(segs[9]) ? 0 : Convert.ToInt32(segs[9]);
+            int G8 = string.IsNullOrEmpty(segs[10]) ? 0 : Convert.ToInt32(segs[10]);
 
-            studentCompentencyTableAdapter.InsertWithStudentID(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+            Console.Write(" --- GTotalWeighted = " + segs[11]);
+            int GTotalWeighted = Convert.ToInt32(segs[11]);
+            Console.WriteLine(" --- GEquivalent = " + segs[12]);
+            string GradeEquivalent = segs[12];
+            int GradeLevel = Convert.ToInt32(segs[13]);
+
+            // CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel
+
+            studentCompentencyTableAdapter.InsertStudentCompetency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6,G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)

@@ -8,9 +8,7 @@
 }
 
 
-namespace MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters {
-    
-    
-    public partial class StudentTableAdapter {
-    }
+namespace MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters
+{
+  
 }
