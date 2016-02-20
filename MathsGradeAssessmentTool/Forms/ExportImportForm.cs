@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace MathsGradeAssessmentTool.Forms
 {
@@ -49,6 +50,8 @@ namespace MathsGradeAssessmentTool.Forms
             openFileDialog1.Filter = "Excel Documents (2003)|*.csv";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
+
+            progressBarImport.Visible = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -147,6 +150,8 @@ namespace MathsGradeAssessmentTool.Forms
                 {
                     MessageBox.Show("Error: Could not read file from database correctly.\n\n" + ex);
                 }
+
+                progressBarImport.Visible = false;
             }
         }
 
@@ -201,7 +206,7 @@ namespace MathsGradeAssessmentTool.Forms
             int teacherID = string.IsNullOrEmpty(segs[3]) ? 1 : Convert.ToInt32(segs[3]);
             int year = string.IsNullOrEmpty(segs[4]) ? 1 : Convert.ToInt32(segs[4]);
 
-            studentTableAdapter.Insert(studentName, subjectID, teacherID, year, "");
+            studentTableAdapter.InsertStudent(studentID, studentName, subjectID, teacherID, year, "");
         }
 
         private void ImportStudentCompetency(string[] segs)
@@ -226,7 +231,7 @@ namespace MathsGradeAssessmentTool.Forms
 
             // CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel
 
-            studentCompentencyTableAdapter.InsertStudentCompetency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6,G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+            studentCompentencyTableAdapter.InsertStudComptency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6,G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)

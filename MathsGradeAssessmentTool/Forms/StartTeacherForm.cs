@@ -309,10 +309,16 @@ namespace MathsGradeAssessmentTool.Forms
                     }
                     catch (Exception ex) { }
                 }
-
+            }
+            try
+            {
+                if(studentDataGridView.Rows[e.RowIndex].Cells[5].Value != null)
+                    studentDataGridView.Rows[e.RowIndex].Cells[5].Value = avgGrade;
+            }
+            catch (Exception ex)
+            {
 
             }
-            studentDataGridView.Rows[e.RowIndex].Cells[5].Value = avgGrade;
 
         }
 

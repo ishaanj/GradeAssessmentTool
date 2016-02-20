@@ -10,5 +10,7 @@
 
 namespace MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters
 {
-  
+    partial class StudentCompentencyTableAdapter
+    {
+    }
 }

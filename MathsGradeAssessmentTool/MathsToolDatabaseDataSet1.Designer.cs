@@ -4715,16 +4715,18 @@ SELECT StudentId, StudentName, SubjectID, TeacherID, CurrentGrade, StudentAverag
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@teacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"INSERT INTO Student
-                         (StudentId, StudentName, SubjectID, TeacherID, CurrentGrade)
-VALUES        (@StudentID,@StudentName,@SubjectID,@TeacherID,@CurrentGrade);    
-SELECT StudentId, StudentName, SubjectID, TeacherID, CurrentGrade, StudentAverageGrade FROM Student WHERE (StudentId = SCOPE_IDENTITY())";
+            this._commandCollection[4].CommandText = @"SET IDENTITY_INSERT Student ON
+INSERT INTO Student
+                  (StudentId, StudentName, SubjectID, TeacherID, CurrentGrade, StudentAverageGrade)
+VALUES (@StudentID,@StudentName,@SubjectID,@TeacherID,@CurrentGrade,@StudentAverageGrade)
+SET IDENTITY_INSERT Student OFF";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentName", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentGrade", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CurrentGrade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentAverageGrade", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "StudentAverageGrade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5057,7 +5059,7 @@ SELECT StudentId, StudentName, SubjectID, TeacherID, CurrentGrade, StudentAverag
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertData(int StudentID, string StudentName, global::System.Nullable<int> SubjectID, global::System.Nullable<int> TeacherID, global::System.Nullable<int> CurrentGrade) {
+        public virtual int InsertStudent(int StudentID, string StudentName, global::System.Nullable<int> SubjectID, global::System.Nullable<int> TeacherID, global::System.Nullable<int> CurrentGrade, string StudentAverageGrade) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((int)(StudentID));
             if ((StudentName == null)) {
@@ -5083,6 +5085,12 @@ SELECT StudentId, StudentName, SubjectID, TeacherID, CurrentGrade, StudentAverag
             }
             else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((StudentAverageGrade == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(StudentAverageGrade));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6502,7 +6510,7 @@ VALUES (@CompetencyID,@StudentId,@G1,@G2,@G3,@G4,@G5,@G6,@G7,@G8,@GTotalWeighted
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertStudentCompetency(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
+        public virtual int InsertStudComptency(int CompetencyID, int StudentId, global::System.Nullable<int> G1, global::System.Nullable<int> G2, global::System.Nullable<int> G3, global::System.Nullable<int> G4, global::System.Nullable<int> G5, global::System.Nullable<int> G6, global::System.Nullable<int> G7, global::System.Nullable<int> G8, global::System.Nullable<int> GTotalWeighted, string GradeEquivalent, int GradeLevel) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((int)(CompetencyID));
             command.Parameters[1].Value = ((int)(StudentId));
