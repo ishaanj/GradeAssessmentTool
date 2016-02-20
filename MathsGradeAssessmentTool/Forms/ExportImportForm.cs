@@ -233,7 +233,11 @@ namespace MathsGradeAssessmentTool.Forms
 
             // CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel
 
-            studentCompentencyTableAdapter.InsertStudComptency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6,G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+            var duplicate = studentCompentencyTableAdapter.GetDataIfDuplicate(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+            if (duplicate.Count == 0)
+            {
+                studentCompentencyTableAdapter.InsertStudComptency(CompetencyID, StudentId, G1, G2, G3, G4, G5, G6, G7, G8, GTotalWeighted, GradeEquivalent, GradeLevel);
+            }
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)
