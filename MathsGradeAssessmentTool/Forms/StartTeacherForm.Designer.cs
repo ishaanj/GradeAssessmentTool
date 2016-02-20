@@ -35,10 +35,10 @@ namespace MathsGradeAssessmentTool.Forms
             System.Windows.Forms.Label studentNameLabel;
             System.Windows.Forms.Label gTotalWeightedLabel;
             System.Windows.Forms.Label gradeEquivalentLabel;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TeacherTableAdapter();
@@ -53,12 +53,6 @@ namespace MathsGradeAssessmentTool.Forms
             this.studentNameComboBox = new System.Windows.Forms.ComboBox();
             this.fKStudentToTeacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSubjectButton = new System.Windows.Forms.Button();
             this.param1ToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.param1ToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -88,6 +82,13 @@ namespace MathsGradeAssessmentTool.Forms
             this.lockButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.passkey = new System.Windows.Forms.TextBox();
+            this.bldLabel = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CurrentGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentAverageGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             teacherNameLabel = new System.Windows.Forms.Label();
             studentNameLabel = new System.Windows.Forms.Label();
             gTotalWeightedLabel = new System.Windows.Forms.Label();
@@ -137,9 +138,9 @@ namespace MathsGradeAssessmentTool.Forms
             gradeEquivalentLabel.AutoSize = true;
             gradeEquivalentLabel.Location = new System.Drawing.Point(420, 189);
             gradeEquivalentLabel.Name = "gradeEquivalentLabel";
-            gradeEquivalentLabel.Size = new System.Drawing.Size(132, 13);
+            gradeEquivalentLabel.Size = new System.Drawing.Size(129, 13);
             gradeEquivalentLabel.TabIndex = 11;
-            gradeEquivalentLabel.Text = "Student Grade Equivalent:";
+            gradeEquivalentLabel.Text = "Student Level Equivalent:";
             // 
             // mathsToolDatabaseDataSet
             // 
@@ -261,46 +262,6 @@ namespace MathsGradeAssessmentTool.Forms
             this.studentDataGridView.TabIndex = 7;
             this.studentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "StudentId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "StudentId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "StudentName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SubjectID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SubjectID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TeacherID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TeacherID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // CurrentGrade
-            // 
-            this.CurrentGrade.DataPropertyName = "CurrentGrade";
-            this.CurrentGrade.HeaderText = "CurrentGrade";
-            this.CurrentGrade.Name = "CurrentGrade";
-            // 
-            // StudentAverageGrade
-            // 
-            this.StudentAverageGrade.DataPropertyName = "StudentAverageGrade";
-            this.StudentAverageGrade.HeaderText = "StudentAverageGrade";
-            this.StudentAverageGrade.Name = "StudentAverageGrade";
-            // 
             // addSubjectButton
             // 
             this.addSubjectButton.BackColor = System.Drawing.Color.White;
@@ -356,24 +317,24 @@ namespace MathsGradeAssessmentTool.Forms
             // 
             // chart1
             // 
-            chartArea1.AxisX2.Crossing = -1.7976931348623157E+308D;
-            chartArea1.AxisY.Interval = 1D;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "StudentYear";
-            legend1.Title = "StudentYear";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.AxisX2.Crossing = -1.7976931348623157E+308D;
+            chartArea3.AxisY.Interval = 1D;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "StudentYear";
+            legend3.Title = "StudentYear";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(664, 145);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "StudentYear";
-            series1.Name = "Grades";
-            series1.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "StudentYear";
-            series2.Name = "Previous Year";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "StudentYear";
+            series5.Name = "Grades";
+            series5.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "StudentYear";
+            series6.Name = "Previous Year";
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(555, 331);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "Grade Chart";
@@ -552,12 +513,63 @@ namespace MathsGradeAssessmentTool.Forms
             this.passkey.Size = new System.Drawing.Size(100, 20);
             this.passkey.TabIndex = 19;
             // 
+            // bldLabel
+            // 
+            this.bldLabel.AutoSize = true;
+            this.bldLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bldLabel.Location = new System.Drawing.Point(12, 530);
+            this.bldLabel.Name = "bldLabel";
+            this.bldLabel.Size = new System.Drawing.Size(36, 13);
+            this.bldLabel.TabIndex = 26;
+            this.bldLabel.Text = "Build: ";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "StudentId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Student ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Student Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SubjectID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Subject ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TeacherID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Teacher ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // CurrentGrade
+            // 
+            this.CurrentGrade.DataPropertyName = "CurrentGrade";
+            this.CurrentGrade.HeaderText = "Current Level";
+            this.CurrentGrade.Name = "CurrentGrade";
+            // 
+            // StudentAverageGrade
+            // 
+            this.StudentAverageGrade.DataPropertyName = "StudentAverageGrade";
+            this.StudentAverageGrade.HeaderText = "Estimated Level Average";
+            this.StudentAverageGrade.Name = "StudentAverageGrade";
+            // 
             // StartTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1277, 561);
+            this.Controls.Add(this.bldLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.schoolBox);
             this.Controls.Add(this.teacherLabel);
@@ -624,12 +636,7 @@ namespace MathsGradeAssessmentTool.Forms
         private MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter studentCompentencyTableAdapter;
         private System.Windows.Forms.TextBox gTotalWeightedTextBox;
         private System.Windows.Forms.TextBox gradeEquivalentTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentGrade;
         private System.Windows.Forms.Button mail;
         private System.Windows.Forms.TextBox mailFromBox;
         private System.Windows.Forms.TextBox mailFromPwdBox;
@@ -644,13 +651,19 @@ namespace MathsGradeAssessmentTool.Forms
         private MathsToolDatabaseDataSetTableAdapters.SchoolTableAdapter schoolTableAdapter;
         private System.Windows.Forms.TextBox teacherBox;
         private System.Windows.Forms.Label teacherLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentAverageGrade;
         private System.Windows.Forms.TextBox schoolBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button unlockButton;
         private System.Windows.Forms.Button lockButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passkey;
+        private System.Windows.Forms.Label bldLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentAverageGrade;
 
     }
 }

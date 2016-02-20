@@ -31,6 +31,12 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void TeacherDetailsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.School' table. You can move, or remove it, as needed.
+            this.schoolTableAdapter.Fill(this.mathsToolDatabaseDataSet.School);
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.School' table. You can move, or remove it, as needed.
+            this.schoolTableAdapter.Fill(this.mathsToolDatabaseDataSet.School);
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.School' table. You can move, or remove it, as needed.
+            this.schoolTableAdapter.Fill(this.mathsToolDatabaseDataSet.School);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Teacher' table. You can move, or remove it, as needed.
             this.teacherTableAdapter.Fill(this.mathsToolDatabaseDataSet.Teacher);
            

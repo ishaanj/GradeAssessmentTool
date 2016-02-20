@@ -92,7 +92,7 @@
             this.subjectBindingNavigator.MovePreviousItem = null;
             this.subjectBindingNavigator.Name = "subjectBindingNavigator";
             this.subjectBindingNavigator.PositionItem = null;
-            this.subjectBindingNavigator.Size = new System.Drawing.Size(784, 25);
+            this.subjectBindingNavigator.Size = new System.Drawing.Size(531, 25);
             this.subjectBindingNavigator.TabIndex = 0;
             this.subjectBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -132,9 +132,9 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4});
             this.subjectDataGridView.DataSource = this.subjectBindingSource;
-            this.subjectDataGridView.Location = new System.Drawing.Point(147, 114);
+            this.subjectDataGridView.Location = new System.Drawing.Point(12, 39);
             this.subjectDataGridView.Name = "subjectDataGridView";
-            this.subjectDataGridView.Size = new System.Drawing.Size(346, 221);
+            this.subjectDataGridView.Size = new System.Drawing.Size(343, 272);
             this.subjectDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -158,7 +158,7 @@
             // returnToMainScreenButton
             // 
             this.returnToMainScreenButton.BackColor = System.Drawing.Color.White;
-            this.returnToMainScreenButton.Location = new System.Drawing.Point(578, 28);
+            this.returnToMainScreenButton.Location = new System.Drawing.Point(378, 39);
             this.returnToMainScreenButton.Name = "returnToMainScreenButton";
             this.returnToMainScreenButton.Size = new System.Drawing.Size(141, 47);
             this.returnToMainScreenButton.TabIndex = 2;
@@ -171,7 +171,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(531, 338);
             this.Controls.Add(this.returnToMainScreenButton);
             this.Controls.Add(this.subjectDataGridView);
             this.Controls.Add(this.subjectBindingNavigator);

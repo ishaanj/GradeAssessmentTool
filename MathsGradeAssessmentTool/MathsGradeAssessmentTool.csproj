@@ -61,6 +61,13 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>dbico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -142,6 +149,7 @@
     </Compile>
     <Compile Include="MathsToolDatabaseDataSet.cs">
       <DependentUpon>MathsToolDatabaseDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MathsToolDatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -216,6 +224,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dbico.ico" />
     <Content Include="MathsToolDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

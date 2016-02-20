@@ -27,6 +27,8 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void CompentencyEditForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Subject' table. You can move, or remove it, as needed.
+            this.subjectTableAdapter.Fill(this.mathsToolDatabaseDataSet.Subject);
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.Competency' table. You can move, or remove it, as needed.
             this.competencyTableAdapter.Fill(this.mathsToolDatabaseDataSet.Competency);
 

@@ -51,6 +51,7 @@ namespace MathsGradeAssessmentTool.Forms
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
+            progLbl.Visible = true;
             progressBarImport.Visible = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -151,6 +152,7 @@ namespace MathsGradeAssessmentTool.Forms
                     MessageBox.Show("Error: Could not read file from database correctly.\n\n" + ex);
                 }
 
+                progLbl.Visible = false;
                 progressBarImport.Visible = false;
             }
         }

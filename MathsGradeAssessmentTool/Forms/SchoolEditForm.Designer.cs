@@ -92,7 +92,7 @@
             this.schoolBindingNavigator.MovePreviousItem = null;
             this.schoolBindingNavigator.Name = "schoolBindingNavigator";
             this.schoolBindingNavigator.PositionItem = null;
-            this.schoolBindingNavigator.Size = new System.Drawing.Size(784, 25);
+            this.schoolBindingNavigator.Size = new System.Drawing.Size(299, 25);
             this.schoolBindingNavigator.TabIndex = 0;
             this.schoolBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -131,9 +131,9 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.schoolDataGridView.DataSource = this.schoolBindingSource;
-            this.schoolDataGridView.Location = new System.Drawing.Point(249, 169);
+            this.schoolDataGridView.Location = new System.Drawing.Point(22, 107);
             this.schoolDataGridView.Name = "schoolDataGridView";
-            this.schoolDataGridView.Size = new System.Drawing.Size(246, 220);
+            this.schoolDataGridView.Size = new System.Drawing.Size(245, 327);
             this.schoolDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -151,9 +151,9 @@
             // ReturnToMainScreen
             // 
             this.ReturnToMainScreen.BackColor = System.Drawing.Color.White;
-            this.ReturnToMainScreen.Location = new System.Drawing.Point(577, 49);
+            this.ReturnToMainScreen.Location = new System.Drawing.Point(150, 49);
             this.ReturnToMainScreen.Name = "ReturnToMainScreen";
-            this.ReturnToMainScreen.Size = new System.Drawing.Size(167, 52);
+            this.ReturnToMainScreen.Size = new System.Drawing.Size(117, 52);
             this.ReturnToMainScreen.TabIndex = 2;
             this.ReturnToMainScreen.Text = "Return to Main Screen";
             this.ReturnToMainScreen.UseVisualStyleBackColor = false;
@@ -164,7 +164,7 @@
             this.EmportExportBtn.BackColor = System.Drawing.Color.White;
             this.EmportExportBtn.Location = new System.Drawing.Point(22, 49);
             this.EmportExportBtn.Name = "EmportExportBtn";
-            this.EmportExportBtn.Size = new System.Drawing.Size(138, 52);
+            this.EmportExportBtn.Size = new System.Drawing.Size(94, 52);
             this.EmportExportBtn.TabIndex = 3;
             this.EmportExportBtn.Text = "Import/Export";
             this.EmportExportBtn.UseVisualStyleBackColor = false;
@@ -175,14 +175,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(299, 439);
             this.Controls.Add(this.EmportExportBtn);
             this.Controls.Add(this.ReturnToMainScreen);
             this.Controls.Add(this.schoolDataGridView);
             this.Controls.Add(this.schoolBindingNavigator);
             this.Name = "SchoolEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SchoolEditForm";
+            this.Text = "School Details";
             this.Load += new System.EventHandler(this.SchoolEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();

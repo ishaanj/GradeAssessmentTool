@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportImportForm));
             this.ImportAllButton = new System.Windows.Forms.Button();
             this.ExportAllButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -94,6 +95,8 @@
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnToSchool = new System.Windows.Forms.Button();
             this.progressBarImport = new System.Windows.Forms.ProgressBar();
+            this.progLbl = new System.Windows.Forms.Label();
+            this.delBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mathsToolDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencyDataGridView)).BeginInit();
@@ -112,24 +115,28 @@
             // ImportAllButton
             // 
             this.ImportAllButton.BackColor = System.Drawing.Color.White;
-            this.ImportAllButton.Location = new System.Drawing.Point(185, 178);
-            this.ImportAllButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImportAllButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ImportAllButton.BackgroundImage")));
+            this.ImportAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ImportAllButton.Location = new System.Drawing.Point(12, 82);
             this.ImportAllButton.Name = "ImportAllButton";
-            this.ImportAllButton.Size = new System.Drawing.Size(173, 66);
+            this.ImportAllButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ImportAllButton.Size = new System.Drawing.Size(232, 216);
             this.ImportAllButton.TabIndex = 0;
-            this.ImportAllButton.Text = "Import All";
+            this.ImportAllButton.Text = "IMPORT";
+            this.ImportAllButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ImportAllButton.UseVisualStyleBackColor = false;
             this.ImportAllButton.Click += new System.EventHandler(this.ImportAllButton_Click);
             // 
             // ExportAllButton
             // 
             this.ExportAllButton.BackColor = System.Drawing.Color.White;
-            this.ExportAllButton.Location = new System.Drawing.Point(627, 178);
-            this.ExportAllButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExportAllButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExportAllButton.BackgroundImage")));
+            this.ExportAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ExportAllButton.Location = new System.Drawing.Point(250, 82);
             this.ExportAllButton.Name = "ExportAllButton";
-            this.ExportAllButton.Size = new System.Drawing.Size(184, 66);
+            this.ExportAllButton.Size = new System.Drawing.Size(232, 216);
             this.ExportAllButton.TabIndex = 1;
-            this.ExportAllButton.Text = "Export All";
+            this.ExportAllButton.Text = "EXPORT";
             this.ExportAllButton.UseVisualStyleBackColor = false;
             this.ExportAllButton.Click += new System.EventHandler(this.ExportAllButton_Click);
             // 
@@ -195,10 +202,9 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
             this.competencyDataGridView.DataSource = this.competencyBindingSource;
-            this.competencyDataGridView.Location = new System.Drawing.Point(201, 475);
-            this.competencyDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.competencyDataGridView.Location = new System.Drawing.Point(151, 386);
             this.competencyDataGridView.Name = "competencyDataGridView";
-            this.competencyDataGridView.Size = new System.Drawing.Size(35, 28);
+            this.competencyDataGridView.Size = new System.Drawing.Size(26, 23);
             this.competencyDataGridView.TabIndex = 3;
             this.competencyDataGridView.Visible = false;
             // 
@@ -282,10 +288,9 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.schoolDataGridView.DataSource = this.schoolBindingSource;
-            this.schoolDataGridView.Location = new System.Drawing.Point(293, 470);
-            this.schoolDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.schoolDataGridView.Location = new System.Drawing.Point(220, 382);
             this.schoolDataGridView.Name = "schoolDataGridView";
-            this.schoolDataGridView.Size = new System.Drawing.Size(49, 50);
+            this.schoolDataGridView.Size = new System.Drawing.Size(37, 41);
             this.schoolDataGridView.TabIndex = 4;
             this.schoolDataGridView.Visible = false;
             // 
@@ -324,10 +329,9 @@
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
             this.studentDataGridView.DataSource = this.studentBindingSource;
-            this.studentDataGridView.Location = new System.Drawing.Point(416, 526);
-            this.studentDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentDataGridView.Location = new System.Drawing.Point(312, 427);
             this.studentDataGridView.Name = "studentDataGridView";
-            this.studentDataGridView.Size = new System.Drawing.Size(35, 30);
+            this.studentDataGridView.Size = new System.Drawing.Size(26, 24);
             this.studentDataGridView.TabIndex = 5;
             this.studentDataGridView.Visible = false;
             // 
@@ -392,10 +396,9 @@
             this.dataGridViewTextBoxColumn32,
             this.dataGridViewTextBoxColumn33});
             this.studentCompentencyDataGridView.DataSource = this.studentCompentencyBindingSource;
-            this.studentCompentencyDataGridView.Location = new System.Drawing.Point(459, 505);
-            this.studentCompentencyDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentCompentencyDataGridView.Location = new System.Drawing.Point(344, 410);
             this.studentCompentencyDataGridView.Name = "studentCompentencyDataGridView";
-            this.studentCompentencyDataGridView.Size = new System.Drawing.Size(48, 50);
+            this.studentCompentencyDataGridView.Size = new System.Drawing.Size(36, 41);
             this.studentCompentencyDataGridView.TabIndex = 6;
             this.studentCompentencyDataGridView.Visible = false;
             // 
@@ -491,10 +494,9 @@
             this.dataGridViewTextBoxColumn35,
             this.dataGridViewTextBoxColumn36});
             this.subjectDataGridView.DataSource = this.subjectBindingSource;
-            this.subjectDataGridView.Location = new System.Drawing.Point(575, 545);
-            this.subjectDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subjectDataGridView.Location = new System.Drawing.Point(431, 443);
             this.subjectDataGridView.Name = "subjectDataGridView";
-            this.subjectDataGridView.Size = new System.Drawing.Size(44, 54);
+            this.subjectDataGridView.Size = new System.Drawing.Size(33, 44);
             this.subjectDataGridView.TabIndex = 7;
             this.subjectDataGridView.Visible = false;
             // 
@@ -531,10 +533,9 @@
             this.dataGridViewTextBoxColumn39,
             this.dataGridViewTextBoxColumn40});
             this.teacherDataGridView.DataSource = this.teacherBindingSource;
-            this.teacherDataGridView.Location = new System.Drawing.Point(681, 578);
-            this.teacherDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherDataGridView.Location = new System.Drawing.Point(511, 470);
             this.teacherDataGridView.Name = "teacherDataGridView";
-            this.teacherDataGridView.Size = new System.Drawing.Size(45, 54);
+            this.teacherDataGridView.Size = new System.Drawing.Size(34, 44);
             this.teacherDataGridView.TabIndex = 8;
             this.teacherDataGridView.Visible = false;
             // 
@@ -565,10 +566,9 @@
             // ReturnToSchool
             // 
             this.ReturnToSchool.BackColor = System.Drawing.Color.White;
-            this.ReturnToSchool.Location = new System.Drawing.Point(811, 31);
-            this.ReturnToSchool.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReturnToSchool.Location = new System.Drawing.Point(556, 12);
             this.ReturnToSchool.Name = "ReturnToSchool";
-            this.ReturnToSchool.Size = new System.Drawing.Size(219, 68);
+            this.ReturnToSchool.Size = new System.Drawing.Size(164, 55);
             this.ReturnToSchool.TabIndex = 9;
             this.ReturnToSchool.Text = "Go to School View";
             this.ReturnToSchool.UseVisualStyleBackColor = false;
@@ -576,21 +576,47 @@
             // 
             // progressBarImport
             // 
-            this.progressBarImport.Location = new System.Drawing.Point(865, 655);
+            this.progressBarImport.Location = new System.Drawing.Point(11, 48);
+            this.progressBarImport.Margin = new System.Windows.Forms.Padding(2);
             this.progressBarImport.Name = "progressBarImport";
-            this.progressBarImport.Size = new System.Drawing.Size(165, 23);
+            this.progressBarImport.Size = new System.Drawing.Size(124, 19);
             this.progressBarImport.Step = 1;
             this.progressBarImport.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBarImport.TabIndex = 10;
             this.progressBarImport.Value = 1;
             this.progressBarImport.Visible = false;
             // 
+            // progLbl
+            // 
+            this.progLbl.AutoSize = true;
+            this.progLbl.Location = new System.Drawing.Point(12, 33);
+            this.progLbl.Name = "progLbl";
+            this.progLbl.Size = new System.Drawing.Size(51, 13);
+            this.progLbl.TabIndex = 11;
+            this.progLbl.Text = "Progress:";
+            this.progLbl.Visible = false;
+            // 
+            // delBtn
+            // 
+            this.delBtn.BackColor = System.Drawing.Color.White;
+            this.delBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delBtn.BackgroundImage")));
+            this.delBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.delBtn.Location = new System.Drawing.Point(488, 82);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(232, 216);
+            this.delBtn.TabIndex = 12;
+            this.delBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.delBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.delBtn.UseVisualStyleBackColor = false;
+            // 
             // ExportImportForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1045, 690);
+            this.ClientSize = new System.Drawing.Size(731, 312);
+            this.Controls.Add(this.delBtn);
+            this.Controls.Add(this.progLbl);
             this.Controls.Add(this.progressBarImport);
             this.Controls.Add(this.ReturnToSchool);
             this.Controls.Add(this.teacherDataGridView);
@@ -601,7 +627,6 @@
             this.Controls.Add(this.competencyDataGridView);
             this.Controls.Add(this.ExportAllButton);
             this.Controls.Add(this.ImportAllButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ExportImportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Export/Import";
@@ -620,6 +645,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -690,5 +716,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private System.Windows.Forms.Button ReturnToSchool;
         private System.Windows.Forms.ProgressBar progressBarImport;
+        private System.Windows.Forms.Label progLbl;
+        private System.Windows.Forms.Button delBtn;
     }
 }

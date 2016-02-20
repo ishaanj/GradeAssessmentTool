@@ -40,6 +40,11 @@ namespace MathsGradeAssessmentTool.Forms
 
             if (!string.IsNullOrEmpty(EncryptionClass.ToInsecureString(password)))
                 mailFromPwdBox.Text = EncryptionClass.ToInsecureString(password);
+
+            bldLabel.Text += System.Reflection.Assembly.GetExecutingAssembly()
+                                           .GetName()
+                                           .Version
+                                           .ToString();
         }
 
         private void teacherBindingNavigatorSaveItem_Click(object sender, EventArgs e)
