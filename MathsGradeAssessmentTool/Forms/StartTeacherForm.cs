@@ -239,8 +239,7 @@ namespace MathsGradeAssessmentTool.Forms
         {
             gTotalWeightedTextBox.Text = "";
             gradeEquivalentTextBox.Text = "";
-            double avgGrade = 0;
-            //Todo: Add horizontal line at current grade            
+            double avgGrade = 0;        
             if (e.RowIndex >= 0)
             {
                 StripLinesCollection strips = chart1.ChartAreas[0].AxisY.StripLines;

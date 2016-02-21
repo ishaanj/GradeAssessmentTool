@@ -608,6 +608,7 @@
             this.delBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.delBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // ExportImportForm
             // 

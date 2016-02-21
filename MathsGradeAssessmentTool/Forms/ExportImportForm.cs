@@ -536,5 +536,10 @@ namespace MathsGradeAssessmentTool.Forms
             f.Show();
             this.Hide();
         }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+                    
+        }
     }
 }

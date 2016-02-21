@@ -28,6 +28,7 @@ namespace MathsGradeAssessmentTool.Forms
             studentCompentencyTableAdapter.FillByStudentID(mathsToolDatabaseDataSet.StudentCompentency, StudentID);
             //studentCompentencyBindingSource.DataSource = studentCompentencyTableAdapter.GetDataByStudentID(StudentID);
             datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
+            
         }
 
         private void returnToStudentButton_Click(object sender, EventArgs e)

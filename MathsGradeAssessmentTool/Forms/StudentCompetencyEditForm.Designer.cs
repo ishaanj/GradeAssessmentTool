@@ -35,19 +35,7 @@
             this.studentCompentencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mathsToolDatabaseDataSet = new MathsGradeAssessmentTool.MathsToolDatabaseDataSet();
             this.studentCompentencyDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GradeLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentCompentencyTableAdapter = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.StudentCompentencyTableAdapter();
             this.tableAdapterManager = new MathsGradeAssessmentTool.MathsToolDatabaseDataSetTableAdapters.TableAdapterManager();
             this.ExportToExcelButton = new System.Windows.Forms.Button();
@@ -61,6 +49,18 @@
             this.studentCompentencyBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.studentCompentencyBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.competencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.competencyDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,83 +127,11 @@
             this.studentCompentencyDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.studentCompentencyDataGridView_CellBeginEdit);
             this.studentCompentencyDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellEndEdit);
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CompetencyID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Competency ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudentId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Student ID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
             // GradeLevel
             // 
             this.GradeLevel.DataPropertyName = "GradeLevel";
             this.GradeLevel.HeaderText = "Level";
             this.GradeLevel.Name = "GradeLevel";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "G1";
-            this.dataGridViewTextBoxColumn5.HeaderText = "L1";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "G2";
-            this.dataGridViewTextBoxColumn6.HeaderText = "L2";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "G3";
-            this.dataGridViewTextBoxColumn7.HeaderText = "L3";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "G4";
-            this.dataGridViewTextBoxColumn8.HeaderText = "L4";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "G5";
-            this.dataGridViewTextBoxColumn9.HeaderText = "L5";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "G6";
-            this.dataGridViewTextBoxColumn10.HeaderText = "L6";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "G7";
-            this.dataGridViewTextBoxColumn11.HeaderText = "L7";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "G8";
-            this.dataGridViewTextBoxColumn12.HeaderText = "L8";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "GTotalWeighted";
-            this.dataGridViewTextBoxColumn13.HeaderText = "L Total Weighted";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "GradeEquivalent";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Estimated Level";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
             // studentCompentencyTableAdapter
             // 
@@ -310,14 +238,87 @@
             this.studentCompentencyBindingNavigator.MovePreviousItem = null;
             this.studentCompentencyBindingNavigator.Name = "studentCompentencyBindingNavigator";
             this.studentCompentencyBindingNavigator.PositionItem = null;
-            this.studentCompentencyBindingNavigator.Size = new System.Drawing.Size(889, 25);
+            this.studentCompentencyBindingNavigator.Size = new System.Drawing.Size(897, 25);
             this.studentCompentencyBindingNavigator.TabIndex = 3;
             this.studentCompentencyBindingNavigator.Text = "bindingNavigator1";
             // 
             // competencyBindingSource
             // 
+            this.competencyBindingSource.AllowNew = true;
             this.competencyBindingSource.DataMember = "Competency";
             this.competencyBindingSource.DataSource = this.mathsToolDatabaseDataSet;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "GradeEquivalent";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Estimated Level";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "GTotalWeighted";
+            this.dataGridViewTextBoxColumn13.HeaderText = "L Total Weighted";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "G8";
+            this.dataGridViewTextBoxColumn12.HeaderText = "L8";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "G7";
+            this.dataGridViewTextBoxColumn11.HeaderText = "L7";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "G6";
+            this.dataGridViewTextBoxColumn10.HeaderText = "L6";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "G5";
+            this.dataGridViewTextBoxColumn9.HeaderText = "L5";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "G4";
+            this.dataGridViewTextBoxColumn8.HeaderText = "L4";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "G3";
+            this.dataGridViewTextBoxColumn7.HeaderText = "L3";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "G2";
+            this.dataGridViewTextBoxColumn6.HeaderText = "L2";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "G1";
+            this.dataGridViewTextBoxColumn5.HeaderText = "L1";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudentId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Student ID";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CompetencyID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Competency ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // competencyDataGridView
             // 
@@ -329,10 +330,10 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn15});
             this.competencyDataGridView.DataSource = this.competencyBindingSource;
-            this.competencyDataGridView.Location = new System.Drawing.Point(632, 132);
+            this.competencyDataGridView.Location = new System.Drawing.Point(636, 132);
             this.competencyDataGridView.Name = "competencyDataGridView";
             this.competencyDataGridView.ReadOnly = true;
-            this.competencyDataGridView.Size = new System.Drawing.Size(245, 220);
+            this.competencyDataGridView.Size = new System.Drawing.Size(241, 220);
             this.competencyDataGridView.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn2
@@ -354,7 +355,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(889, 561);
+            this.ClientSize = new System.Drawing.Size(897, 561);
             this.Controls.Add(this.competencyDataGridView);
             this.Controls.Add(this.ExportAllStudents);
             this.Controls.Add(this.ImportFromExcelButton);
@@ -396,9 +397,13 @@
         private MathsToolDatabaseDataSetTableAdapters.CompetencyTableAdapter competencyTableAdapter1;
         private System.Windows.Forms.Button ImportFromExcelButton;
         private System.Windows.Forms.Button ExportAllStudents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GradeLevel;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton studentCompentencyBindingNavigatorSaveItem;
+        private System.Windows.Forms.BindingNavigator studentCompentencyBindingNavigator;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GradeLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -409,13 +414,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton studentCompentencyBindingNavigatorSaveItem;
-        private System.Windows.Forms.BindingNavigator studentCompentencyBindingNavigator;
-        private System.Windows.Forms.BindingSource competencyBindingSource;
         private System.Windows.Forms.DataGridView competencyDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        public System.Windows.Forms.BindingSource competencyBindingSource;
     }
 }
