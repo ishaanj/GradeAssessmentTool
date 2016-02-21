@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -539,7 +540,61 @@ namespace MathsGradeAssessmentTool.Forms
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-                    
+            string truncateSchool = "TRUNCATE TABLE School";
+            string truncateCompetency = "TRUNCATE TABLE Competency";
+            string truncateStudent = "TRUNCATE TABLE Student";
+            string truncateSubject = "TRUNCATE TABLE Subject";
+            string truncateTeacher = "TRUNCATE TABLE Teacher";
+            string truncateStudentCompentency = "TRUNCATE TABLE StudentCompentency";
+
+            // Truncate Schools
+            schoolTableAdapter.Connection.Open();
+            SqlCommand cmd = new SqlCommand(truncateSchool, schoolTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            schoolTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated School");
+
+            // Truncate Competency
+            competencyTableAdapter.Connection.Open();
+            cmd = new SqlCommand(truncateCompetency, competencyTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            competencyTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated Competency");
+
+            // Truncate Student
+            studentTableAdapter.Connection.Open();
+            cmd = new SqlCommand(truncateStudent, studentTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            studentTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated Student");
+
+            // Truncate Subject
+            subjectTableAdapter.Connection.Open();
+            cmd = new SqlCommand(truncateSubject, subjectTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            subjectTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated Subject");
+
+            // Truncate Teacher
+            teacherTableAdapter.Connection.Open();
+            cmd = new SqlCommand(truncateTeacher, teacherTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            teacherTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated Teacher");
+
+            // Truncate StudentCompetency
+            studentCompentencyTableAdapter.Connection.Open();
+            cmd = new SqlCommand(truncateStudentCompentency, studentCompentencyTableAdapter.Connection);
+            cmd.ExecuteNonQuery();
+            studentCompentencyTableAdapter.Connection.Close();
+
+            Console.WriteLine("Truncated StudentCompentency");
+
         }
     }
 }

@@ -27,6 +27,9 @@ namespace MathsGradeAssessmentTool.Forms
             // TODO: This line of code loads data into the 'mathsToolDatabaseDataSet.StudentCompentency' table. You can move, or remove it, as needed.
             studentCompentencyTableAdapter.FillByStudentID(mathsToolDatabaseDataSet.StudentCompentency, StudentID);
             //studentCompentencyBindingSource.DataSource = studentCompentencyTableAdapter.GetDataByStudentID(StudentID);
+
+            competencyTableAdapter1.Fill(mathsToolDatabaseDataSet.Competency);
+
             datacount = mathsToolDatabaseDataSet.StudentCompentency.Count;
             
         }
